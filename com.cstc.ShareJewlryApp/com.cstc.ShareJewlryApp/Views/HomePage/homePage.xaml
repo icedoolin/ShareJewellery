@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.HomePage.homePage"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape"
+             xmlns:MyFontIcon="clr-namespace:com.cstc.ShareJewlryApp.Helpers"
+             >
+    <src:BasePage.Content>
+        
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent"     Padding="0,0,0,0"      >
+            <StackLayout      Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">
+                <myctrl:StatusBarView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" bgColor="White"/>
+                <!--标题栏 logo 标题homepage_MessageLOGO-->
+                <StackLayout x:Name="st_left"  Orientation="Horizontal" HorizontalOptions="Fill" VerticalOptions="Start"  
+                           BackgroundColor="White"   WidthRequest="10" HeightRequest="50" Padding="10,0,10,0" >
+
+                    <Image  Source="homepage_MessageLOGO.png"  Aspect="AspectFit" 
+                           BackgroundColor="Transparent"
+                           HorizontalOptions="Start" VerticalOptions="Center"  HeightRequest="30"  WidthRequest="30"   >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapMessageLogo_Tapped" NumberOfTapsRequired="1"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image x:Name="Img_NewMessage" Source="ctrl_HasNew.png" Aspect="AspectFit" IsVisible="False"
+                           HorizontalOptions="Start"  VerticalOptions="Start" 
+                           HeightRequest="7" WidthRequest="7" Margin="-10,15,20,0" BackgroundColor="Transparent" />
+                    <Image Source="homepage_titeName.png" Aspect="AspectFit" BackgroundColor="Transparent"  
+                           HorizontalOptions="CenterAndExpand"  VerticalOptions="Center"  HeightRequest="25" />
+                    <Image  Source="mirror_black.png" Aspect="AspectFit" BackgroundColor="Transparent" 
+                            HorizontalOptions="End"  VerticalOptions="Center"  HeightRequest="20"  WidthRequest="20"
+                            Margin="0,0,10,0">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapSearchPage_Tapped" NumberOfTapsRequired="1"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                </StackLayout>
+ 
+                <!--切换工具栏：首页，专柜-->
+                <ScrollView Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HorizontalScrollBarVisibility="Never" 
+                            FlowDirection="LeftToRight" >
+                    <StackLayout  x:Name="st_toolbar" Orientation="Horizontal" 
+                                  HorizontalOptions="FillAndExpand"  VerticalOptions="Center"  
+                                  BackgroundColor="White"   WidthRequest="420" HeightRequest="40" Padding="10,0,10,0" >
+                        <StackLayout x:Name="st_DeptHome"  Orientation="Vertical" 
+                                     HorizontalOptions="Start"  VerticalOptions="Fill" 
+                                     WidthRequest="70" HeightRequest="40" 
+                                      Spacing="0">
+                            <Label x:Name="DeptHome"  Text="首页"  
+                               HorizontalOptions="Center" TextColor="#959595" 
+                                   FontSize="{Static fonystyle:FontSize.Fs15}"  HorizontalTextAlignment="Center">
+                            </Label>
+                            <Label x:Name="DeptHomeLine"  HorizontalOptions="FillAndExpand" HeightRequest="2"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapToolBarButton_Tapped" NumberOfTapsRequired="1"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout  x:Name="st_DeptRing" Orientation="Vertical" 
+                                     HorizontalOptions="Start"  VerticalOptions="Fill" 
+                                     WidthRequest="70" HeightRequest="40" 
+                                      Spacing="0">
+                            <Label x:Name="DeptRing" Text="戒指专柜" 
+                               HorizontalOptions="Center" TextColor="#959595" FontSize="{Static fonystyle:FontSize.Fs15}"  HorizontalTextAlignment="Center">
+                            </Label>
+                            <Label x:Name="DeptRingLine"  HorizontalOptions="FillAndExpand" HeightRequest="2"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapToolBarButton_Tapped" NumberOfTapsRequired="1"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout   x:Name="st_DeptPendant" Orientation="Vertical" 
+                                     HorizontalOptions="Start"  VerticalOptions="Fill" 
+                                     WidthRequest="70" HeightRequest="40" 
+                                      Spacing="0">
+                            <Label x:Name="DeptPendant" Text="吊坠专柜" 
+                               HorizontalOptions="Center" TextColor="#959595" FontSize="{Static fonystyle:FontSize.Fs15}"  HorizontalTextAlignment="Center">
+                            </Label>
+                            <Label x:Name="DeptPendantLine"  HorizontalOptions="FillAndExpand" HeightRequest="2"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapToolBarButton_Tapped" NumberOfTapsRequired="1"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout  x:Name="st_DeptNeckLace"  Orientation="Vertical" 
+                                     HorizontalOptions="Start"  VerticalOptions="Fill" 
+                                     WidthRequest="70" HeightRequest="40" 
+                                      Spacing="0">
+                            <Label x:Name="DeptNeckLace" Text="项链专柜" 
+                               HorizontalOptions="Center" TextColor="#959595" FontSize="{Static fonystyle:FontSize.Fs15}"  HorizontalTextAlignment="Center">
+                            </Label>
+                            <Label x:Name="DeptNeckLaceLine"  HorizontalOptions="FillAndExpand" HeightRequest="2"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapToolBarButton_Tapped" NumberOfTapsRequired="1"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout  x:Name="st_DeptBracelet" Orientation="Vertical" 
+                                     HorizontalOptions="Start"  VerticalOptions="Fill" 
+                                     WidthRequest="70" HeightRequest="40" 
+                                      Spacing="0">
+                            <Label x:Name="DeptBracelet" Text="手镯专柜"   
+                               HorizontalOptions="Center" TextColor="#959595" FontSize="{Static fonystyle:FontSize.Fs15}"  HorizontalTextAlignment="Center">
+                            </Label>
+                            <Label x:Name="DeptBraceletLine"  HorizontalOptions="FillAndExpand" HeightRequest="2"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapToolBarButton_Tapped" NumberOfTapsRequired="1"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout  x:Name="st_DeptEarring" Orientation="Vertical" 
+                                     HorizontalOptions="Start"  VerticalOptions="Fill" 
+                                     WidthRequest="70" HeightRequest="40" 
+                                      Spacing="0">
+                            <Label x:Name="DeptEarring" Text="耳饰专柜"   
+                               HorizontalOptions="Center" TextColor="#959595" FontSize="{Static fonystyle:FontSize.Fs15}"  HorizontalTextAlignment="Center">
+                            </Label>
+                            <Label x:Name="DeptEarringLine"  HorizontalOptions="FillAndExpand" HeightRequest="2"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapToolBarButton_Tapped" NumberOfTapsRequired="1"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+                <!--首页所有页面内容{Static myColor:Color.SpaceColor}-->
+                <ListView x:Name="ls_commodity"  ItemAppearing="ls_commodity_ItemAppearing"  HorizontalOptions="FillAndExpand" 
+                          VerticalOptions="FillAndExpand" SeparatorVisibility="None" HasUnevenRows="True" 
+                          BackgroundColor="Transparent" 
+                           IsPullToRefreshEnabled="True" Refreshing="Ls_commodity_Refreshing" SelectionMode="None">
+ 
+                    <ListView.Header>
+                        <StackLayout x:Name="head" Orientation="Vertical" 
+                                     HorizontalOptions="FillAndExpand" 
+                                     VerticalOptions="FillAndExpand" 
+                                     Spacing="0" BackgroundColor="White">
+                            <!--轮播图，引用网页 beginx:Name="scrl_Filp" Navigating="Web_Navigating" -->
+                            <WebView  x:Name="scrl_Filp"  Source="" 
+                                      BackgroundColor="White"
+                                      HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+                                       Navigating="Web_Navigating"  />
+                            <!--产品优势、服务优势、传播优势、营销优势、商业优势-->
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="60" 
+                                         BackgroundColor="White" Padding="10,10,10,10" Margin="0,0,0,5">
+                                <StackLayout x:Name="AdProduct" Spacing="2" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" WidthRequest="10" HeightRequest="10">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer  Tapped="TapAdProduct_Tapped" NumberOfTapsRequired="1"/>
+                                    </StackLayout.GestureRecognizers>
+                                    <Image Source="Ad_Product.png" Aspect="AspectFit" HorizontalOptions="FillAndExpand" 
+                                           VerticalOptions="FillAndExpand" WidthRequest="1"/>
+                                    <Label Text="产品优势" TextColor="Black" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalTextAlignment="Center" />
+                                </StackLayout>
+                                <StackLayout x:Name="AdService" Spacing="2" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" WidthRequest="10" HeightRequest="10">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapAdProduct_Tapped" NumberOfTapsRequired="1"/>
+                                    </StackLayout.GestureRecognizers>
+                                    <Image Source="Ad_Service.png" Aspect="AspectFit" HorizontalOptions="FillAndExpand" 
+                                           VerticalOptions="FillAndExpand" WidthRequest="1"/>
+                                    <Label Text="服务优势" TextColor="Black" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalTextAlignment="Center" />
+                                </StackLayout>
+                                <StackLayout x:Name="AdBroadCast" Spacing="2" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" WidthRequest="10" HeightRequest="10">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapAdProduct_Tapped" NumberOfTapsRequired="1"/>
+                                    </StackLayout.GestureRecognizers>
+                                    <Image Source="Ad_BroadCast.png" Aspect="AspectFit" HorizontalOptions="FillAndExpand" 
+                                           VerticalOptions="FillAndExpand" WidthRequest="1"/>
+                                    <Label Text="传播优势" TextColor="Black" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalTextAlignment="Center" />
+                                </StackLayout>
+                                <StackLayout  x:Name="AdSale" Spacing="2" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" WidthRequest="10" HeightRequest="10">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapAdProduct_Tapped" NumberOfTapsRequired="1"/>
+                                    </StackLayout.GestureRecognizers>
+                                    <Image Source="Ad_Sale.png" Aspect="AspectFit" HorizontalOptions="FillAndExpand" 
+                                           VerticalOptions="FillAndExpand" WidthRequest="1"/>
+                                    <Label Text="营销优势" TextColor="Black" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalTextAlignment="Center" />
+                                </StackLayout>
+                                <StackLayout  x:Name="AdCommercial" Spacing="2" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" WidthRequest="10" HeightRequest="10">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapAdProduct_Tapped" NumberOfTapsRequired="1"/>
+                                    </StackLayout.GestureRecognizers>
+                                    <Image Source="Ad_Commercial.png" Aspect="AspectFit" HorizontalOptions="FillAndExpand" 
+                                           VerticalOptions="FillAndExpand" WidthRequest="1"/>
+                                    <Label Text="商业优势" TextColor="Black" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalTextAlignment="Center" />
+                                </StackLayout>
+                            </StackLayout>
+                            <!--新品上市 、几何爱情、珠光宝气、心愿盒-->
+                            <StackLayout x:Name="stl_New" Orientation="Horizontal" HorizontalOptions="Fill" VerticalOptions="Start" BackgroundColor="#EFFBFB" 
+                                         WidthRequest="10" HeightRequest="250" Padding="10,10,10,2">
+                                <StackLayout x:Name="stl_1" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" WidthRequest="10" HeightRequest="10">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="tapped_OpenNewCmdty" NumberOfTapsRequired="1" />
+                                    </StackLayout.GestureRecognizers>
+                                    <Image Source="homePage_new.png" Aspect="AspectFit" BackgroundColor="Transparent" 
+                                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="10" 
+                                           Margin="0,0,0,5"/>
+                                    <Label Text="新品上市" TextColor="Black" FontSize="{Static fonystyle:FontSize.Fs12}" 
+                                           HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Margin= "0,0,0,3"/>
+                                    <Label Text="新款都在这里" TextColor="Gray" FontSize="{Static fonystyle:FontSize.Fs10}" 
+                                           HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Margin="0,0,0,5"/>
+                                </StackLayout>
+                                <StackLayout  x:Name="stl_2" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" WidthRequest="10" HeightRequest="10">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="tapped_OpenNewCmdty" NumberOfTapsRequired="1" />
+                                    </StackLayout.GestureRecognizers>
+                                    <Image Source="homePage_new_rigrh_top.png" Aspect="AspectFit" BackgroundColor="Transparent" 
+                                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="10" 
+                                           Margin="0,0,0,5"/>
+                                    <Label Text="几何爱情" TextColor="Black" FontSize="{Static fonystyle:FontSize.Fs12}" 
+                                           HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Margin= "0,0,0,3"/>
+                                    <Label Text="爱你的形状" TextColor="Gray" FontSize="{Static fonystyle:FontSize.Fs10}" 
+                                              HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Margin="0,0,0,5"/>
+                                </StackLayout>
+                                <StackLayout  x:Name="stl_3" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" WidthRequest="10" HeightRequest="10">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="tapped_OpenNewCmdty" NumberOfTapsRequired="1" />
+                                    </StackLayout.GestureRecognizers>
+                                    <Image Source="homePage_Jewery.png" Aspect="AspectFit" BackgroundColor="Transparent" 
+                                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="10" 
+                                           Margin="0,0,0,5"/>
+                                    <Label Text="珠光宝气" TextColor="Black" FontSize="{Static fonystyle:FontSize.Fs12}" 
+                                           HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Margin= "0,0,0,3"/>
+                                    <Label Text="只给挑剔的你" TextColor="Gray" FontSize="{Static fonystyle:FontSize.Fs10}" 
+                                           HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Margin="0,0,0,5"/>
+                                </StackLayout>
+                                <StackLayout  x:Name="stl_4" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" WidthRequest="10" HeightRequest="10">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="tapped_OpenNewCmdty" NumberOfTapsRequired="1" />
+                                    </StackLayout.GestureRecognizers>
+                                    <Image Source="homePage_WishBox.png" Aspect="AspectFit" BackgroundColor="Transparent" 
+                                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="10" 
+                                           Margin="0,0,0,5"/>
+                                    <Label Text="心愿盒" TextColor="Black" FontSize="{Static fonystyle:FontSize.Fs12}" 
+                                           HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Margin= "0,0,0,3"/>
+                                    <Label Text="有人帮你实现" TextColor="Gray" FontSize="{Static fonystyle:FontSize.Fs10}" 
+                                           HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Margin="0,0,0,5"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <!--精品推荐工具栏-->
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,0,10,0" 
+                                         HeightRequest="50" BackgroundColor="White">
+                                <Label Text="精品推荐"  TextColor="Black" FontSize="{Static fonystyle:FontSize.Fs18}" 
+                                       HorizontalOptions="Start" VerticalOptions="FillAndExpand" 
+                                       HorizontalTextAlignment="Start" VerticalTextAlignment="Center">
+                                </Label>
+                                <BoxView BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="Start" WidthRequest="1"/>
+                                <Label Text="免费戴 · 任意换 · 乐分享" TextColor="Black" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+                            </StackLayout>
+
+                            <!--<BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="5" BackgroundColor="{Static myColor:Color.SpaceColor}"/>-->
+                        </StackLayout>
+                    </ListView.Header>
+
+                    <!--珠宝列表 Begin-->
+                    <ListView.ItemTemplate>
+                        <DataTemplate >
+                            <ViewCell>
+                                <myctrl:CommodityViewCell  SelectedCommodity="CommodityViewCell_SelectedCommodity"/>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                    <!--免费带/买珠宝 End-->
+                    <ListView.Footer>
+
+                        <StackLayout x:Name="st_ls_commodity_footer" BackgroundColor="Transparent"
+                                     IsVisible="False"  
+                                     Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="50" 
+                                     Margin="0,20,0,0">
+                            <!--<Label  Text="没有更多了"   FontSize="{Static fonystyle:FontSize.Fs10}" TextColor="{Static myColor:Color.grayFont}"  
+                                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" 
+                                    VerticalTextAlignment="Center" BackgroundColor="{Static myColor:Color.SpaceColor}" />-->
+                            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="5" BackgroundColor="Transparent"/>
+                            <Image   IsVisible="True" Source="HomePage_ListEnd.png"    Aspect="AspectFit"
+                                    HorizontalOptions="FillAndExpand" VerticalOptions="End" />
+                        </StackLayout>
+                    </ListView.Footer>
+                </ListView>
+                <!--底部工具栏-->
+                <myctrl:MainTooBarView x:Name="BootomToolBar" PageTitle="首页"
+                                       HorizontalOptions="FillAndExpand" VerticalOptions="End" BackgroundColor="Transparent"
+                                       Grid.Column="0">
+                </myctrl:MainTooBarView>
+
+            </StackLayout>
+
+            <!--显示五大优势控件-->
+            <myctrl:PublicMessageBox x:Name="AdShow" 
+                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"                                    
+                IsVisible="False" 
+                TotalHeight="420" TotalWidth="260"
+                TitleHeight="61" TitleFontSize="{Static fonystyle:FontSize.Fs24}"
+                ImageBodyHeight="118" 
+                BackGroundColor_Button1="#8ccecc" BackGroundColor_Button2="#98c8f5"
+                Text_Button1="成为会员" Text_Button2="邀请好友"
+                ImageBackGroundSource="Ad_BackGroud.png" 
+                Button1Clicked="AdShow_Button1Clicked" Button2Clicked="AdShow_Button2Clicked"
+                Grid.Row="0" Grid.Column="0"/>
+            <!--其他--><!--
+            <BoxView x:Name="block" IsVisible="False" Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black" Opacity="0.6"/>
+            <StackLayout x:Name="st_checkBox" IsVisible="False" Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Spacing="0" BackgroundColor="White" Margin="20,0,20,0">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10" HeightRequest="70">
+                    <Label Text="您现在的收入未达到相应额度，无法开通增值。" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <BoxView BackgroundColor="Silver" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="1"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End" Spacing="0" HeightRequest="40">
+                    <Label Text="知道了" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_yes" NumberOfTapsRequired="1"   />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+            </StackLayout>-->
+            <!--登录框 Begin-->
+            <myctrl:LoginView x:Name="st_LoginBox" IsVisible="False" Grid.Row="0" Grid.Column="0" 
+                               HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" 
+                               LoginSuccess="St_LoginBox_LoginSuccess" LoginCancel="St_LoginBox_LoginCancel"/>
+
+            <!--登录框 End-->
+            <!--测试日志--><!--
+            <ScrollView x:Name="log_layout" IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                                    WidthRequest="30" HeightRequest="70"
+                                    BackgroundColor="Blue" Padding="20,50,20,5"
+                        Grid.Row="0" Grid.Column="0">
+                <Label x:Name="log" Text="123131"
+                                TextColor="Black" BackgroundColor="White" 
+                       FontSize="{Static fonystyle:FontSize.Fs15}" LineHeight="1.5"
+                                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                </Label.GestureRecognizers>
+                </Label>
+            </ScrollView>-->
+        </Grid>
+
+    </src:BasePage.Content>
+
+</src:BasePage>

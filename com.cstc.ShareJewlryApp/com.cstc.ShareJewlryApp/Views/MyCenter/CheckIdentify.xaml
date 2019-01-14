@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.MyCenter.CheckIdentify" 
+              xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape">
+
+    <src:BasePage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            
+            <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" Spacing="0" VerticalOptions="FillAndExpand">
+                <myctrl:PageHead Text="实名认证" />
+                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+                <!--照片 与真实信息填写 begin-->
+                <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="1">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0" >
+                        <StackLayout x:Name="st_imgforAndBack" Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Orientation="Horizontal" Padding="10,10,10,10">
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="100" Spacing="0">
+                                <Image x:Name="img_checkId_forward" Source="checkId_forward.png" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Start" BackgroundColor="Transparent" />
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="30" Spacing="0" >
+                                    <Label Text="上传身份证正面" TextColor="Black" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="CenterAndExpand" VerticalOptions="End" HeightRequest="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                    <Label x:Name="lb_checkId_forward" Text="（审核失败）" IsVisible="False" TextColor="{Static myColor:Color.redFont}"  FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="End" VerticalOptions="End" HeightRequest="30" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                </StackLayout>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="tapped_takeForwrdPic" NumberOfTapsRequired="1" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="100" Spacing="0">
+                                <Image x:Name="img_checkId_back" Source="checkId_back.png" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Start" BackgroundColor="Transparent"/>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="30" Spacing="0" >
+                                    <Label Text="上传身份证背面" TextColor="Black" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="CenterAndExpand" VerticalOptions="End" HeightRequest="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                    <Label x:Name="lb_checkId_back" Text="（审核失败）" IsVisible="False" TextColor="{Static myColor:Color.redFont}"  FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="End" VerticalOptions="End" HeightRequest="30" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                </StackLayout>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="tapped_takeBackPic" NumberOfTapsRequired="1" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout x:Name="st_imgCheckId"  Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="Transparent" Padding="10,10,10,10" >
+                            <Image x:Name="img_takePeoplePic" Source="checkId.png" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Aspect="AspectFill"  BackgroundColor="Transparent" />
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End" HeightRequest="30" Spacing="0" >
+                                <Label Text="上传手持身份证照片" TextColor="Black" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="CenterAndExpand" VerticalOptions="End" HeightRequest="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                <Label x:Name="lb_takePeoplePic" Text="（审核失败）" IsVisible="False" TextColor="{Static myColor:Color.redFont}"  FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="End" VerticalOptions="End" HeightRequest="30" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                            </StackLayout>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="tapped_takePeoplePic" NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="15" BackgroundColor="{Static myColor:Color.SpaceColor}" />
+                        <Label x:Name="lb_checkDesc" IsVisible="False" Text="" TextColor="Black" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="FillAndExpand" VerticalOptions="End" HeightRequest="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <StackLayout x:Name="st_checkEty" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="1" Padding="0,0,0,0" BackgroundColor="{Static myColor:Color.SpaceColor}">
+                            <StackLayout Orientation="Horizontal" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                                <Label  Text="姓      名" HorizontalOptions="Center" VerticalOptions="Center" FontSize="{Static fonystyle:FontSize.Fs12}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="80" />
+                                <myctrl:noBorderEntry x:Name="ety_name"  Text="" HorizontalOptions="FillAndExpand" FontSize="{Static fonystyle:FontSize.Fs12}" VerticalOptions="CenterAndExpand"  Placeholder="输入您的名字（需与以上图片一致）" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                                <Label  Text="身份证号码" HorizontalOptions="Center" VerticalOptions="Center" FontSize="{Static fonystyle:FontSize.Fs12}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="80" />
+                                <myctrl:noBorderEntry  x:Name="ety_id" Text="" HorizontalOptions="FillAndExpand" FontSize="{Static fonystyle:FontSize.Fs12}" VerticalOptions="CenterAndExpand"  Placeholder="输入您的身份证号码（需与以上图片一致）" />
+                            </StackLayout>
+                        </StackLayout>
+                        <BoxView BindingContext="{x:Reference st_checkEty}" IsVisible="{Binding IsVisible}" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="40" BackgroundColor="{Static myColor:Color.SpaceColor}" />
+                    </StackLayout>
+                    
+                </ScrollView>
+                <!--照片 与真实信息填写 end-->
+                <!--<Button Text="保存" TextColor="White" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,30,0,0" HeightRequest="40" WidthRequest="200" BackgroundColor="#f14865" />-->
+                <myctrl:CtRedBtn x:Name="btn_confirmed" Text="确认上传"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"  HeightRequest="{Static myShape:height.MycenterbarLenth}" Margin="0,0,0,0">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_confirmed" NumberOfTapsRequired="1" />
+                    </BoxView.GestureRecognizers>
+                </myctrl:CtRedBtn>
+                <!--<Label x:Name="lb_checkDesc" IsVisible="False" Text="" TextColor="Black" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="FillAndExpand" VerticalOptions="End" HeightRequest="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>-->
+            </StackLayout>
+            <!--遮罩 begin-->
+            <BoxView x:Name="block" IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black" Opacity="0.6" >
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="tapped_closeBox" NumberOfTapsRequired="1" />
+                </BoxView.GestureRecognizers>
+            </BoxView>
+            <!--遮罩 end-->
+            <!--拍照/相册 选择框 begin-->
+            <Frame x:Name="frm_chooseBox" IsVisible="False" Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="Center" CornerRadius="3" Margin="30,0,30,0" Padding="5,5,5,5">
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Label Text="拍照" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="40">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_takePic" NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+                    <Label Text="从相册中选一张" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="40">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_album" NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Frame>
+            <!--拍照/相册 选择框 end-->
+        </Grid>
+      
+    </src:BasePage.Content>
+</src:BasePage>

@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.Classification.ClassificationPage"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+                 xmlns:helpers="clr-namespace:com.cstc.ShareJewlryApp.Helpers">
+
+    <src:BasePage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+              BackgroundColor="Transparent" Padding="0,0,0,0" RowSpacing="0">
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                         BackgroundColor="White" Spacing="0"
+                         Grid.Row="0" Grid.Column="0" >
+                <!--标题栏  -->
+                <myctrl:PageHead Text="商品分类" IsLeftVisible="False" 
+                                  RightText="{Static helpers:SvgFontHelper.SearchBtn_Black}"
+                                 RightTextFontSize="{Static fonystyle:FontSize.Fs24}"
+                                 BtnForwardClick="tapped_searchPage"/>
+     
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0" BackgroundColor="{Static myColor:Color.SpaceColor}" >
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" Spacing="0" >
+                    <Grid HorizontalOptions="FillAndExpand" ColumnSpacing="0" RowSpacing="0" HeightRequest="{Static myShape:height.MycenterbarLenth}" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.3*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions> 
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" BackgroundColor="{Static myColor:Color.redFont}">
+                            <StackLayout Orientation="Horizontal" Margin="5,0,5,0">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="款式切换"/>
+                                </StackLayout.GestureRecognizers>
+                                <Label x:Name="lbl_选择" Text="珠宝款式" FontSize="{Static fonystyle:FontSize.Fs12}" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="White"/>
+                                <myctrl:FontIcon Text="&#xe62a;" FontSize="Default" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="White"/>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Grid.Column="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" HeightRequest="50" Margin="10,0,10,0">
+                            <StackLayout x:Name="st_排序1" Orientation="Horizontal" HorizontalOptions="Fill" Spacing="2">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="排序点击"/>
+                                </StackLayout.GestureRecognizers>
+                                <Label Text="综合排序" TextColor="#363636" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                <myctrl:FontIcon x:Name="Font_排序1" VerticalOptions="CenterAndExpand" Text="&#xe618;" TextColor="#363636" FontSize="9" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"/>
+                            </StackLayout>
+                            <StackLayout x:Name="st_排序2" Orientation="Horizontal" HorizontalOptions="EndAndExpand" Spacing="2">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="排序点击"/>
+                                </StackLayout.GestureRecognizers>
+                                <Label Text="好评" TextColor="#363636" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                <myctrl:FontIcon x:Name="Font_排序2" VerticalOptions="CenterAndExpand" Text="&#xe601;" TextColor="#363636" FontSize="9" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"/>
+                            </StackLayout>
+                            <StackLayout x:Name="st_排序3" Orientation="Horizontal" HorizontalOptions="End" Spacing="2">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="排序点击"/>
+                                </StackLayout.GestureRecognizers>
+                                <Label Text="热度" TextColor="#363636" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                <myctrl:FontIcon x:Name="Font_排序3" VerticalOptions="CenterAndExpand" Text="&#xe601;" TextColor="#363636" FontSize="9" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"/>
+                            </StackLayout>
+                        </StackLayout>
+
+
+                    </Grid>
+                </StackLayout>
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnSpacing="0" RowSpacing="0"  >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.3*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout x:Name="st_Type" Orientation="Vertical" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Spacing="0" Padding="0,0,0,0">
+                        <ListView x:Name="listview_btn" HorizontalOptions="FillAndExpand" ItemSelected="list_item" VerticalOptions="FillAndExpand" BackgroundColor="White" HasUnevenRows="True" SeparatorVisibility="None" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Padding="0,0,0,0" Spacing="0"  HeightRequest="{Static myShape:height.MycenterbarLenth}" BackgroundColor="{Binding BackgroundColor}" >
+                                            <Label Margin="10,0,0,0" Text="{Binding TypeName}" FontSize="Default"  TextColor="#363636" HorizontalOptions="Fill"   HeightRequest="{Static myShape:height.MycenterbarLenth}" VerticalOptions="FillAndExpand"    VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                            <Label BackgroundColor="#f2f2f2" HeightRequest="0.7" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                    <StackLayout x:Name="st_Material" IsVisible="False" Orientation="Vertical" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Spacing="0" Padding="0,0,0,0">
+                        <ListView x:Name="listview_Material" HorizontalOptions="FillAndExpand" ItemSelected="list_Materialitem" VerticalOptions="FillAndExpand" BackgroundColor="White" HasUnevenRows="True" SeparatorVisibility="None" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Padding="0,0,0,0" Spacing="0"  HeightRequest="{Static myShape:height.MycenterbarLenth}" BackgroundColor="{Binding BackgroundColor}" >
+                                            <Label Margin="10,0,0,0" Text="{Binding MaterialName}" FontSize="Default"  TextColor="#363636" HorizontalOptions="Fill"   HeightRequest="{Static myShape:height.MycenterbarLenth}" VerticalOptions="FillAndExpand"    VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                            <Label BackgroundColor="#f2f2f2" HeightRequest="0.7" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                                 Spacing="0" Margin="0,0,0,0" Grid.Column="1" Grid.Row="0">
+                        <ListView x:Name="ls_jewellery" ItemAppearing="ls_commodity_ItemAppearing" 
+                                  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                                  BackgroundColor="#f0f0f0" HasUnevenRows="True" SeparatorVisibility="None" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                    <myctrl:CommodityViewCell  SelectedCommodity="CommodityViewCell_SelectedCommodity"/>
+                                     </ViewCell>
+                                            <!--<ViewCell>
+                                        
+                                        --><!--<Grid HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0,1,0,0" ColumnSpacing="1" HeightRequest="{Binding commodityHeight}"  BackgroundColor="{Static myColor:Color.SpaceColor}">
+                                            
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions >
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical" Spacing="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  BackgroundColor="{Static myColor:Color.BackgroundColor}" >
+                                                <Image Source="{Binding JewelleryPicNameForImg}" Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="Transparent" HeightRequest="{Binding commodityWith}"/>
+                                                <myctrl:MultiLineLabel Text="{Binding JewelleryName}" Lines="2" TextColor="Black"  FontSize="{Static fonystyle:FontSize.Fs10}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" Margin="10,0,10,0"/>
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="0" VerticalOptions="End" Padding="10,0,10,10">
+                                                    <Label Text="好评" FontSize="{Static fonystyle:FontSize.Fs10}" TextColor="{Static myColor:Color.grayFont}"  HorizontalOptions="Start" VerticalOptions="Center"  HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                                                    <Label Text="{Binding PraiseForShow}" FontSize="{Static fonystyle:FontSize.Fs10}" TextColor="#ff1268" HorizontalOptions="Start" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                                    <Label Text="{Binding NumForShow}" FontSize="{Static fonystyle:FontSize.Fs10}" TextColor="{Static myColor:Color.grayFont}"  HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"  HorizontalTextAlignment="End" VerticalTextAlignment="Center" />
+                                                </StackLayout>
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer  CommandParameter="{Binding .}" Tapped="tapped_openCmdtyDtlPage" NumberOfTapsRequired="1" />
+                                                </StackLayout.GestureRecognizers>
+                                            </StackLayout>
+                                            <StackLayout Grid.Row="0" Grid.Column="1" IsVisible="{Binding rightIsShow}"  Spacing="5" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  BackgroundColor="{Static myColor:Color.BackgroundColor}" >
+                                                <Image Source="{Binding RightJewelleryPicNameForImg}" Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="Transparent" HeightRequest="{Binding commodityWith}" />
+                                                <myctrl:MultiLineLabel Text="{Binding rightJewelleryName}" Lines="2" TextColor="Black"  FontSize="{Static fonystyle:FontSize.Fs10}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" Margin="10,0,10,0"/>
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="0" VerticalOptions="End" Padding="10,0,10,10">
+                                                    <Label Text="好评" FontSize="{Static fonystyle:FontSize.Fs10}" TextColor="{Static myColor:Color.grayFont}"  HorizontalOptions="Start" VerticalOptions="Center"  HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                                                    <Label Text="{Binding rightPraiseForShow}" FontSize="{Static fonystyle:FontSize.Fs10}" TextColor="#ff1268" HorizontalOptions="Start" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                                    <Label Text="{Binding rightnumberForShow}" FontSize="{Static fonystyle:FontSize.Fs10}" TextColor="{Static myColor:Color.grayFont}"  HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"  HorizontalTextAlignment="End" VerticalTextAlignment="Center" />
+                                                </StackLayout>
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer  CommandParameter="{Binding .}" Tapped="tapped_commodity_right" NumberOfTapsRequired="1" />
+                                                </StackLayout.GestureRecognizers>
+                                            </StackLayout>
+                                        </Grid>--><!--
+                                    </ViewCell>-->
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.Footer>
+                            <StackLayout x:Name="st_ls_commodity_footer" BackgroundColor="Transparent"
+                                     IsVisible="False"  
+                                     Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="50" 
+                                     Margin="0,20,0,0">
+                                <!--<Label  Text="没有更多了"   FontSize="{Static fonystyle:FontSize.Fs10}" TextColor="{Static myColor:Color.grayFont}"  
+                                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" 
+                                    VerticalTextAlignment="Center" BackgroundColor="{Static myColor:Color.SpaceColor}" />-->
+                                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="5" BackgroundColor="Transparent"/>
+                                <Image   IsVisible="True" Source="HomePage_ListEnd.png"    Aspect="AspectFit"
+                                    HorizontalOptions="FillAndExpand" VerticalOptions="End" />
+                            </StackLayout>
+                            </ListView.Footer>
+                        </ListView>
+                    </StackLayout>
+                </Grid> 
+            </StackLayout>
+ 
+            <!--底部工具栏-->
+            <myctrl:MainTooBarView x:Name="BootomToolBar" PageTitle="分类"
+                                       HorizontalOptions="FillAndExpand" VerticalOptions="End" BackgroundColor="Transparent"
+                                       Grid.Column="0">
+            </myctrl:MainTooBarView>
+
+ 
+        </StackLayout>
+        </Grid>
+    </src:BasePage.Content>
+</src:BasePage>

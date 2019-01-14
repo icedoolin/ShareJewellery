@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Mycontrols.PayView"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             >
+  <ContentView.Content>
+        <StackLayout  Orientation="Vertical" 
+                                 HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0.5"
+                                 BackgroundColor="Transparent">
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                         HeightRequest="0.5" BackgroundColor="Black" Opacity="0.6">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapClose_Tapped" NumberOfTapsRequired="1"/>
+                </BoxView.GestureRecognizers>
+            </BoxView>
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="End"
+                   HeightRequest="400"  BackgroundColor="White" Padding="20,10,20,20">
+                <!--会员费用-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+                       HeightRequest="60" >
+                    <Label Text="会员费用:" HorizontalOptions="FillAndExpand" VerticalOptions="Center" 
+                       FontSize="Large" TextColor="Black" HeightRequest="50"/>
+                    <Label x:Name="lbl_Total" Text="" HorizontalOptions="End" VerticalOptions="Center"
+                      FontSize="Large" TextColor="Red" HeightRequest="50"/>
+                </StackLayout>
+                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" 
+                     BackgroundColor="Silver"/>
+                <!--是否使用水晶抵扣-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+                       HeightRequest="60"  Spacing="10" Padding="10,0,10,0">
+                    <Image x:Name="img_UseCrystal" Source="PayWayUnSelected.png" Aspect="AspectFit" 
+                       HorizontalOptions="Start" VerticalOptions="Center"
+                       HeightRequest="25" WidthRequest="25"/>
+                    <Label Text="使用水晶抵扣" HorizontalOptions="Start" VerticalOptions="Center" 
+                       FontSize="{Static fonystyle:FontSize.Fs18}" TextColor="Black" 
+                       HeightRequest="50"   VerticalTextAlignment="Center"/>
+                    <Label Text="当前拥有：" HorizontalOptions="Start" VerticalOptions="Center"                    
+                       FontSize="{Static fonystyle:FontSize.Fs15}" TextColor="Silver" HeightRequest="50" VerticalTextAlignment="Center"/>
+                    <Label x:Name="lbl_TotalCrystal" Text="" HorizontalOptions="End" VerticalOptions="Center"
+                       FontSize="{Static fonystyle:FontSize.Fs15}" TextColor="Silver" HeightRequest="50" VerticalTextAlignment="Center"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapUseCrystal_Tapped" NumberOfTapsRequired="1"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <!--输入抵扣数量,如果不适用，则不可输入-->
+                <StackLayout x:Name="st_CrystalInput"  IsEnabled="False"
+                         Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+                       HeightRequest="60"  >
+                    <Entry x:Name="txt_CrystalAmount" Text="" Placeholder="请输入抵扣数量" PlaceholderColor="Silver"
+                       HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                       HorizontalTextAlignment="Start"                   
+                       Keyboard="Numeric" 
+                       TextChanged="Txt_CrystalAmount_TextChanged" />
+                </StackLayout>
+                <!--微信支付-->
+                <myctrl:MyCenterItem x:Name="st_Weixin" LeftTextColor="Black" 
+                        LeftText="微信" LeftIco="WexinPayIcon.png" RightIco="PayWaySelected.png" 
+                        LeftTextSize="18"                       
+                        LeftImgSize="25" RightImgSize="25" 
+                        HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+                        HeightRequest="60">
+                    <myctrl:MyCenterItem.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapWeixinPay_Tapped" NumberOfTapsRequired="1"/>
+                    </myctrl:MyCenterItem.GestureRecognizers>
+                </myctrl:MyCenterItem>
+                <!--支付宝支付-->
+                <myctrl:MyCenterItem x:Name="st_Ali" LeftTextColor="Black" 
+                        LeftText="支付宝" LeftIco="AliPayIcon.png" RightIco="PayWayUnSelected.png" 
+                        LeftTextSize="18"                     
+                        LeftImgSize="25" RightImgSize="25" 
+                        HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+                        HeightRequest="60">
+                    <myctrl:MyCenterItem.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapAliPay_Tapped" NumberOfTapsRequired="1"/>
+                    </myctrl:MyCenterItem.GestureRecognizers>
+                </myctrl:MyCenterItem>
+                <!--充值按钮-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+                       HeightRequest="70" WidthRequest="10"  BackgroundColor="Transparent">
+                    <Button x:Name="btn_Pay" Text="充值" HorizontalOptions="FillAndExpand"  VerticalOptions="CenterAndExpand" 
+                        CornerRadius="30"  BackgroundColor="#6BE5F4"
+                        Clicked="PayBtn_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

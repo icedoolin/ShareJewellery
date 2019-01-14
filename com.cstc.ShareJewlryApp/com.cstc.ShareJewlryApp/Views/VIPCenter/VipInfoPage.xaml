@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage    xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.VIPCenter.VipInfoPage"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape"
+              >
+
+    <src:BasePage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+              BackgroundColor="Transparent" Padding="0,0,0,0" RowSpacing="0">
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                         BackgroundColor="White" Spacing="0"
+                         Grid.Row="0" Grid.Column="0" >
+                <!--标题栏  -->
+                <myctrl:PageHead Text="会员中心" IsLeftVisible="False"/>
+                <!--会员信息-->
+
+                <Grid x:Name="grid_head" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="Transparent"  
+                  HeightRequest="158">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="3*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4.5*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="50.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="img_myheadImg"  Source="unLogin_headImg.png" Aspect="AspectFill" 
+                            HorizontalOptions="Center" VerticalOptions="Center"
+                            Grid.Row="1" Grid.Column="1"/>
+                    <Image Source="VipInfo_BgImage.png" Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+                    Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3"/>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"                                     
+                                HeightRequest="10" WidthRequest="10" 
+                             Grid.Row="1" Grid.Column="2"   Padding="0,0,0,0"   >
+                        <!--姓名 会员级别-->
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+                                    HeightRequest="30" WidthRequest="20" Margin="10,0,0,0">
+                            <Label x:Name="NickName" Text="" TextColor="White" FontSize="{Static fonystyle:FontSize.Fs15}"  
+                                HorizontalOptions="Start" VerticalOptions="Start"  
+                                HeightRequest="30" />
+                            <Label   x:Name="VipClass" Text="" TextColor="White" FontSize="{Static fonystyle:FontSize.Fs12}" 
+                                HorizontalOptions="Start" VerticalOptions="Start" 
+                                Margin="10,2,0,0"  BackgroundColor="Transparent" 
+                                    HeightRequest="30" />
+                            <Image   x:Name="img_vip" Source="vipstar.png"  Aspect="AspectFit" 
+                                HorizontalOptions="Start" VerticalOptions="Start" 
+                                BackgroundColor="Transparent" 
+                                HeightRequest="18" WidthRequest="18"  />
+                        </StackLayout>
+                        <!--有效期至-->
+                        <Label x:Name="VipValidityDate" Text="" TextColor="White" FontSize="{Static fonystyle:FontSize.Fs15}"
+                            HeightRequest="30" Margin="10,0,0,0"
+                            HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                        <!--会员续费-->
+                        <Image Source="VipInfo_BuyMore.png" Aspect="AspectFit" 
+                            HorizontalOptions="StartAndExpand" VerticalOptions="Start"
+                            HeightRequest="30" WidthRequest="100">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapBuyMoreVip_Tapped" NumberOfTapsRequired="1"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                    </StackLayout>
+
+                </Grid>
+
+                <!--会员权益-->
+            <StackLayout  HorizontalOptions="FillAndExpand" 
+                         VerticalOptions="FillAndExpand" 
+                         BackgroundColor="{Static myColor:Color.BackgroundColor}" Spacing="0" 
+                          HeightRequest="10" WidthRequest="10">
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="50" WidthRequest="10">
+                    <Label Text="会员可享受以下权益" TextColor="Black"  
+                           HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+                           FontSize="Large" FontAttributes="Bold" 
+                           BackgroundColor="White"
+                           HeightRequest="50"  Margin="0,5,0,0"
+                           HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <!--权益列表-->
+                <myctrl:VipBenefitsGridView x:Name="VipBenefits_List" HorizontalOptions="FillAndExpand" 
+                                                VerticalOptions="FillAndExpand" 
+                                                SelectedTitleChanged="VipBenefits_List_SelectedTitleChanged"/>
+
+                <!--底部工具栏-->
+                <myctrl:MainTooBarView x:Name="BootomToolBar" PageTitle="会员中心"
+                                       HorizontalOptions="FillAndExpand" VerticalOptions="End" BackgroundColor="Transparent"
+                                      />
+            </StackLayout>
+            </StackLayout>
+            <!--会员权益明细弹窗-->
+            <myctrl:PublicMessageBox x:Name="VipBenefitsDetail_Show"  IsVisible="False" 
+                                     HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                                     BackgroundColor="Transparent" 
+                                      TotalHeight="290" TotalWidth="260"
+                                      TitleHeight="126"
+                                     BackGroundColor_Button1="#8ccecc" BackGroundColor_Button2="#98c8f5"
+                                     Button1_IsVisible="False" Button2_IsVisible="False"
+                                     ImageBody_IsVisible="False"
+                                     Grid.Row="0" Grid.Column="0"/>
+
+            <!--支付方式-->
+            <myctrl:PayView  x:Name="BuyVip_PayBox" IsVisible="False"
+                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="10" WidthRequest="10"  
+                    BackgroundColor="Transparent" Grid.Row="0" Grid.Column="0"
+                    PaySuccess="BuyVip_PayBox_PaySuccess"/>
+
+        </Grid>
+    </src:BasePage.Content>
+</src:BasePage >

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Mycontrols.AdView">
+
+    <ContentView.Content >
+
+        <StackLayout HorizontalOptions="FillAndExpand" 
+                     VerticalOptions="FillAndExpand" 
+                     BackgroundColor="Transparent"
+                     HeightRequest="10"
+                     WidthRequest="10"
+                     Padding="30,50,30,40">
+            <!--事件-->
+            <!--<StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapAdView_Tapped" NumberOfTapsRequired="1"/>
+            </StackLayout.GestureRecognizers>-->
+            <!--控件-->
+
+            <Image Source="Ad_BackGroud.png" Aspect="AspectFit" 
+                   HorizontalOptions="FillAndExpand"  VerticalOptions="Fill"/>
+            <StackLayout  HorizontalOptions="End" VerticalOptions="Fill"
+                   WidthRequest="40" HeightRequest="40"  
+                    Margin="0,-428,10,0" BackgroundColor="Transparent">
+                <Image Source="Ad_Close.png" Aspect="AspectFit" 
+                   HorizontalOptions="End" VerticalOptions="Fill"
+                   WidthRequest="20" HeightRequest="20"  >
+                </Image>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapAdClose_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <Label x:Name="AdView_Title" Text="" FontSize="Large" TextColor="White" 
+                   HorizontalOptions="Center" 
+                   HorizontalTextAlignment="Center"                  
+                   VerticalOptions="Start" 
+                   VerticalTextAlignment="Start"   
+                   Margin="0,-30,0,10"
+                   HeightRequest="30"  />
+            <Image x:Name="AdView_Image" Source="Ad_BroadCastShow.png" Aspect="AspectFit" 
+                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  
+                   WidthRequest="10"  Margin="5,2,5,2"></Image>
+            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                        HeightRequest="10" WidthRequest="10" Margin="5,0,5,0">
+                <Label x:Name="AdView_Text" Text="" 
+                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                   FontSize="Medium" TextColor="Black"/>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End" Padding="10,2,10,2" HeightRequest="40"
+                         Margin="0,0,0,105" Spacing="20">
+                <!--成为会员-->
+                <Image Source="Ad_BeVipButton.png" HorizontalOptions="FillAndExpand" WidthRequest="10" Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapAdBeVip_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <!--邀请好友-->
+                <Image Source="Ad_InviteButton.png"  HorizontalOptions="FillAndExpand" WidthRequest="10" Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapAdInvite_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+ 
+        </StackLayout>
+
+    </ContentView.Content>
+</ContentView>

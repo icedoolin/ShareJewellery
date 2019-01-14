@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Page1">
+    <src:BasePage.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" 
+                     BackgroundColor="red" HeightRequest="300" WidthRequest="360">
+            <StackLayout  HorizontalOptions="Center" VerticalOptions="Start" 
+                     BackgroundColor="Blue" HeightRequest="50" WidthRequest="300"/>
+            <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+                     BackgroundColor="Purple" HeightRequest="50" WidthRequest="10"
+                          Margin="30,0,30,0"/>
+        </StackLayout>
+    </src:BasePage.Content>
+</src:BasePage>

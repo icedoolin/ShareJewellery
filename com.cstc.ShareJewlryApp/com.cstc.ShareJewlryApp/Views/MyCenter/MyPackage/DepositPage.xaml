@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.MyCenter.MyPackage.DepositPage"
+              xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape">
+
+    <src:BasePage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">
+            <myctrl:PageHead Text="提现"/>
+            <myctrl:MyCenterItem x:Name="lb_type" arroundPadding="10,0,10,0" LeftText="提现到支付宝" 
+                                 LeftTextColor="Black"  LeftTextSize="{Static fonystyle:FontSize.Fs15}" RightTextSize="{Static fonystyle:FontSize.Fs12}" 
+                                 LeftIco="aliPay.png" LeftImgSize="17" RightImgSize="12" RightText="未绑定" 
+                                 RightIco=""
+                                 HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+                                 HeightRequest="{Static myShape:height.MycenterbarLenth}">
+            </myctrl:MyCenterItem>
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="5" Padding="10,10,10,10" HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                <Label x:Name="lb_balance" Text="" TextColor="{Static myColor:Color.grayFont}" FontSize="{Static fonystyle:FontSize.Fs15}" HorizontalOptions="Start"  VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                <Label Text="全部提现" TextColor="{Static myColor:Color.redFont}" FontSize="{Static fonystyle:FontSize.Fs15}" HorizontalOptions="Start" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_depositAll"  NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="Transparent" Spacing="5" Padding="10,10,10,10" HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                <Label Text="¥" TextColor="Black" HorizontalOptions="Start" VerticalOptions="End" HorizontalTextAlignment="Center" BackgroundColor="Transparent" VerticalTextAlignment="Center" FontSize="{Static fonystyle:FontSize.Fs15}" Margin="0,0,0,10" />
+                <myctrl:noBorderEntry   x:Name="ety_depositePrice" Text="" Keyboard="Numeric" FontSize="28" Placeholder="" IsPassword="False" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HorizontalTextAlignment="Start"  HeightRequest="{Static myShape:height.MycenterbarLenth}" />
+            </StackLayout>
+            <Label Text="根据相关政策原因，提现将收取0.6%手续费" IsVisible="False" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+            
+            <myctrl:CtRedBtn x:Name="btn_deposit" Text="提现"  HorizontalOptions="Center" VerticalOptions="Start"  WidthRequest="200" HeightRequest="40" Margin="0,30,0,0">
+                <myctrl:CtRedBtn.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="tapped_deposit"  NumberOfTapsRequired="1" />
+                </myctrl:CtRedBtn.GestureRecognizers>
+            </myctrl:CtRedBtn>
+            <myctrl:CtRedBtn x:Name="btn_BindAiPay" Text="绑定支付宝" IsVisible="False"  HorizontalOptions="Center" VerticalOptions="Start"  WidthRequest="200" HeightRequest="40" Margin="0,30,0,0">
+                <myctrl:CtRedBtn.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="tapped_OpenBindAlipay"  NumberOfTapsRequired="1" />
+                </myctrl:CtRedBtn.GestureRecognizers>
+            </myctrl:CtRedBtn>
+        </StackLayout>
+    </src:BasePage.Content>
+</src:BasePage>

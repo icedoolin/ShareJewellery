@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.ShoppingCart.Order.OrderPage"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape">
+ 
+    <src:BasePage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0"  BackgroundColor="{Static myColor:Color.BackgroundColor}">
+            <myctrl:PageHead Text="确认订单"/>
+            <ScrollView Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0" >
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="10" HeightRequest="70"  Padding="10,0,10,0">
+                        <Image Source="location.png" HorizontalOptions="Start" VerticalOptions="Center" BackgroundColor="Transparent" HeightRequest="20" WidthRequest="20" />
+                        <StackLayout x:Name="st_address" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="10">
+                                <Label x:Name="lb_recName" Text="" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="Start" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="End" LineBreakMode="TailTruncation"/>
+                                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="1"/>
+                                <Label x:Name="lb_recTel" Text="" FontSize="{Static fonystyle:FontSize.Fs12}" BackgroundColor="Transparent" HorizontalOptions="End" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="End" LineBreakMode="TailTruncation"/>
+                            </StackLayout>
+                            <Label x:Name="lb_address" Text="" FontSize="{Static fonystyle:FontSize.Fs10}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" LineBreakMode="TailTruncation"/>
+                        </StackLayout>
+                        <Label x:Name="lb_tips" Text="还未设置收货地址，请设置" IsVisible="False" TextColor="Black" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                        <Image Source="right_arrow.png" HorizontalOptions="End" VerticalOptions="Center" BackgroundColor="Transparent" HeightRequest="12" WidthRequest="12" Margin="20,0,0,0" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_seleceAddress"   NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="15" BackgroundColor="{Static myColor:Color.SpaceColor}"/>
+                    <StackLayout x:Name="st_prduct" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="10"  BackgroundColor="{Static myColor:Color.SpaceColor}">
+
+                    </StackLayout>
+                    <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="15" BackgroundColor="{Static myColor:Color.SpaceColor}"/>
+                    <myctrl:MyCenterItem Grid.Row="0" LeftTextSize="{Static fonystyle:FontSize.Fs12}" LeftText="快递"  LeftImgSize="0" RightImgSize="0" LeftImgShow="False" RightImgShow="False" RightText="包邮" RightTextSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="FillAndExpand"  VerticalOptions="Start" HeightRequest="{Static myShape:height.MycenterbarLenth}"/>
+                    <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="{Static myShape:height.MycenterbarLenth}" Padding="10,0,10,0">
+                        <Label Text="备注" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="Start" VerticalOptions="FillAndExpand" WidthRequest="40" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                        <myctrl:noBorderEntry x:Name="ety_remarks" Text="" Placeholder="请输入备注" FontSize="{Static fonystyle:FontSize.Fs10}"  HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="End" />
+                    </StackLayout>
+                    <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="15" BackgroundColor="{Static myColor:Color.SpaceColor}"/>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout  Orientation="Horizontal" Spacing="5" HorizontalOptions="FillAndExpand" VerticalOptions="End" HeightRequest="60" BackgroundColor="Transparent">
+                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent"/>
+                <Label x:Name="lb_totalCmdy" Text="共10件商品" FontSize="{Static fonystyle:FontSize.Fs10}" HorizontalOptions="End" VerticalOptions="FillAndExpand" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+                <Label x:Name="lb_tptalPriceDesc" Text="总金额：" HorizontalOptions="End" FontSize="{Static fonystyle:FontSize.Fs10}" VerticalOptions="FillAndExpand" HorizontalTextAlignment="End" VerticalTextAlignment="Center" />
+                <Label x:Name="lb_totalPrice" Text="" FontSize="{Static fonystyle:FontSize.Fs10}" TextColor="{Static myColor:Color.redFont}"  HorizontalOptions="Fill" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                <myctrl:CtRedBtn Text="确认订单"  HorizontalOptions="End" VerticalOptions="FillAndExpand"  WidthRequest="100"  Margin="0,0,0,0">
+                    <myctrl:CtRedBtn.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_takeOrder"   NumberOfTapsRequired="1" />
+                    </myctrl:CtRedBtn.GestureRecognizers>
+                </myctrl:CtRedBtn>
+            </StackLayout>
+        </StackLayout>
+    </src:BasePage.Content>
+</src:BasePage>

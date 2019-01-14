@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.WebViewPage"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols">
+    <src:BasePage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <myctrl:PageHead x:Name="PageTitle" Text="服务条款"/>
+            <WebView x:Name="webView" Source="http://123.207.120.131:8811/APP/TermsOfService/" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+        </StackLayout>
+    </src:BasePage.Content>
+</src:BasePage>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:homepage="clr-namespace:com.cstc.ShareJewlryApp.Views.HomePage"
+            xmlns:mycenter ="clr-namespace:com.cstc.ShareJewlryApp.Views.MyCenter"
+            xmlns:classificationpage="clr-namespace:com.cstc.ShareJewlryApp.Views.Classification"
+            xmlns:shoppingCart="clr-namespace:com.cstc.ShareJewlryApp.Views.ShoppingCart"
+            x:Class="com.cstc.ShareJewlryApp.Views.MainPage"
+            BarTextColor="#f03e74" HeightRequest="30" BackgroundColor="#fcfcfc">
+    <homepage:homePage Title="首页" Icon="tabbedPage_homepage.png" HeightRequest="30"/>
+    <classificationpage:ClassificationPage Title="分类" Icon="tabbedPage_classify.png" HeightRequest="30" />
+    <!--<shoppingCart:ShoppingCartMainPage Title="购物车"  Icon="tabbedPage_shoppingCart.png" HeightRequest="30" />-->
+    <mycenter:MyCenterPage Title="我的" Icon="tabbedPage_myCenter.png" HeightRequest="30" />
+    
+    <!--Pages can be added as references or inline-->
+</TabbedPage>

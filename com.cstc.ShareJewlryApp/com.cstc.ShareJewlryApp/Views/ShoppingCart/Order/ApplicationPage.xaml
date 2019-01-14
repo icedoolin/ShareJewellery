@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.ShoppingCart.Order.ApplicationPage"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape">
+ 
+    <src:BasePage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout Grid.Row="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <myctrl:PageHead Text="查看申请"/>
+                <ScrollView Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  >
+                        <StackLayout x:Name="st_intervene" HorizontalOptions="Center" VerticalOptions="Start" Orientation="Horizontal" Spacing="5" Margin="0,30,0,0">
+                            <Label x:Name="lb_applyDesc" Text="商家拒绝售后，可申请" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="End" />
+                            <Label x:Name="lb_inteneve" IsVisible="False" Text="平台介入" TextColor="{Static myColor:Color.redFont}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HorizontalTextAlignment="Start" VerticalTextAlignment="Center" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="tapped_showInteneveBox" NumberOfTapsRequired="1"   />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                        <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="30,0,30,30" ColumnSpacing="0" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Row="0" Grid.Column="0"  Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">
+                                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="1" BackgroundColor="Transparent"/>
+                                <Grid HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="25" WidthRequest="25">
+                                    <Image Source="circle_red.png"  Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="25" WidthRequest="25" BackgroundColor="Transparent"/>
+                                    <Label  Text="1" TextColor="White"  FontSize="{Static fonystyle:FontSize.Fs10}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                </Grid>
+                                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" WidthRequest="1" BackgroundColor="{Static myColor:Color.redFont}" />
+                            </StackLayout>
+                            <Label  Grid.Row="1" Grid.Column="0"  Text="提交申请" TextColor="{Static myColor:Color.redFont}" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="30"/>
+                            <StackLayout Grid.Row="0" Grid.Column="1"  Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">
+                                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Center" WidthRequest="1" HeightRequest="1" BackgroundColor="{Static myColor:Color.redFont}" />
+                                <Grid HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="25" WidthRequest="25">
+                                    <Image Source="circle_red.png"  Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="25" WidthRequest="25" BackgroundColor="Transparent"/>
+                                    <Label Text="2" TextColor="White"  FontSize="{Static fonystyle:FontSize.Fs10}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                </Grid>
+                                <BoxView x:Name="box_shopComfired" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" WidthRequest="1" BackgroundColor="{Static myColor:Color.grayFont}"/>
+                            </StackLayout>
+                            <Label Text="商家确认"  Grid.Row="1" Grid.Column="1" TextColor="{Static myColor:Color.redFont}"   HorizontalOptions="FillAndExpand" VerticalOptions="Start" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="30"/>
+                            <StackLayout Grid.Row="0" Grid.Column="2"  Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">
+                                <BoxView x:Name="box_PassApply" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" WidthRequest="1" BackgroundColor="{Static myColor:Color.grayFont}"/>
+                                <Grid HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="25" WidthRequest="25">
+                                    <Image x:Name="img_passApply" Source="circle_gray.png"  Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="25" WidthRequest="25" BackgroundColor="Transparent"/>
+                                    <Label Text="3" TextColor="White"  FontSize="{Static fonystyle:FontSize.Fs10}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                </Grid>
+                                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" WidthRequest="1" BackgroundColor="Transparent"/>
+                            </StackLayout>
+                            <Label x:Name="lb_passApply" Grid.Row="1" Grid.Column="2" Text="申请通过" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="30"/>
+                        </Grid>
+                        <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="15" BackgroundColor="{Static myColor:Color.SpaceColor}"/>
+                        <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                        <Image HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" WidthRequest="20"/>
+                        <Label Text="商铺名" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                    </StackLayout>-->
+                        <StackLayout x:Name="st_cmdtydtl" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="0">
+
+                        </StackLayout>
+
+                        <!--<ListView HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                        <ListView.ItemTemplate>
+                            <DataTemplate >
+                                <ViewCell>
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="0" Padding="10,0,0,0">
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0,10,10,10">
+                                            <Image HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="80" WidthRequest="80"/>
+                                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                                <Label Text="海洋" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                                <Label Text="材质"  HorizontalOptions="FillAndExpand" VerticalOptions="End" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0,10,10,10">
+                                            <Label Text="数量：" HorizontalOptions="Start" VerticalOptions="Start" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                            <Label Text="商品总价" HorizontalOptions="Start" VerticalOptions="Start" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                            <Label Text="88888" HorizontalOptions="Start" VerticalOptions="Start" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                        </StackLayout>
+                                        <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.SpaceColor}"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
+                        <Label Text="订单号" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                        <Label Text="订单金额："  HorizontalOptions="End" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+                        <Label Text="¥ 66666.00" HorizontalOptions="End" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="{Static myColor:Color.redFont}"/>
+                    </StackLayout>-->
+                        <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="15" BackgroundColor="{Static myColor:Color.SpaceColor}"/>
+                        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,0,10,0" HeightRequest="{Static myShape:height.barLenth}" >
+                            <Label Text="售后类型" HorizontalOptions="Start" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" WidthRequest="1"/>
+                            <Label x:Name="lb_afterSaleType" Text="" HorizontalOptions="End" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                        <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="1" BackgroundColor="{Static myColor:Color.SpaceColor}"/>
+                        <Label Margin="10,0,10,0" x:Name="lb_Reply" Text="" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" />
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="White">
+
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            <BoxView x:Name="block" Grid.Row="0" Grid.Column="0" IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black" Opacity="0.6">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="tapped_CloseBlock" NumberOfTapsRequired="1" />
+                </BoxView.GestureRecognizers>
+            </BoxView>
+            <StackLayout x:Name="st_PaycheckBox" IsVisible="False" Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Spacing="0" BackgroundColor="White" Margin="20,0,20,0">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10" HeightRequest="100">
+                    <Label Text="你是否申请" HorizontalOptions="End" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Text="平台介入" TextColor="{Static myColor:Color.redFont}" HorizontalOptions="Start" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/> 
+                </StackLayout>
+                <BoxView BackgroundColor="Silver" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="1"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End" Spacing="0">
+                    <Label Text="是" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="1">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_intervene" NumberOfTapsRequired="1"   />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <BoxView BackgroundColor="Silver" HorizontalOptions="Center" VerticalOptions="FillAndExpand" WidthRequest="1"/>
+                    <Label Text="否" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  WidthRequest="1">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_CloseBlock" NumberOfTapsRequired="1"   />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+      
+    </src:BasePage.Content>
+</src:BasePage>

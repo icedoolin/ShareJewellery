@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.ShoppingCart.Order.EvaluationPage"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape">
+ 
+    <src:BasePage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">
+            <myctrl:PageHead Text="评价"/>
+          <ScrollView  Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="1" BackgroundColor="Transparent">
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Spacing="0" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" >
+              <Label x:Name="lb_orderID" Text="订单号：" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" Margin="10,10,10,0"/>
+              <Label x:Name="lb_time" Text="订单号：" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"  Margin="10,0,10,0"/>
+              <Label x:Name="lb_shopTel" Text="商家电话：" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"  Margin="10,0,10,0"/>
+              <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="1" BackgroundColor="{Static myColor:Color.LineColor}"/>
+              <ListView x:Name="ls_evaList" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  BackgroundColor="Transparent" SeparatorVisibility="None" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                  <DataTemplate >
+                    <ViewCell>
+                      <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <BoxView Grid.Row="0" Grid.Column="0"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White"/>
+                        <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" Spacing="0" VerticalOptions="FillAndExpand">
+                          <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="10" Padding="10,10,10,10">
+                            <Image BackgroundColor="Transparent" Source="{Binding JewelleryPicNameForImg}" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="80" WidthRequest="80"/>
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="10">
+                              <Label Text="{Binding JewelleryName}" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" LineBreakMode="WordWrap" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                              <Label Text="{Binding specForShow}" FontSize="{Static fonystyle:FontSize.Fs10}"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" LineBreakMode="NoWrap" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                              <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End">
+                                <Label Text="{Binding numberForOrder}" FontSize="{Static fonystyle:FontSize.Fs10}" HorizontalOptions="Start" VerticalOptions="Start" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                <Label Text="商品总价:" FontSize="{Static fonystyle:FontSize.Fs10}" HorizontalOptions="Start" VerticalOptions="Start" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                <Label Text="{Binding PriceForShow}" FontSize="{Static fonystyle:FontSize.Fs10}" TextColor="{Static myColor:Color.redFont}" HorizontalOptions="Start" VerticalOptions="Start" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                              </StackLayout>
+                            </StackLayout>
+                          </StackLayout>
+                          <Label BackgroundColor="Transparent" Text="{Binding evaluationDes}" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                          <StackLayout BackgroundColor="Transparent" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start" Spacing="20" HeightRequest="40" Margin="0,10,0,10">
+                            <Image  Source="{Binding one_star}" BackgroundColor="Transparent" HorizontalOptions="End" VerticalOptions="Center" HeightRequest="20" WidthRequest="20">
+                              <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="tapped_oneStar" CommandParameter="{Binding .}"  NumberOfTapsRequired="1"   />
+                              </Image.GestureRecognizers>
+                            </Image>
+                            <Image  Source="{Binding two_star}" BackgroundColor="Transparent" HorizontalOptions="End" VerticalOptions="Center" HeightRequest="20" WidthRequest="20">
+                              <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="tapped_twoStar" CommandParameter="{Binding .}" NumberOfTapsRequired="1"   />
+                              </Image.GestureRecognizers>
+                            </Image>
+                            <Image  Source="{Binding three_star}" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="20" WidthRequest="20">
+                              <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="tapped_threeStar" CommandParameter="{Binding .}" NumberOfTapsRequired="1"   />
+                              </Image.GestureRecognizers>
+                            </Image>
+                            <Image   Source="{Binding four_star}" BackgroundColor="Transparent" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" WidthRequest="20">
+                              <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="tapped_fourStar" CommandParameter="{Binding .}" NumberOfTapsRequired="1"   />
+                              </Image.GestureRecognizers>
+                            </Image>
+                            <Image   Source="{Binding five_star}" BackgroundColor="Transparent" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" WidthRequest="20">
+                              <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="tapped_fiveStar" CommandParameter="{Binding .}" NumberOfTapsRequired="1"   />
+                              </Image.GestureRecognizers>
+                            </Image>
+                          </StackLayout>
+                          <myctrl:CustEditor  Text="{Binding Content}"  EditorPlaceholder="请输入您的评价"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="150" Margin="10,0,10,0"/>
+                        </StackLayout>
+                      </Grid>
+
+
+                    </ViewCell>
+                  </DataTemplate>
+                </ListView.ItemTemplate>
+              </ListView>
+            </StackLayout>
+          </ScrollView>
+            <myctrl:CtRedBtn Text="评价" HorizontalOptions="FillAndExpand" VerticalOptions="End"  HeightRequest="40" Margin="0,0,0,0">
+                <myctrl:CtRedBtn.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="tapped_comfirmedEvaluation" NumberOfTapsRequired="1" />
+                </myctrl:CtRedBtn.GestureRecognizers>
+            </myctrl:CtRedBtn>
+        </StackLayout>
+    </src:BasePage.Content>
+</src:BasePage>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.MyCenter.BindAliPayPage"
+              xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape">
+
+    <src:BasePage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0" BackgroundColor="{Static myColor:Color.SpaceColor}">
+            <myctrl:PageHead Text="绑定支付宝"/>
+                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+                <StackLayout x:Name="st_oldPwd" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start"  HeightRequest="{Static myShape:height.MycenterbarLenth}" BackgroundColor="{Static myColor:Color.BackgroundColor}" Padding="10,0,10,0">
+                <Label Text="支付宝账号" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="{Static fonystyle:FontSize.Fs12}" WidthRequest="100"/>
+
+                <myctrl:noBorderEntry x:Name="ety_AliPayNum" Text="" FontSize="{Static fonystyle:FontSize.Fs12}" Placeholder="请输入支付宝账号" IsPassword="False"  HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="End"/>
+            </StackLayout>
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start"  HeightRequest="{Static myShape:height.MycenterbarLenth}" BackgroundColor="{Static myColor:Color.BackgroundColor}" Padding="10,0,10,0">
+                <Label Text="支付宝拥有人" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="{Static fonystyle:FontSize.Fs12}" WidthRequest="100"/>
+
+                <myctrl:noBorderEntry x:Name="ety_realName" Text="" FontSize="{Static fonystyle:FontSize.Fs12}" Placeholder="请输入姓名" IsPassword="False"  HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="End" />
+            </StackLayout>
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="1" BackgroundColor="Transparent"/>
+            <myctrl:CtRedBtn Text="绑定支付宝"  HorizontalOptions="FillAndExpand" VerticalOptions="End"  HeightRequest="{Static myShape:height.MycenterbarLenth}" >
+                <myctrl:CtRedBtn.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="save_BindAliPay"  NumberOfTapsRequired="1" />
+                </myctrl:CtRedBtn.GestureRecognizers>
+            </myctrl:CtRedBtn>
+
+        </StackLayout>
+            <BoxView x:Name="block" IsVisible="False" Grid.Row="0" Grid.Column="0"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black" Opacity="0.6"/>
+             <StackLayout x:Name="st_checkBox" IsVisible="False" Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Spacing="0" BackgroundColor="White" Margin="20,0,20,0">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10" HeightRequest="100">
+                    <Label Text="请确保 支付宝账号 和 支付宝拥有人 正确，否则您将无法收到提现款" HorizontalOptions="End" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <!--<Label Text="支付宝账号" TextColor="{Static myColor:Color.redFont}" HorizontalOptions="Start" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Text="和" HorizontalOptions="Start" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Text="支付宝拥有人" TextColor="{Static myColor:Color.redFont}" HorizontalOptions="Start" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Text="正确，否则您将无法收到提现款" HorizontalOptions="Start" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>-->
+                </StackLayout>
+                <BoxView BackgroundColor="Silver" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="1"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End" Spacing="0">
+                    <Label Text="是" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="1">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_confirmed" NumberOfTapsRequired="1"   />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <BoxView BackgroundColor="Silver" HorizontalOptions="Center" VerticalOptions="FillAndExpand" WidthRequest="1"/>
+                    <Label Text="否" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  WidthRequest="1">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_cancle" NumberOfTapsRequired="1"   />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </src:BasePage.Content>
+</src:BasePage>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Mycontrols.UnderlineEty"
+             xmlns:myctrls="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle">
+    <ContentView.Content>
+        <StackLayout x:Name="st_father" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="10" Padding="10,2,10,2" >
+            <Image x:Name="img" HorizontalOptions="Start" VerticalOptions="End" />
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="End" Spacing="0" BackgroundColor="Transparent" Padding="0,0,0,0">
+                <myctrls:noBorderEntry x:Name="ety" FontSize="{Static fonystyle:FontSize.Fs10}" Text="" PlaceholderColor="{Static myColor:Color.grayFont}"  
+                                       HorizontalOptions="FillAndExpand" VerticalOptions="End" />
+                <BoxView BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="End" HeightRequest="0.5"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

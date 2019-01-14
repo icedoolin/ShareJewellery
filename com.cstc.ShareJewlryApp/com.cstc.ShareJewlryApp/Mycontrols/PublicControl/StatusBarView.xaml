@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Mycontrols.StatusBarView">
+  <ContentView.Content>
+      <StackLayout x:Name="main" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" HeightRequest="30">
+            <BoxView x:Name="statusbar" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="40"
+                   BackgroundColor="Transparent" />
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

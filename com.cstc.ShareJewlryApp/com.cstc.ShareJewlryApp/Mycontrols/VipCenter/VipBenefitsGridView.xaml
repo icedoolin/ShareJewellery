@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+ 
+             x:Class="com.cstc.ShareJewlryApp.Mycontrols.VipBenefitsGridView"
+              xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape"> 
+  <ContentView.Content>
+        <Grid x:Name="gd_head" HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+              RowSpacing="1" ColumnSpacing="0"  
+              Padding="0,0,0,0" BackgroundColor="{Static myColor:Color.SpaceColor}" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackLayout x:Name="cell_1"  Spacing="10" Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" Padding="0,10,0,10">
+                <Image Source="VipBenefits_1.png" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" 
+                       Aspect="AspectFit"  BackgroundColor="Transparent" HeightRequest="35"/>
+                <Label x:Name="text_1" Text="享有高端人脉"  TextColor="Black" 
+                       FontSize="{Static fonystyle:FontSize.Fs12}" 
+                       HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" 
+                       HorizontalTextAlignment="Center" BackgroundColor="Transparent" 
+                       VerticalTextAlignment="Center" HeightRequest="50" Margin="10,0,10,0"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapVipBenfitsDetail_Tapped" NumberOfTapsRequired="1"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+ 
+            <StackLayout Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" >
+                <BoxView    HorizontalOptions="Start" VerticalOptions="FillAndExpand" BackgroundColor="{Static myColor:Color.SpaceColor}"  Margin="0,10,0,10"  WidthRequest="1"/>
+            </StackLayout>
+
+            <StackLayout x:Name="cell_2"  Spacing="10" Grid.Row="0" Grid.Column="2" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" Padding="0,10,0,10">
+                <Image Source="VipBenefits_2.png" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" 
+                       Aspect="AspectFit" HeightRequest="35" BackgroundColor="Transparent" />
+                <Label x:Name="text_2" Text="享受顶级珠宝鉴赏"  TextColor="Black"                        FontSize="{Static fonystyle:FontSize.Fs12}" 
+                       HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" 
+                       HorizontalTextAlignment="Center" BackgroundColor="Transparent" 
+                       VerticalTextAlignment="Center" HeightRequest="50" Margin="10,0,10,0"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapVipBenfitsDetail_Tapped" NumberOfTapsRequired="1"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <StackLayout Grid.Row="0" Grid.Column="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" >
+                <BoxView  HorizontalOptions="Start" VerticalOptions="FillAndExpand" BackgroundColor="{Static myColor:Color.SpaceColor}"  Margin="0,10,0,10"  WidthRequest="1"/>
+            </StackLayout>
+
+            <StackLayout x:Name="cell_3" Spacing="10" Grid.Row="0" Grid.Column="4" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" Padding="0,10,0,10">
+                <Image Source="VipBenefits_3.png" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit" HeightRequest="35" BackgroundColor="Transparent" />
+                <Label Text="限购所有内部折扣"  TextColor="Black"                        FontSize="{Static fonystyle:FontSize.Fs12}" 
+                       HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" 
+                       HorizontalTextAlignment="Center" BackgroundColor="Transparent" 
+                       VerticalTextAlignment="Center" HeightRequest="50" Margin="10,0,10,0"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapVipBenfitsDetail_Tapped" NumberOfTapsRequired="1"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <StackLayout Grid.Row="0" Grid.Column="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" >
+                <BoxView  HorizontalOptions="Start" VerticalOptions="FillAndExpand" BackgroundColor="{Static myColor:Color.SpaceColor}"  Margin="0,10,0,10"  WidthRequest="1"/>
+            </StackLayout>
+
+
+            <StackLayout x:Name="cell_4" Spacing="10" Grid.Row="0" Grid.Column="6" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" Padding="0,10,0,10">
+                <Image Source="VipBenefits_4.png" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit" HeightRequest="35" BackgroundColor="Transparent" />
+                <Label Text="可任意更换珠宝"  TextColor="Black"                         FontSize="{Static fonystyle:FontSize.Fs12}" 
+                       HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" 
+                       HorizontalTextAlignment="Center" BackgroundColor="Transparent" 
+                       VerticalTextAlignment="Center" HeightRequest="50" Margin="10,0,10,0"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapVipBenfitsDetail_Tapped" NumberOfTapsRequired="1"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <StackLayout x:Name="cell_5" Spacing="10" Grid.Row="1" Grid.Column="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" Padding="0,10,0,10">
+                <Image Source="VipBenefits_5.png" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit" HeightRequest="35" BackgroundColor="Transparent" />
+                <Label Text="珠宝款式实时更新"  TextColor="Black"                       FontSize="{Static fonystyle:FontSize.Fs12}" 
+                       HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" 
+                       HorizontalTextAlignment="Center" BackgroundColor="Transparent" 
+                       VerticalTextAlignment="Center" HeightRequest="50" Margin="10,0,10,0"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapVipBenfitsDetail_Tapped" NumberOfTapsRequired="1"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" >
+                <BoxView  HorizontalOptions="Start" VerticalOptions="FillAndExpand" BackgroundColor="{Static myColor:Color.SpaceColor}"  Margin="0,10,0,10"  WidthRequest="1"/>
+            </StackLayout>
+
+
+            <StackLayout x:Name="cell_6" Spacing="10" Grid.Row="1" Grid.Column="2" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" Padding="0,10,0,10">
+                <Image Source="VipBenefits_6.png" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit" HeightRequest="35" BackgroundColor="Transparent" />
+                <Label Text="享有高端品鉴会入场券"  TextColor="Black"                         FontSize="{Static fonystyle:FontSize.Fs12}" 
+                       HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" 
+                       HorizontalTextAlignment="Center" BackgroundColor="Transparent" 
+                       VerticalTextAlignment="Center" HeightRequest="50" Margin="10,0,10,0"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapVipBenfitsDetail_Tapped" NumberOfTapsRequired="1"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Grid.Column="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" >
+                <BoxView  HorizontalOptions="Start" VerticalOptions="FillAndExpand" BackgroundColor="{Static myColor:Color.SpaceColor}"  Margin="0,10,0,10"  WidthRequest="1"/>
+            </StackLayout>
+
+            <StackLayout x:Name="cell_7" Spacing="10" Grid.Row="1" Grid.Column="4" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" Padding="0,10,0,10">
+                <Image Source="VipBenefits_7.png" HorizontalOptions="CenterAndExpand" 
+                       VerticalOptions="FillAndExpand" Aspect="AspectFit" HeightRequest="35" BackgroundColor="Transparent" />
+                <Label Text="享有平台分润"  TextColor="Black"                        FontSize="{Static fonystyle:FontSize.Fs12}" 
+                       HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" 
+                       HorizontalTextAlignment="Center" BackgroundColor="Transparent" 
+                       VerticalTextAlignment="Center" HeightRequest="50" Margin="10,0,10,0"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapVipBenfitsDetail_Tapped" NumberOfTapsRequired="1"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1"  Grid.Column="5"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" >
+                <BoxView  HorizontalOptions="Start" VerticalOptions="FillAndExpand" BackgroundColor="{Static myColor:Color.SpaceColor}"  Margin="0,10,0,10"  WidthRequest="1"/>
+            </StackLayout>
+
+
+            <StackLayout x:Name="cell_8" Spacing="10" Grid.Row="1" Grid.Column="6" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" Padding="0,10,0,10">
+                <Image Source="VipBenefits_8.png" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit" HeightRequest="35" BackgroundColor="Transparent" />
+                <Label Text="精英奖励课程"  TextColor="Black"                        FontSize="{Static fonystyle:FontSize.Fs12}" 
+                       HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" 
+                       HorizontalTextAlignment="Center" BackgroundColor="Transparent" 
+                       VerticalTextAlignment="Center" HeightRequest="50" Margin="10,0,10,0"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapVipBenfitsDetail_Tapped" NumberOfTapsRequired="1"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+ 
+        </Grid>
+
+
+    </ContentView.Content>
+</ContentView>

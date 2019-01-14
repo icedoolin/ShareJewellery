@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.MyCenter.Myteam.TeamSecPage"
+              xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape"
+             >
+ 
+    <src:BasePage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">
+            <myctrl:PageHead Text="我的团队"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="40" BackgroundColor="{Static myColor:Color.SpaceColor}" Spacing="10" Padding="10,5,10,5">
+                <Label Text="我的邀请" FontSize="{Static fonystyle:FontSize.Fs14}"
+                       HorizontalOptions="Start" VerticalOptions="Center" 
+                       HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" BackgroundColor="Transparent"/>
+                <Label x:Name="lb_all" Text="全部" TextColor="Black" FontSize="{Static fonystyle:FontSize.Fs14}" 
+                       HorizontalOptions="End" VerticalOptions="FillAndExpand" 
+                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_All"  NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label x:Name="lb_time" Text="按时间" FontSize="{Static fonystyle:FontSize.Fs14}" TextColor="{Static myColor:Color.grayFont}" HorizontalOptions="End" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_time"  NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label x:Name="lb_identity" Text="按身份" FontSize="{Static fonystyle:FontSize.Fs14}"  TextColor="{Static myColor:Color.grayFont}" HorizontalOptions="End" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_identity"  NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label x:Name="lb_team" Text="按团队" FontSize="{Static fonystyle:FontSize.Fs14}" TextColor="{Static myColor:Color.grayFont}" HorizontalOptions="End" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_team"  NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <ListView x:Name="ls_list"  ItemAppearing="ls_list_ItemAppearing"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HasUnevenRows="true" SeparatorVisibility="None" >
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ViewCell>
+                            <myctrl:TeamInfoViewCell HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                                                     Clicked="TeamInfoViewCell_Clicked"/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </src:BasePage.Content>
+</src:BasePage>

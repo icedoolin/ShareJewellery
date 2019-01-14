@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.MyCenter.JewlryBox.JewelryBoxHistoryOrderPage"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape">
+
+    <src:BasePage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <myctrl:PageHead Text="历史记录"/>
+            <StackLayout Orientation="Vertical" Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Label x:Name="lb_tip" IsVisible="False" Text="没有历史信息" TextColor="{Static myColor:Color.grayFont}" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="50" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <ListView x:Name="ls_list"  ItemAppearing="ls_list_ItemAppearing"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                          HasUnevenRows="true" SeparatorVisibility="None"  BackgroundColor="{Static myColor:Color.SpaceColor}" SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate >
+                            <ViewCell>
+                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0,0.5,0,0.5" ColumnSpacing="1"   BackgroundColor="{Static myColor:Color.SpaceColor}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions >
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <StackLayout Grid.Row="0" Grid.Column="0" Spacing="5" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  BackgroundColor="{Static myColor:Color.BackgroundColor}" Padding="5,5,5,5" >
+                                        <Image Source="{Binding JewelleryPicForFreeDress}" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="Transparent" HeightRequest="{Binding commodityWith}" />
+                                        <myctrl:MultiLineLabel Text="{Binding JewelleryNameForFreeDress}" Lines="2" TextColor="Black"  FontSize="{Static fonystyle:FontSize.Fs10}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" Margin="10,0,10,0"/>
+                                        <Label Text="{Binding OrderType}" FontSize="{Static fonystyle:FontSize.Fs18}" TextColor="{Static myColor:Color.grayFont}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer  CommandParameter="{Binding .}"  Tapped="tapped_selectItem_left"  NumberOfTapsRequired="1" />
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Row="0" IsVisible="{Binding rightIsShow}" Grid.Column="1"  Spacing="5" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  BackgroundColor="{Static myColor:Color.BackgroundColor}" Padding="5,5,5,5" >
+                                        <Image Source="{Binding rightJewelleryPicForFreeDress}" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="Transparent" HeightRequest="{Binding commodityWith}" />
+                                        <myctrl:MultiLineLabel Text="{Binding rightJewelleryNameForFreeDress}" Lines="2" TextColor="Black"  FontSize="{Static fonystyle:FontSize.Fs10}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" Margin="10,0,10,0"/>
+                                        <Label Text="{Binding rightOrderType}" FontSize="{Static fonystyle:FontSize.Fs18}" TextColor="{Static myColor:Color.grayFont}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer  CommandParameter="{Binding .}" Tapped="tapped_selectItem_right" NumberOfTapsRequired="1" />
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                </Grid>
+
+                                <!--<Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <BoxView Grid.Row="0" Grid.Column="0" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                    <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="0" Padding="0,0,0,0">
+                                        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Spacing="0" Padding="0,0,0,0">
+                                            <Image Source="{Binding JewelleryPicForFreeDress}" Aspect="AspectFit"   HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="80" WidthRequest="80"  Margin="5,0,0,0" />
+                                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0" Margin="5,0,0,0" Padding="0,0,0,0">
+                                                <Label Text="{Binding JewelleryNameForFreeDress}" FontSize="{Static fonystyle:FontSize.Fs15}" TextColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                    <Label Text="{Binding PriceForFreeDress}" FontSize="{Static fonystyle:FontSize.Fs18}" TextColor="{Static myColor:Color.redFont}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+
+                                                    <Label Text="{Binding OrderType}" FontSize="{Static fonystyle:FontSize.Fs18}" TextColor="{Static myColor:Color.grayFont}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="tapped_selectItem" CommandParameter="{Binding .}" NumberOfTapsRequired="1"   />
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                </Grid>-->
+                               
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </src:BasePage.Content>
+</src:BasePage>

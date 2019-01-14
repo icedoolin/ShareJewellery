@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Mycontrols.HeadPortrait">
+  <ContentView.Content>
+        <Frame x:Name="frameLayout" HorizontalOptions="Start" VerticalOptions="Center"
+                                 HeightRequest="30" WidthRequest="30" BackgroundColor="Gray"
+                                 Padding="0,0,0,0"
+                                 CornerRadius="30">
+            
+            <Image x:Name="headportrait" Source="" HorizontalOptions="Center" VerticalOptions="Center"
+                                           Aspect="AspectFill" HeightRequest="45" WidthRequest="45" />
+        </Frame>
+    </ContentView.Content>
+</ContentView>

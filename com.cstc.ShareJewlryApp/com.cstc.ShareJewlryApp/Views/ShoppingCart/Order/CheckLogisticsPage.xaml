@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.ShoppingCart.Order.CheckLogisticsPage"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape">
+ 
+    <src:BasePage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <myctrl:PageHead Text="查看物流"/>
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <ListView x:Name="listView" ItemSelected="listView_ItemSelected" SeparatorVisibility="None" HasUnevenRows="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,10,0,10">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <!--<StackLayout Orientation="Vertical" BackgroundColor="White">
+                                
+                            </StackLayout>-->
+                                <Grid HorizontalOptions="FillAndExpand" RowSpacing="0" ColumnSpacing="0" Margin="10,0,10,0" BackgroundColor="White">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White"/>
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Spacing="1" Grid.Column="0">
+                                        <Label Text="{Binding Data}" TextColor="{Binding bcolor}" FontSize="Default"  HorizontalTextAlignment="End"/>
+                                        <Label Text="{Binding Time}" TextColor="{Binding bcolor}" FontSize="Default" HorizontalTextAlignment="End"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" WidthRequest="30" HorizontalOptions="StartAndExpand" Spacing="0" Grid.Column="1">
+                                        <Label WidthRequest="1" IsVisible="True" BackgroundColor="{Binding tColor}"  FontSize="Default" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand"/>
+                                        <myctrl:FontIcon Text="{Binding Text}" TextColor="{Binding bcolor}"  FontSize="{Binding Fontsize}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"/>
+                                        <Label WidthRequest="1" IsVisible="True"  BackgroundColor="{Binding eColor}"  FontSize="Default" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Grid.Column="2"  Margin="0,20,0,20">
+                                        <Label Text="{Binding context}" TextColor="{Binding bcolor}" FontSize="Default" HorizontalTextAlignment="Start" LineBreakMode="WordWrap" />
+                                    </StackLayout>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </src:BasePage.Content>
+</src:BasePage>

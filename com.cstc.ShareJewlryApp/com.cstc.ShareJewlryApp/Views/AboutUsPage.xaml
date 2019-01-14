@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.AboutUsPage"
+               xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape">
+    <src:BasePage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+            <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0"
+                         BackgroundColor="{Static myColor:Color.SpaceColor}">
+                <myctrl:PageHead Text="关于我们" />
+                <Image Source="AboutUs_Bg.png" Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+                        HeightRequest="150" WidthRequest="10"/>
+                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="10" BackgroundColor="{Static myColor:Color.SpaceColor}"/>
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="0" 
+                             BackgroundColor="{Static myColor:Color.BackgroundColor}">
+  
+                    <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+                    <myctrl:MyCenterItem  LeftText="公司介绍" LeftImgShow="False" arroundPadding="10,0,10,0" LeftTextColor="Black" 
+                                          LeftTextSize="{Static fonystyle:FontSize.Fs15}" LeftImgSize="0" RightImgSize="12" RightText=""
+                                          HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+                                          HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                        <myctrl:MyCenterItem.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapCompanyDesc_Tapped" NumberOfTapsRequired="1" />
+                        </myctrl:MyCenterItem.GestureRecognizers>
+                    </myctrl:MyCenterItem>
+                    <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+                    <myctrl:MyCenterItem  LeftText="用户协议" LeftImgShow="False" arroundPadding="10,0,10,0" LeftTextColor="Black" 
+                                          LeftTextSize="{Static fonystyle:FontSize.Fs15}" LeftImgSize="0" RightImgSize="12" RightText=""
+                                          HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+                                          HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                        <myctrl:MyCenterItem.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapTermsOfService_Tapped" NumberOfTapsRequired="1" />
+                        </myctrl:MyCenterItem.GestureRecognizers>
+                    </myctrl:MyCenterItem>
+                    <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+                    <myctrl:MyCenterItem  LeftText="服务条款" LeftImgShow="False" arroundPadding="10,0,10,0" LeftTextColor="Black" 
+                                          LeftTextSize="{Static fonystyle:FontSize.Fs15}" LeftImgSize="0" RightImgSize="12" RightText=""
+                                          HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+                                          HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                        <myctrl:MyCenterItem.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapTermsOfService_Tapped" NumberOfTapsRequired="1" />
+                        </myctrl:MyCenterItem.GestureRecognizers>
+                    </myctrl:MyCenterItem>
+                    <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+                    <myctrl:MyCenterItem  LeftText="联系客服" LeftImgShow="False" arroundPadding="10,0,10,0" LeftTextColor="Black" 
+                                          LeftTextSize="{Static fonystyle:FontSize.Fs15}" LeftImgSize="0" RightImgSize="12" RightText=""
+                                          HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+                                          HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                        <myctrl:MyCenterItem.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapCustomerService_Tapped" NumberOfTapsRequired="1" />
+                        </myctrl:MyCenterItem.GestureRecognizers>
+                    </myctrl:MyCenterItem>
+                    <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+                    <myctrl:MyCenterItem  x:Name="lbl_VersionNumber" LeftText="检测新版本" LeftImgShow="False" arroundPadding="10,0,10,0" LeftTextColor="Black" 
+                                          LeftTextSize="{Static fonystyle:FontSize.Fs15}" LeftImgSize="0" RightImgSize="12" RightText=""
+                                          HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+                                          HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                        <myctrl:MyCenterItem.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapNewVersion_Tapped" NumberOfTapsRequired="1" />
+                        </myctrl:MyCenterItem.GestureRecognizers>
+                    </myctrl:MyCenterItem>
+                    
+                    <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+
+                </StackLayout>
+            </StackLayout>
+            <!--显示新版本-->
+            <myctrl:NewVersionView x:Name="NewVersionBox"  
+                                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="False" Grid.Row="0" Grid.Column="0"/>
+      
+        </Grid>
+        </src:BasePage.Content>
+</src:BasePage>

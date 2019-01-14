@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Mycontrols.NewVersionView"
+                          xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle">
+  <ContentView.Content>
+        <!--弹出窗口，一个Frame内只能放一个控件。
+        透明度需要通过stacklayout设置Test_Show.BackgroundColor = Color.FromRgba(0, 0, 0, 0.5);->-->
+        <Frame   BackgroundColor="Transparent" 
+                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"      
+                    HeightRequest="10" WidthRequest="10"
+                    Padding="0,0,0,0" CornerRadius="0">
+            <!--填充整个界面的布局，使得Frame内部可以摆放更多东西-->
+            <StackLayout  x:Name="Layout_Show" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                          BackgroundColor="Transparent" HeightRequest="10" WidthRequest="10"
+                          Padding="0,50,0,0" Spacing="0">
+                <!--构建圆角内容区域-->
+                <Frame x:Name="Main_Layout" HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                        HeightRequest="500" WidthRequest="10"
+                        BackgroundColor="Transparent" CornerRadius="0" 
+                        Margin="30,30,30,0" Padding="0,0,0,0" >
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent"
+                                 Padding="0,0,0,0"  Spacing="0">
+
+                        <!--顶部图片-->
+                        <Image x:Name="Image_Title" Source="NewVersion_Bg.png" Aspect="AspectFill" 
+                          HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+                          BackgroundColor="Transparent" HeightRequest="250"/>
+                         <!--主体文本-->
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+                                    WidthRequest="30" HeightRequest="60"
+                                    BackgroundColor="White" Padding="10,0,10,0">
+                            <Label x:Name="Text_Body" Text="更 多 功 能"
+                                TextColor="Black" FontSize="{Static fonystyle:FontSize.Fs15}" LineHeight="1.5"
+                                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Center"/>
+                            <Label x:Name="Text_Body2" Text="点 击 更 新 立 即 体 验"
+                                TextColor="Black" FontSize="{Static fonystyle:FontSize.Fs15}" LineHeight="1.5"
+                                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Center"/>
+                        </StackLayout>
+                        <!--按钮-->
+                        <StackLayout x:Name="sl_button" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End"
+                            WidthRequest="40" HeightRequest="50"  BackgroundColor="White" Padding="20,0,20,0" Spacing="20">
+
+                            <Button x:Name="button_1" Text="更新" TextColor="White" FontSize="{Static fonystyle:FontSize.Fs15}"                                       
+                                       HorizontalOptions="FillAndExpand" VerticalOptions="Center" 
+                                        HeightRequest="40" WidthRequest="10" CornerRadius="20" Padding="0,0,0,0"
+                                                                       BackgroundColor="#8ccecc"
+                                    Clicked="TapBtn1_Tapped">
+                                <!--<Button.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapBtn1_Tapped" NumberOfTapsRequired="1"/>
+                                </Button.GestureRecognizers>-->
+                            </Button>
+                            <Button x:Name="button_2" Text="忽略" TextColor="White" FontSize="{Static fonystyle:FontSize.Fs15}"                                       
+                                       HorizontalOptions="FillAndExpand" VerticalOptions="Center" 
+                                        HeightRequest="40" WidthRequest="10" CornerRadius="20" Padding="0,0,0,0"
+                                    BackgroundColor="#98c8f5"
+                                           Clicked="TapBtn2_Tapped">
+                                <!--<Button.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapBtn2_Tapped" NumberOfTapsRequired="1"/>
+                                </Button.GestureRecognizers>-->
+                            </Button>
+
+                        </StackLayout>
+                        <!--关闭按钮-->
+                        <Image Source="BuyVipSuccess_Close.png" Aspect="AspectFit" 
+                               HorizontalOptions="Center" VerticalOptions="Start"
+                               WidthRequest="40" HeightRequest="40" 
+                               Margin="0,10,0,0">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapClose_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>
+ 
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

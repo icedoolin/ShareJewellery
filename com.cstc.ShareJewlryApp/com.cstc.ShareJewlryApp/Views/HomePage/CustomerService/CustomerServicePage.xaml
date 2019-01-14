@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.HomePage.CustomerService.CustomerServicePage"
+              xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape"
+                          xmlns:helpers="clr-namespace:com.cstc.ShareJewlryApp.Helpers" >
+  <!--xmlns:xfctrl="clr-namespace:AsNum.XFControls;assembly=AsNum.XFControls"-->
+ 
+  <src:BasePage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0"
+                 BackgroundColor="{Static myColor:Color.SpaceColor}" 
+                         Grid.Row="0" Grid.RowSpan="2">
+                <Grid x:Name="gd_myCenterHomePageBg" HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Start" RowSpacing="0" ColumnSpacing="0" BackgroundColor="Transparent">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="8.5*" />
+                        <RowDefinition Height="18*" />
+                        <RowDefinition Height="38*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--头像-->
+                    <Image  x:Name="img_myheadImg" Source="unLogin_headImg.png" 
+                                     Aspect="AspectFill" HorizontalOptions="Center"  VerticalOptions="Center" 
+                                    BackgroundColor="Transparent" Margin="0,0,0,0"
+                                    Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
+                    <!--背景框 begin-->
+                    <Image x:Name="img_myCenterHomePageBg" Source="Service_Bg.png" 
+                                   HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+                                   Aspect="AspectFill"  BackgroundColor="Transparent"
+                                   Grid.Row="0"  Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3"/>
+ 
+                    <!--背景框 end-->
+                    <!--头像框 昵称 会员标志栏 begin-->
+                    <StackLayout   Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="3"
+                                 Orientation="Vertical" Spacing="3" HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+                                 BackgroundColor="Transparent" Padding="5,0,5,0" >
+                        <!--昵称 begin-->
+                        <Label  x:Name="lb_shopName"  BackgroundColor="Transparent"  FontSize="{Static fonystyle:FontSize.Fs15}"
+                                     Text=""  TextColor="White" LineBreakMode="NoWrap" HorizontalOptions="CenterAndExpand"
+                                     VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                        <!--漂浮数据-->
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Spacing="2" VerticalOptions="FillAndExpand"
+                                    BackgroundColor="Transparent"  Padding="5,0,5,0" Margin="0,10,0,0">
+                            <Image   x:Name="img_vip" Source="Service_WhiteBg.png"  Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                                     BackgroundColor="Transparent"  />
+                            <Label   Text="新贵佳人" TextColor="White" FontSize="{Static fonystyle:FontSize.Fs20}" FontAttributes="Bold"
+                                     HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                     HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="Transparent"
+                                     Margin="10,-80,10,10"/>
+                            <Label   Text="以珠宝为媒介成就女性创业梦想！" TextColor="White" FontSize="{Static fonystyle:FontSize.Fs20}" FontAttributes="Bold"
+                                     HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                     HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="Transparent"/>
+                        </StackLayout>
+
+                    </StackLayout>
+
+ 
+                </Grid>
+ 
+
+                <!-- 客服号begin-->
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Orientation="Vertical" Spacing="15"
+                               Padding="0,0,0,15" BackgroundColor="{Static myColor:Color.SpaceColor}">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="0"
+                                 BackgroundColor="{Static myColor:Color.BackgroundColor}">
+                        <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+                        <myctrl:MyCenterItem x:Name="lb_shopAddress" arroundPadding="10,0,10,0"
+                                           LeftText="地址：" LeftTextColor="Black"  LeftTextSize="{Static fonystyle:FontSize.Fs15}"
+                                           RightTextSize="{Static fonystyle:FontSize.Fs12}"
+                                           LeftIco="Service_Position.png"
+                                           RightIco=""
+                                           LeftImgSize="20" RightImgSize="20"
+                                           HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+                                           HeightRequest="50">
+                            <myctrl:MyCenterItem.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="tapped_copy" NumberOfTapsRequired="1" />
+                            </myctrl:MyCenterItem.GestureRecognizers>
+                        </myctrl:MyCenterItem>
+                        <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+
+                        <myctrl:MyCenterItem x:Name="lb_wetChat" arroundPadding="10,0,10,0"
+                                           LeftText="客服号：" LeftTextColor="Black"  LeftTextSize="{Static fonystyle:FontSize.Fs15}"
+                                           RightTextSize="{Static fonystyle:FontSize.Fs12}"
+                                           LeftIco="Service_Weixin.png"
+                                           RightIco="Service_Copy.png"
+                                           LeftImgSize="20" RightImgSize="20"
+                                           HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+                                           HeightRequest="50">
+                            <myctrl:MyCenterItem.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="tapped_copy" NumberOfTapsRequired="1" />
+                            </myctrl:MyCenterItem.GestureRecognizers>
+                        </myctrl:MyCenterItem>
+                        <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+                        <myctrl:MyCenterItem x:Name="lb_tencent" arroundPadding="10,0,10,0"
+                                           LeftText="客服号：" LeftTextColor="Black"  LeftTextSize="{Static fonystyle:FontSize.Fs15}"
+                                           RightTextSize="{Static fonystyle:FontSize.Fs12}"
+                                           LeftIco="Service_QQ.png"
+                                           RightIco="Service_Copy.png"
+                                           LeftImgSize="20" RightImgSize="20"
+                                           HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+                                                HeightRequest="50">
+                            <myctrl:MyCenterItem.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="tapped_copyTencent" NumberOfTapsRequired="1" />
+                            </myctrl:MyCenterItem.GestureRecognizers>
+                        </myctrl:MyCenterItem>
+                        <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+                        <myctrl:MyCenterItem x:Name="lb_tel" arroundPadding="10,0,10,0"
+                                           LeftText="电话号：" LeftTextColor="Black"  LeftTextSize="{Static fonystyle:FontSize.Fs15}"
+                                           RightTextSize="{Static fonystyle:FontSize.Fs12}"
+                                           LeftIco="Service_Phone.png"
+                                           RightIco="Service_PhoneDia.png"
+                                           LeftImgSize="20" RightImgSize="20"
+                                           HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+                                           HeightRequest="50">
+                            <myctrl:MyCenterItem.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="tapped_callTel" NumberOfTapsRequired="1" />
+                            </myctrl:MyCenterItem.GestureRecognizers>
+                        </myctrl:MyCenterItem>
+
+
+
+                    </StackLayout>
+
+                </StackLayout>
+
+            </StackLayout>
+            <myctrl:PageHead Text="" BackGroundColor_Main="Transparent" TextColor="White" LeftText="{Static helpers:SvgFontHelper.Back_White}" Grid.Row="0"/>
+        </Grid>
+    </src:BasePage.Content>
+</src:BasePage>

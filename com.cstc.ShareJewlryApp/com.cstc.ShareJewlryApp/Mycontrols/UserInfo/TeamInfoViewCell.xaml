@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Mycontrols.TeamInfoViewCell"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             >
+    <ContentView.Content>
+        <!--<Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <BoxView Grid.Row="0" Grid.Column="0" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>-->
+            <StackLayout Orientation="Horizontal" BindingContext="{Binding .}"
+                                            Grid.Row="0" Grid.Column="0" 
+                                             HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+                                             HeightRequest="40" Padding="10,10,10,10">
+                <!--头像-->
+            <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
+                <Image x:Name="headportrait"  Source="{Binding PhotoForShow}" HeightRequest="40" WidthRequest="40"
+                       HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFill"/>
+                <Image   Source="icon_titleimg.png" HeightRequest="40" WidthRequest="40"
+                       HorizontalOptions="Start" VerticalOptions="Center" />
+            </Grid>
+            <!--中间信息，分为两行-->
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent">
+                    <!--第一行 姓名、是否VIP标志、邀请人数（直推人数）-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent">
+                    <Label  Text="{Binding Name}"  TextColor="Black" 
+                                                    HorizontalOptions="Center" LineBreakMode="NoWrap" VerticalOptions="Start" 
+                                                    HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="40"
+                                                    BackgroundColor="Transparent" FontSize="{Static fonystyle:FontSize.Fs15}" />
+                    <Image Source="{Binding isVip}"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="15" 
+                                                   WidthRequest="15" BackgroundColor="Transparent" />
+                    <Label Text="{Binding sonNumForShow}"  TextColor="{Static myColor:Color.grayFont}"  FontSize="{Static fonystyle:FontSize.Fs13}" 
+                                                HorizontalOptions="FillAndExpand" VerticalOptions="Center" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <!--第二行 日期、团队人数-->
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent">
+                    <Label Text="{Binding CREATETIME}" TextColor="{Static myColor:Color.grayFont}"    FontSize="{Static fonystyle:FontSize.Fs13}" 
+                                               HorizontalOptions="Start" VerticalOptions="End" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                        
+                        <!--<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="Red"/>-->
+                        <Label Text="{Binding teamForShow}"  TextColor="{Static myColor:Color.grayFont}"     FontSize="{Static fonystyle:FontSize.Fs13}" 
+                                           HorizontalOptions="FillAndExpand" VerticalOptions="Center" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+                    </StackLayout>
+                </StackLayout>
+                <!--最右边箭头-->
+                <Image Source="right_arrow.png" HorizontalOptions="End" Aspect="AspectFit" VerticalOptions="Center" HeightRequest="15" WidthRequest="15"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="tapped_selectItem" NumberOfTapsRequired="1" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        <!--</Grid>-->
+    </ContentView.Content>
+</ContentView>

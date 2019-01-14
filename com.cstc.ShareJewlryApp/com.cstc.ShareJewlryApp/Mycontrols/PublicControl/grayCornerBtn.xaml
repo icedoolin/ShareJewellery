@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Mycontrols.grayCornerBtn"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color">
+  <ContentView.Content>
+        <Frame CornerRadius="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HasShadow="False" BackgroundColor="{Static myColor:Color.grayFont}" Padding="1,1,1,1">
+            <Frame CornerRadius="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HasShadow="False" BackgroundColor="{Static myColor:Color.BackgroundColor}" Padding="2,2,2,2" >
+                <Label x:Name="lb_btnTxt" Text="" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="Transparent" TextColor="{Static myColor:Color.grayFont}" />
+            </Frame>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

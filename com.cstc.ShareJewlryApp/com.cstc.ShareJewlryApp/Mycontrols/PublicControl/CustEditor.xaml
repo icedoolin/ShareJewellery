@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Mycontrols.CustEditor"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape">
+    <ContentView.Content>
+        <Frame x:Name="borderFrame"   Margin="0,0,0,0" BackgroundColor="{Static myColor:Color.SpaceColor}"  HasShadow="False" CornerRadius="6" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+            <Frame.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <OnPlatform.iOS>
+                        3, 0, 0, 0
+                    </OnPlatform.iOS>
+                    <OnPlatform.Android>
+                        0, 0, 0, 0
+                    </OnPlatform.Android>
+                </OnPlatform>
+            </Frame.Padding>
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+              
+                <myctrl:MyEditor x:Name="edt_content" Text=""  Grid.Row="0" Grid.Column="0" 
+                                 TextChanged="edt_content_TextChanged" 
+                                 BackgroundColor="Transparent" Focused="edt_content_focused" 
+                                 PropertyChanged="edt_content_PropertyChanged" 
+                                 PropertyChanging="edt_content_PropertyChanging" 
+                                 Unfocused="edt_content_unfocused" 
+                                 HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                    <myctrl:MyEditor.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <OnPlatform.iOS>
+                                15
+                            </OnPlatform.iOS>
+                            <OnPlatform.Android>
+                                14
+                            </OnPlatform.Android>
+                        </OnPlatform>
+                    </myctrl:MyEditor.FontSize>
+                </myctrl:MyEditor>
+                <Label Grid.Row="1" Grid.Column="0" x:Name="lb_textCount" Text="" BackgroundColor="Transparent" HorizontalOptions="End" VerticalOptions="Start" HorizontalTextAlignment="End" VerticalTextAlignment="Center" HeightRequest="30"/>
+            </Grid>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

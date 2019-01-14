@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.HomePage.WebPage"
+               xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape"
+              >
+
+    <src:BasePage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <!--顶部 按钮  bengin-->
+            <Grid  HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="50" BackgroundColor="Transparent" Padding="0,20,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+                <Image Source="headbg.png" Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill"/>
+                <StackLayout Grid.Column="0" Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" Padding="10,0,0,0">
+                    <Image x:Name="img_left_arrow" BackgroundColor="Transparent" Source="left_arrow_white.png" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="12" WidthRequest="12">
+
+                    </Image>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_goBackPage" NumberOfTapsRequired="1"   />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout Grid.Column="1" Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" Padding="0,0,0,0">
+                    <Image  BackgroundColor="Transparent" Source="block_white.png" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="12" WidthRequest="12">
+
+                    </Image>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_closePage" NumberOfTapsRequired="1"   />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <Label Grid.Row="0"  Grid.Column="2" Text="网页" FontSize="{Static fonystyle:FontSize.Fs17}" TextColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                
+            </Grid>
+            <!--顶部 按钮  End-->
+            <WebView x:Name="web" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+        </StackLayout>
+    </src:BasePage.Content>
+</src:BasePage>

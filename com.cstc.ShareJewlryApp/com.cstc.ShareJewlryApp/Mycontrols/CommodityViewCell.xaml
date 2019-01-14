@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Mycontrols.CommodityViewCell"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color">
+  <ContentView.Content>
+        <Grid x:Name="Grid_Main" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,10,10,0" ColumnSpacing="10"
+              HeightRequest="{Binding commodityHeight}"  BackgroundColor="#F5F5F5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Frame x:Name="left_frame" Grid.Row="0" Grid.Column="0" CornerRadius="10" 
+                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                   HasShadow="False" BackgroundColor="White" 
+                   Padding="3,3,3,3" Margin="0,0,0,3">
+                <StackLayout  BindingContext="{Binding .}" Orientation="Vertical" Spacing="5" 
+                              HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  
+                              BackgroundColor="Transparent" >
+                    <Image Source="{Binding JewelleryPicNameForImg}" Aspect="AspectFill" 
+                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                           BackgroundColor="Transparent"  />
+
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="28" WidthRequest="10"
+                                 Margin="10,0,10,0">
+                        <Label Text="{Binding JewelleryName}" MaxLines="2" 
+                           TextColor="Black"  FontSize="{Static fonystyle:FontSize.Fs12}"
+                           HorizontalOptions="FillAndExpand" VerticalOptions="Start"  
+                           LineBreakMode="CharacterWrap" HeightRequest="28"
+                           HorizontalTextAlignment="Start" VerticalTextAlignment="Start" 
+                           />
+                    </StackLayout>
+                    <StackLayout   Orientation="Horizontal" HeightRequest="20" BackgroundColor="Transparent"
+                                  HorizontalOptions="FillAndExpand" VerticalOptions="End" Padding="10,0,10,0" >
+                        <Image Source="homePage_hot.png" BackgroundColor="Transparent" 
+                               HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="14" WidthRequest="14"/>
+                        <Label Text="{Binding number}" FontSize="{Static fonystyle:FontSize.Fs10}" TextColor="#ee3131" 
+                               HorizontalOptions="StartAndExpand" VerticalOptions="Start"  HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                        <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="End" WidthRequest="1" 
+                                 BackgroundColor="Transparent"/>
+                        <Image Source="homePage_praise.png" BackgroundColor="Transparent" 
+                               HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="14" WidthRequest="14"/>
+                        <Label Text="{Binding PraiseForShow}" FontSize="{Static fonystyle:FontSize.Fs10}" TextColor="#515151"
+                               HorizontalOptions="End" VerticalOptions="Start" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+                    </StackLayout>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_commodity"  NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+            </Frame>
+            <Frame  x:Name="right_frame"  Grid.Row="0" Grid.Column="1" IsVisible="{Binding rightIsShow}" CornerRadius="10" 
+                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                   HasShadow="False" BackgroundColor="White" 
+                   Padding="3,3,3,3" Margin="0,0,0,3">
+                <StackLayout  BindingContext="{Binding .}" Orientation="Vertical" Spacing="5" 
+                              HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  
+                              BackgroundColor="White" >
+                    <Image Source="{Binding RightJewelleryPicNameForImg}" Aspect="AspectFill" 
+                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                           BackgroundColor="Transparent" HeightRequest="{Binding commodityWith}"/>
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="28" WidthRequest="10"
+                                 Margin="10,0,10,0">
+                        <Label Text="{Binding rightJewelleryName}" MaxLines="2" 
+                           TextColor="Black"  FontSize="{Static fonystyle:FontSize.Fs12}"
+                           HorizontalOptions="FillAndExpand" VerticalOptions="Start"  
+                           LineBreakMode="CharacterWrap" HeightRequest="28"
+                           HorizontalTextAlignment="Start" VerticalTextAlignment="Start" 
+                           />
+                    </StackLayout>
+                    <StackLayout   Orientation="Horizontal" HeightRequest="20" BackgroundColor="Transparent"
+                                  HorizontalOptions="FillAndExpand" VerticalOptions="End" Padding="10,0,10,0" >
+                        <Image Source="homePage_hot.png" BackgroundColor="Transparent" 
+                               HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="14" WidthRequest="14"/>
+                        <Label Text="{Binding rightnumber}" FontSize="{Static fonystyle:FontSize.Fs10}" TextColor="#ee3131" 
+                               HorizontalOptions="StartAndExpand" VerticalOptions="Start"  HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                        <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="End" WidthRequest="1" 
+                                 BackgroundColor="Transparent"/>
+                        <Image Source="homePage_praise.png" BackgroundColor="Transparent" 
+                               HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="14" WidthRequest="14"/>
+                        <Label Text="{Binding rightPraiseForShow}" FontSize="{Static fonystyle:FontSize.Fs10}" TextColor="#515151"
+                               HorizontalOptions="End" VerticalOptions="Start" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+                    </StackLayout>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_commodity_right" NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </Frame>
+
+        </Grid>
+    </ContentView.Content>
+</ContentView>

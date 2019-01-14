@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Mycontrols.jerBoxBtn">
+    <ContentView.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                <!--<BoxView Grid.Row="0" BackgroundColor="#81d8d0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#81d8d0"/>-->
+                <StackLayout Grid.Row="0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="0" VerticalOptions="FillAndExpand"   >
+                    <Label  x:Name="lb_title" Text="" TextColor="White" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <BoxView HorizontalOptions="End" VerticalOptions="FillAndExpand" WidthRequest="0.5" Margin="0,5,0,5" BackgroundColor="#48a89f" />
+                    <BoxView HorizontalOptions="End" VerticalOptions="FillAndExpand" WidthRequest="0.5" Margin="0,5,0,5" BackgroundColor="#b3efe9" />
+                    <Image Source="right_arrow_blue.png" HorizontalOptions="End" VerticalOptions="Center" HeightRequest="12" WidthRequest="12" Margin="5,0,5,0"/>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

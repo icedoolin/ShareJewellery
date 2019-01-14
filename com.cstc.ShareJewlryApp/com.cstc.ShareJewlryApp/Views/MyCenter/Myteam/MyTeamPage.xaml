@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage    xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.MyCenter.Myteam.MyTeamPage"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape"
+             >
+
+    <src:BasePage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Spacing="0" VerticalOptions="FillAndExpand" Padding="0,0,0,0">
+            <myctrl:PageHead Grid.Row="0" Grid.Column="0" Text="我的团队"/>
+            <Grid x:Name="grid_head" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0,0,0,0" HeightRequest="150"
+                  ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="28*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="img_myheadImg" Source="unLogin_headImg.png" Aspect="AspectFill" 
+                       HorizontalOptions="Center" VerticalOptions="Center"
+                       Grid.Row="0" Grid.Column="1"  />
+                <Image Source="headImgbg.png" Aspect="AspectFill" 
+                       Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                <StackLayout    Orientation="Horizontal" Spacing="10" 
+                          Grid.Row="0" Grid.Column="2"   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10,0,10,10">
+                    <!--中间文本：姓名、团队、邀请人-->
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Spacing="5" VerticalOptions="Center" >
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start"  
+                                     HeightRequest="20" WidthRequest="20"
+                                     BackgroundColor="Transparent">
+                            <Label BackgroundColor="Transparent" FontSize="{Static fonystyle:FontSize.Fs15}" x:Name="lb_nickName" 
+                                   Text="姓名"  TextColor="White" HorizontalOptions="Start" LineBreakMode="NoWrap" 
+                                   VerticalOptions="Start" HorizontalTextAlignment="Start" VerticalTextAlignment="End" HeightRequest="40" />
+                            <Image x:Name="img_vip" Source=""  HorizontalOptions="Start" 
+                                   VerticalOptions="End" HeightRequest="15" WidthRequest="15" BackgroundColor="Transparent" />
+                            <!--<Label Text="邀请收益" TextColor="White" HorizontalOptions="End" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="{Static fonystyle:FontSize.Fs12}" />-->
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start"  
+                                     HeightRequest="20" WidthRequest="20"
+                                     BackgroundColor="Transparent">
+                            <Label x:Name="lb_InvitationNum" Text="" TextColor="White" HorizontalOptions="Start" 
+                                   VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" 
+                                   FontSize="{Static fonystyle:FontSize.Fs12}" />
+                            <Label x:Name="lb_TeamNum" Text="" 
+                                   TextColor="White" HorizontalOptions="Start" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" 
+                                   VerticalTextAlignment="Start" FontSize="{Static fonystyle:FontSize.Fs12}" />
+                            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" WidthRequest="1"/>
+                            <!--<Label x:Name="lb_Reward" Text="" TextColor="White"  HorizontalOptions="End" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="{Static fonystyle:FontSize.Fs15}" />-->
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+                                     HeightRequest="20" WidthRequest="20"                                     
+                                     BackgroundColor="Transparent">
+                            <Label  Text="我的邀请人:" TextColor="White" HorizontalOptions="Start" 
+                                   VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" 
+                                   FontSize="{Static fonystyle:FontSize.Fs12}" />
+                            <Label x:Name="lb_FatherNickName" Text="" 
+                                   TextColor="White" HorizontalOptions="Start" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" 
+                                   VerticalTextAlignment="Start" FontSize="{Static fonystyle:FontSize.Fs12}" />
+                            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" WidthRequest="1"/>
+                            <!--<Label x:Name="lb_Reward" Text="" TextColor="White"  HorizontalOptions="End" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="{Static fonystyle:FontSize.Fs15}" />-->
+                        </StackLayout>
+                    </StackLayout>
+                    <!--竖线-->
+                    <BoxView HorizontalOptions="Fill" VerticalOptions="Center"   WidthRequest="1" BackgroundColor="White" HeightRequest="30"/>
+                    <!--邀请收益-->
+                    <StackLayout Orientation="Vertical" HorizontalOptions="Start" Spacing="5" VerticalOptions="Center" Margin="0,0,10,0">
+                        <Label Text="邀请收益" TextColor="White" HorizontalOptions="Start" VerticalOptions="FillAndExpand" 
+                               HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="{Static fonystyle:FontSize.Fs12}" />
+                        <Label x:Name="lb_Reward" Text="" TextColor="White"  HorizontalOptions="Start" VerticalOptions="FillAndExpand" HorizontalTextAlignment="End" VerticalTextAlignment="Center" FontSize="{Static fonystyle:FontSize.Fs15}" />
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+                         HeightRequest="40" BackgroundColor="{Static myColor:Color.SpaceColor}" Spacing="10" Padding="10,2,10,0">
+                <Label Text="我的邀请" FontSize="{Static fonystyle:FontSize.Fs14}"
+                       HorizontalOptions="Start" VerticalOptions="Center" 
+                       HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" BackgroundColor="Transparent"/>
+
+                <StackLayout Orientation="Vertical" HorizontalOptions="End" Spacing="0" VerticalOptions="FillAndExpand" WidthRequest="50">
+                    <Label x:Name="lb_all" Text="全部" FontSize="{Static fonystyle:FontSize.Fs14}" 
+                           TextColor="{Static myColor:Color.redFont}" 
+                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                           HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <BoxView x:Name="box_all" BackgroundColor="{Static myColor:Color.redFont}" HorizontalOptions="Center" VerticalOptions="Start" HeightRequest="2" WidthRequest="30" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_All" NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" HorizontalOptions="End" Spacing="0" VerticalOptions="FillAndExpand" WidthRequest="50">
+                    <Label x:Name="lb_time" Text="按时间" 
+                           FontSize="{Static fonystyle:FontSize.Fs14}" TextColor="{Static myColor:Color.grayFont}" 
+                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                           HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <BoxView x:Name="box_time" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Start" HeightRequest="2" WidthRequest="30" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_time" NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" HorizontalOptions="End" Spacing="0" VerticalOptions="FillAndExpand" WidthRequest="50">
+                    <Label x:Name="lb_identity" Text="按身份" 
+                           FontSize="{Static fonystyle:FontSize.Fs14}" TextColor="{Static myColor:Color.grayFont}" 
+                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                           HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <BoxView x:Name="box_identity" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Start" HeightRequest="2" WidthRequest="30" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_identity" NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" HorizontalOptions="End" Spacing="0" VerticalOptions="FillAndExpand" WidthRequest="50">
+                    <Label x:Name="lb_team" Text="按团队" 
+                           FontSize="{Static fonystyle:FontSize.Fs14}" TextColor="{Static myColor:Color.grayFont}" 
+                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                           HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <BoxView x:Name="box_team" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Start" HeightRequest="2" WidthRequest="30" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_team" NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+            </StackLayout>
+            <ListView x:Name="ls_list"  ItemAppearing="ls_list_ItemAppearing"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                      HasUnevenRows="true" SeparatorVisibility="None" >
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ViewCell>
+                            <myctrl:TeamInfoViewCell HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                                                     Clicked="TeamInfoViewCell_Clicked"/>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+        </StackLayout>
+    </src:BasePage.Content>
+</src:BasePage >

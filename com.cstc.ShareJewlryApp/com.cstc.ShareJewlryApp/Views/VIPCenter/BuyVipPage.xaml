@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage    xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.MyCenter.BuyVipPage"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape">
+ 
+    <src:BasePage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                     Spacing="0"  Grid.Row="0" BackgroundColor="{Static myColor:Color.SpaceColor}" >
+            <myctrl:PageHead Text="成为会员" BackGroundColor_Main="White"/>
+ 
+                <!--<ScrollView Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">-->
+                <Image Source="viptarget.png" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Aspect="AspectFit" Margin="0,5,0,0"/>
+ 
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                             Spacing="0" BackgroundColor="{Static myColor:Color.SpaceColor}" Margin="0,5,0,0">
+                    <Label Text="成为会员可以享受以下权益" TextColor="Black"  
+                           HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+                           FontSize="Large" FontAttributes="Bold" 
+                           BackgroundColor="White"
+                           HeightRequest="50"  Margin="0,5,0,0"
+                           HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <!--权益列表-->
+                    <myctrl:VipBenefitsGridView x:Name="VipBenefits_List" HorizontalOptions="FillAndExpand" 
+                                                VerticalOptions="FillAndExpand" 
+                                                SelectedTitleChanged="VipBenefits_List_SelectedTitleChanged"/>
+ 
+                    <!--底部按钮立即开通-->
+                    <StackLayout Orientation="Vertical" 
+                                 HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="White"
+                                 Spacing="5" Margin="0,15,0,0" Padding="10,20,10,0">
+                        <Image x:Name="btn_buyvip" Source="BuyVip_Buy.png"  Aspect="AspectFit"
+                               HorizontalOptions="FillAndExpand" VerticalOptions="End" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapBuy_Tapped"  NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+                                 Spacing="5" Margin="0,15,0,20" Padding="10,0,10,0">
+                            <Image x:Name="SelectBox" Source="SelectedBox.png" Aspect="AspectFit" HorizontalOptions="Start"
+                                   HeightRequest="20" WidthRequest="20">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapAgreeTerm_Tapped"  NumberOfTapsRequired="1" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label x:Name="lbl_Agree" Text="我已同意" 
+                                   TextColor="Black"
+                                   FontSize="{Static fonystyle:FontSize.Fs12}" 
+                               HorizontalOptions="Start" VerticalOptions="Start" 
+                               HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HeightRequest="20">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapAgreeTerm_Tapped"  NumberOfTapsRequired="1" />
+                                </Label.GestureRecognizers>
+ 
+                            </Label>
+                            <Label Text="《新贵佳人平台会员条款》" FontSize="{Static fonystyle:FontSize.Fs12}" 
+                               HorizontalOptions="Start" VerticalOptions="Start" 
+                               HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HeightRequest="20" TextColor="Blue">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="tapped_service" NumberOfTapsRequired="1" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                        </StackLayout>
+                    </StackLayout>
+
+
+                </StackLayout>
+
+                <!--</ScrollView>-->
+
+        </StackLayout>
+
+
+
+
+            <!--支付方式-->
+            <myctrl:PayView  x:Name="BuyVip_PayBox" IsVisible="False"
+                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="10" WidthRequest="10"  
+                    BackgroundColor="Transparent" Grid.Row="0" Grid.Column="0"
+                    PaySuccess="BuyVip_PayBox_PaySuccess"/>
+          
+            <!--购买成功提示框-->
+ 
+            <myctrl:PublicMessageBox x:Name="BuyVipSuccess_Show"  IsVisible="False" 
+                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                    BackgroundColor="Transparent" ImageBackGroundSource="BuyVipSuccess_BgImage.png"
+                    TotalHeight="363" TotalWidth="260"
+                    ButtonLong_IsVisible="True" BackGroundColor_ButtonLong="#fde233" 
+                    Text_ButtonLong="逛一逛" TextColor_ButtonLong="#c800fc"
+                    ButtonLongClicked="BuyVipSuccess_Show_ButtonLongClicked"                                     
+                    Button1_IsVisible="False" Button2_IsVisible="False"
+                    ImageBody_IsVisible="False"
+                                    />
+
+            <!--会员权益明细弹窗-->
+            <myctrl:PublicMessageBox x:Name="VipBenefitsDetail_Show"  IsVisible="False" 
+                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                    BackgroundColor="Transparent" 
+                    TotalHeight="290" TotalWidth="260"
+                    TitleHeight="126"
+                    Button1_IsVisible="False" Button2_IsVisible="False"
+                    ImageBody_IsVisible="False"
+                                    />
+            <!--登录框 Begin-->
+            <myctrl:LoginView x:Name="st_LoginBox" IsVisible="False" Grid.Row="0" Grid.Column="0" 
+                               HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" 
+                               LoginSuccess="St_LoginBox_LoginSuccess" LoginCancel="St_LoginBox_LoginCancel"/>
+ 
+        </Grid>
+    </src:BasePage.Content>
+</src:BasePage >

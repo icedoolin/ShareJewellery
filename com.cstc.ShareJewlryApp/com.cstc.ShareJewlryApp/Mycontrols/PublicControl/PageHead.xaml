@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Mycontrols.PageHead"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:helpers="clr-namespace:com.cstc.ShareJewlryApp.Helpers"
+             xmlns:myctrl= "clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             >
+    <ContentView.Content>
+        <Grid x:Name="grid_head" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" 
+              BackgroundColor="White" HeightRequest="80" RowSpacing="0" Padding="0,0,0,0">
+            <Grid.RowDefinitions>
+                <!--第一行为状态栏保留位置，如果不需要，可以将高度设置为1-->
+                <RowDefinition x:Name="row0" Height="30"/>
+                <RowDefinition x:Name="row1" Height="50"/>
+                <RowDefinition x:Name="row2" Height="1"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="80" />
+            </Grid.ColumnDefinitions>
+            <Image x:Name="img_bg" Source="" Aspect="AspectFill" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3" 
+                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+            <StackLayout x:Name="st_left"  Orientation="Horizontal"  IsVisible="True"
+                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                             Grid.Row="1" Grid.Column="0" Padding="10,0,0,0" BackgroundColor="Transparent">
+
+                <myctrl:FontIcon x:Name="icon_back" Text="{Static helpers:SvgFontHelper.Back_White}"     FontSize="{Static fonystyle:FontSize.Fs12}"
+                       BackgroundColor="Transparent" TextColor="Black"
+                       HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  
+                                 HorizontalTextAlignment="Start" VerticalTextAlignment="Center"
+                                 HeightRequest="10"  WidthRequest="10" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer
+                            Tapped="Back_Taped"  NumberOfTapsRequired="1" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <Label x:Name="headerName" Text=""  IsVisible="True" FontSize="{Static fonystyle:FontSize.Fs17}"
+                       BackgroundColor="Transparent"  TextColor="Black"  FontAttributes="Bold"
+                       HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center" 
+                       Grid.Row="1" Grid.Column="1"  />
+            <!--构建搜索框圆角-->
+            <Frame x:Name="frame_Search"  IsVisible="False" Margin="0,5,0,10" BackgroundColor="#f0f0f0"  
+                   HasShadow="False" CornerRadius="6"  
+                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  
+                  Grid.Row="1" Grid.Column="1" > 
+            </Frame>
+            <myctrl:noBorderEntry x:Name="ety_content"   IsVisible="False" Completed="Forward_Taped" 
+                                  FontSize="{Static fonystyle:FontSize.Fs12}" 
+                                                  Placeholder="黄金翡翠桶" PlaceholderColor="#c8c8c8" 
+                                                  Focused="ety_content_focused" Unfocused="ety_content_unfocused" 
+                                                  Text="" BackgroundColor="Transparent"  TextColor="#363636"  
+                                                  HorizontalTextAlignment="Start" VerticalOptions="CenterAndExpand" 
+                                                  HorizontalOptions="FillAndExpand"  
+                           Grid.Row="1" Grid.Column="1">
+            </myctrl:noBorderEntry>
+            <StackLayout x:Name="st_right"  Orientation="Horizontal" IsVisible="False"
+                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                             Grid.Row="1" Grid.Column="2" Padding="0,0,10,0" >
+                <myctrl:FontIcon x:Name="icon_forward" Text=""   FontSize="{Static fonystyle:FontSize.Fs12}"
+                       BackgroundColor="Transparent"  TextColor="Black"
+                       HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                                 HorizontalTextAlignment="End" VerticalTextAlignment="Center"
+                                 HeightRequest="10"  WidthRequest="10" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer
+                            Tapped="Forward_Taped"  NumberOfTapsRequired="1" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        </Grid>
+
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.MyCenter.InvitePage"
+            xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape"
+             >
+
+    <src:BasePage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout Grid.Row="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">
+                <myctrl:PageHead Text="邀请用户"/>
+                <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="40" BackgroundColor="White">
+                    <Image  HorizontalOptions="Start" VerticalOptions="Center"  BackgroundColor="Transparent" HeightRequest="25" WidthRequest="25" />
+                    <Label  Text="邀请用户注册送大礼" HorizontalOptions="Start" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" BackgroundColor="Transparent" />
+                    <Label  Text="马上邀请" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="End" VerticalTextAlignment="Center" BackgroundColor="Transparent"/>
+                    <Image    HorizontalOptions="End" VerticalOptions="Center" BackgroundColor="Transparent" HeightRequest="25" WidthRequest="25"  />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_showShareBox" NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>-->
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{Static myColor:Color.redFont}" RowSpacing="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <RelativeLayout x:Name="rl_img" Grid.Row="1" Grid.RowSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="50,0,50,20">
+                        <Image x:Name="img_showImg"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="Fill" Margin="0,0,0,0" 
+                               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=0,Constant=0}"
+                               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=0,Constant=0}"
+                               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=0}" />
+                    </RelativeLayout>
+
+                    <!--<Image x:Name="img_showImg" Grid.Row="1" Grid.RowSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="Fill" Margin="50,0,50,20">
+                        
+                    </Image>-->
+                    <Image Grid.Row="0" Grid.RowSpan="2" Source="hook_rack.png" HorizontalOptions="Center" VerticalOptions="FillAndExpand" Aspect="Fill" WidthRequest="150" />
+                </Grid>
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="60" Spacing="0" BackgroundColor="{Static myColor:Color.redFont}" Padding="0,0,0,20">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="1" BackgroundColor="Transparent"/>
+                        <StackLayout Orientation="Vertical" HorizontalOptions="End" VerticalOptions="Start" Spacing="3" WidthRequest="150">
+                            <Button Text="邀请好友" FontSize="{Static fonystyle:FontSize.Fs15}" TextColor="White" BackgroundColor="#007C70" 
+                                    HorizontalOptions="Center" VerticalOptions="Start" CornerRadius="20"
+                                    WidthRequest="120" HeightRequest="40"
+                                    Clicked="tapped_sendFriends"/>
+                            <Label Text="Inviting Friends" FontSize="{Static fonystyle:FontSize.Fs10}" TextColor="#81c2ba" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="tapped_sendFriends" NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <BoxView HorizontalOptions="Center" VerticalOptions="StartAndExpand" 
+                                 WidthRequest="1" BackgroundColor="#78b5ae" Margin="0,5,0,10" HeightRequest="30"/>
+                        <!--<Label Text="/" WidthRequest="20"  TextColor="#78b5ae" HorizontalOptions="Center" VerticalOptions="Start" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>-->
+                        <StackLayout Orientation="Vertical" HorizontalOptions="Start" VerticalOptions="Start" Spacing="3" WidthRequest="150">
+                            <Button Text="保存图片" FontSize="{Static fonystyle:FontSize.Fs15}"  TextColor="White" BackgroundColor="#68B7FC" 
+                                    HorizontalOptions="Center" VerticalOptions="Start" CornerRadius="20"
+                                    WidthRequest="120" HeightRequest="40"
+                                    Clicked="tapped_savePhoto"/>
+                            <Label Text="Save The Picture" FontSize="{Static fonystyle:FontSize.Fs10}"  TextColor="#81c2ba" 
+                                   HorizontalOptions="CenterAndExpand" VerticalOptions="Start" 
+                                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="tapped_savePhoto" NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="1" BackgroundColor="Transparent"/>
+                    </StackLayout>
+                    <Label   Text="邀 请 用 户 注 册 送 大 礼"  FontSize="{Static fonystyle:FontSize.Fs15}" TextColor="#359f95" 
+                             HorizontalOptions="CenterAndExpand" VerticalOptions="Start" 
+                             HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="Transparent" HeightRequest="20"/>
+                </StackLayout>
+                <ScrollView Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End"  HeightRequest="110">
+                    <StackLayout x:Name="st_img" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10" VerticalOptions="FillAndExpand" Padding="0,5,0,5">
+                        <!--<Image Source="http://123.207.120.131:8811/Pic/FTPFile/6/677c1e87-85d9-42a2-9db8-b04b4dd2705b.jpg" HorizontalOptions="Start" VerticalOptions="FillAndExpand" WidthRequest="80">
+                            
+                        </Image>
+                        <Image Source="diamond.png" HorizontalOptions="Start" VerticalOptions="FillAndExpand" WidthRequest="80"/>
+                        <Image Source="diamond.png" HorizontalOptions="Start" VerticalOptions="FillAndExpand" WidthRequest="80"/>
+                        <Image Source="diamond.png" HorizontalOptions="Start" VerticalOptions="FillAndExpand" WidthRequest="80"/>
+                        <Image Source="diamond.png" HorizontalOptions="Start" VerticalOptions="FillAndExpand" WidthRequest="80"/>
+                        <Image Source="diamond.png" HorizontalOptions="Start" VerticalOptions="FillAndExpand" WidthRequest="80"/>-->
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            <BoxView x:Name="block" Grid.Row="0" IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black" Opacity="0.6">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="tapped_cancel" NumberOfTapsRequired="1" />
+                </BoxView.GestureRecognizers>
+            </BoxView>
+
+            <Frame x:Name="frm_SelectShareTypeBox" IsVisible="False" Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="Center" CornerRadius="3" Margin="30,0,30,0" Padding="5,5,5,5">
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Label Text="保存分享图片" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="40">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_savePhoto" NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+                    <Label Text="发送链接分享" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="40">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_sendFriends" NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Frame>
+
+            <StackLayout x:Name="st_shareBox" IsVisible="False" Orientation="Vertical" Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="End" Spacing="0" BackgroundColor="White" Padding="0,0,0,20" >
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End" HeightRequest="{Static myShape:height.barLenth}" Padding="0,0,20,0" >
+                    <!--<Label Text="取消" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>-->
+                    <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="1" />
+                    <Image Source="close_black.png" HorizontalOptions="End" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" BackgroundColor="Transparent"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_cancel" NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End" Padding="0,10,0,10" >
+                    <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="1" BackgroundColor="Transparent"/>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="End"  WidthRequest="100">
+                        <Image Source="share_chat.png" HorizontalOptions="Center" VerticalOptions="Start" HeightRequest="35"  WidthRequest="35" ></Image>
+                        <Label Text="好友" TextColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="Start"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_shareChat" NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="End"  WidthRequest="100">
+                        <Image Source="share_friends.png" HorizontalOptions="Center" VerticalOptions="Start" HeightRequest="35"  WidthRequest="35" ></Image>
+                        <Label Text="朋友圈" TextColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="Start"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_shareFriends" NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="1" BackgroundColor="Transparent"/>
+                </StackLayout>
+                <!--<BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="1" BackgroundColor="{Static myColor:Color.LineColor}"/>-->
+
+            </StackLayout>
+
+        </Grid>
+
+    </src:BasePage.Content>
+</src:BasePage>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.ShoppingCart.Order.OrderSucessPage"
+              xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape">
+ 
+    <src:BasePage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <myctrl:PageHead Text="下单成功"/>
+            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" Spacing="5">
+                <Image x:Name="img_sucess" Source="OrderSucessPage.png" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="150" />
+                <!--<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Start">
+                    <Label Text="订单号:"  FontSize="{Static fonystyle:FontSize.Fs12}"  HorizontalOptions="Start" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                    <Label Text=""  FontSize="{Static fonystyle:FontSize.Fs12}"  HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                </StackLayout>-->
+                <StackLayout x:Name="st_price" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Start">
+                    <Label Text="金额:"  FontSize="{Static fonystyle:FontSize.Fs12}"  HorizontalOptions="Start" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                    <Label x:Name="lb_price" Text=""  FontSize="{Static fonystyle:FontSize.Fs12}"  HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"  TextColor="{Static myColor:Color.redFont}"/>
+                </StackLayout>
+                <StackLayout x:Name="st_PayType" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Start">
+                    <Label Text="支付方式:"  FontSize="{Static fonystyle:FontSize.Fs12}"  HorizontalOptions="Start" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                    <Label Text="支付宝"  FontSize="{Static fonystyle:FontSize.Fs12}"   HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <myctrl:CtRedBtn Text="回到首页"  HorizontalOptions="Center" VerticalOptions="Start"  WidthRequest="200" HeightRequest="40" Margin="0,30,0,0">
+                    <myctrl:CtRedBtn.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_backHomePage"   NumberOfTapsRequired="1" />
+                    </myctrl:CtRedBtn.GestureRecognizers>
+                </myctrl:CtRedBtn>
+                <!--<Label Text="查看订单"  FontSize="{Static fonystyle:FontSize.Fs12}"  TextColor="{Static myColor:Color.redFont}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="Start" WidthRequest="200" HeightRequest="40" Margin="0,20,0,0" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer   NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>-->
+            </StackLayout>
+        </StackLayout>
+    </src:BasePage.Content>
+</src:BasePage>

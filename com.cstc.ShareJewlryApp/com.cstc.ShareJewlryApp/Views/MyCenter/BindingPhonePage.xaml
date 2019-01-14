@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.MyCenter.BindingPhonePage"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape">
+
+    <src:BasePage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0" BackgroundColor="{Static myColor:Color.SpaceColor}" >
+            <myctrl:PageHead Text="绑定手机"/>
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="{Static myColor:Color.BackgroundColor}" HeightRequest="{Static myShape:height.MycenterbarLenth}" Padding="10,0,10,0">
+                <myctrl:noBorderEntry x:Name="ety_BindingPhone"  FontSize="{Static fonystyle:FontSize.Fs12}" Keyboard="Telephone" Text="" Placeholder="请输入手机号码" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="{Static myColor:Color.BackgroundColor}" HeightRequest="{Static myShape:height.MycenterbarLenth}" Padding="10,0,10,0">
+                <myctrl:noBorderEntry x:Name="ety_DynamicCode" Placeholder="请输入动态验证码" Text="" Keyboard="Numeric" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" />
+                <Frame x:Name="fr_getACodeBtn"  HorizontalOptions="End" CornerRadius="2" VerticalOptions="Center" HasShadow="False"  HeightRequest="30" WidthRequest="80" Padding="1,1,1,1" Margin="0,0,0,0" BackgroundColor="Black">
+                    <Frame HorizontalOptions="FillAndExpand" CornerRadius="2" VerticalOptions="FillAndExpand" HasShadow="False"  Padding="2,2,2,2" BackgroundColor="{Static myColor:Color.BackgroundColor}">
+                        <Label x:Name="btn_getAuthCode" Text="获取"  TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="30" WidthRequest="120" BackgroundColor="{Static myColor:Color.BackgroundColor}" />
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="btn_getAuthCode_clicked"  NumberOfTapsRequired="1" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </Frame>
+            </StackLayout>
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="1" BackgroundColor="Transparent" />
+            <myctrl:CtRedBtn Text="保存"  HorizontalOptions="Center" VerticalOptions="End"   HeightRequest="{Static myShape:height.MycenterbarLenth}"  >
+                <myctrl:CtRedBtn.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="tapped_BindingPhone" NumberOfTapsRequired="1" />
+                </myctrl:CtRedBtn.GestureRecognizers>
+            </myctrl:CtRedBtn>
+        </StackLayout>
+    </src:BasePage.Content>
+</src:BasePage>

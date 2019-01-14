@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.MyCenter.MyCenterPage"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape"
+            xmlns:helpers="clr-namespace:com.cstc.ShareJewlryApp.Helpers" 
+              >
+
+    <src:BasePage.Content>
+        <!--<ScrollView x:Name="srl_back" Orientation="Vertical"   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">-->
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,0,0,0" 
+              BackgroundColor="Transparent">
+            <StackLayout  x:Name="gd_back" Orientation="Vertical" 
+                          HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                          BackgroundColor="{Static myColor:Color.SpaceColor}" Padding="0,0,0,0" Spacing="0">
+                <!--<myctrl:PageHead Text="测试标题"
+                                 LeftText="{Static helpers:SvgFontHelper.Back_White}"  
+                                 TextColor="White" BackGroudImage="headbg.png"/>-->
+                <Grid x:Name="gd_myCenterHomePageBg" 
+                              HorizontalOptions="FillAndExpand"  VerticalOptions="Fill" HeightRequest="131"
+                              RowSpacing="0" ColumnSpacing="0" 
+                              BackgroundColor="Transparent" Padding="0,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="7.4*" />
+                        <RowDefinition Height="17*" />
+                        <RowDefinition Height="13.5*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--头像-->
+                    <Image  x:Name="img_myheadImg" Source="unLogin_headImg.png" 
+                                     Aspect="AspectFill" HorizontalOptions="Center"  VerticalOptions="Center" 
+                                    BackgroundColor="Transparent" Margin="0,0,0,0"
+                                    Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
+                    <!--背景框 begin-->
+                    <Image x:Name="img_myCenterHomePageBg" Source="myCenterHomePageBg.png" 
+                                   HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+                                   Aspect="AspectFill"  BackgroundColor="Transparent"
+                                   Grid.Row="0"  Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3"/>
+                    <!--头像本身被盖住了，为了能触发事件，这里加一个头像事件-->
+
+                    <Label  HorizontalOptions="Start"  VerticalOptions="Center" 
+                                        HeightRequest="100" WidthRequest="100"
+                                        BackgroundColor="Transparent"
+                                         Grid.Row="1" Grid.Column="1" >
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_ShowLoginBox" NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <StackLayout   Orientation="Vertical"  HorizontalOptions="Center" VerticalOptions="FillAndExpand" 
+                            BackgroundColor="Transparent"
+                            Padding="0,0,0,10"  Spacing="3"   
+                            Grid.Row="2"  Grid.Column="1"  >
+
+                        <Label x:Name="lb_nickName" Text=""  
+                                       BackgroundColor="Transparent"  FontSize="{Static fonystyle:FontSize.Fs15}" 
+                                       TextColor="White" LineBreakMode="NoWrap" 
+                                       HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" 
+                                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  />
+
+                        <Frame x:Name="frm_vip" HeightRequest="18" WidthRequest="60" Padding="0,0,0,0"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  
+                                       HasShadow="False"   CornerRadius="8" HorizontalOptions="Center" VerticalOptions="Start" BackgroundColor="#75bab4">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="2" VerticalOptions="FillAndExpand" BackgroundColor="Transparent">
+                                <Image   x:Name="img_vip" Source="vipstar.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="18" WidthRequest="18" 
+                                                 BackgroundColor="Transparent"  />
+                                <Label   x:Name="VipClass" Text="" TextColor="White" FontSize="{Static fonystyle:FontSize.Fs10}" 
+                                                 HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                                                 HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="Transparent"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <!--vip图标 end-->
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_ShowLoginBox" NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                </Grid>
+                <ScrollView Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,0,0,0"
+                            BackgroundColor="Transparent">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                                 Spacing="0" BackgroundColor="{Static myColor:Color.SpaceColor}" Padding="0,0,0,0">
+
+                        <StackLayout Orientation="Horizontal" BackgroundColor="White" 
+                                     HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="0" Padding="0,10,0,10">
+                            <StackLayout  Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="100">
+                                <Label x:Name="lb_Myorder"  FontSize="{Static fonystyle:FontSize.Fs12}" Text="" TextColor="Black" 
+                                       HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                <Label Text="水晶"  FontSize="{Static fonystyle:FontSize.Fs12}" TextColor="Black" 
+                                       HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                                       HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"  />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="tapped_OpenMyPack"  NumberOfTapsRequired="1" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <BoxView HorizontalOptions="Start" VerticalOptions="Center" BackgroundColor="White" WidthRequest="1" HeightRequest="15"/>
+                            <StackLayout  Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="100">
+                                <Label x:Name="lb_blance"  FontSize="{Static fonystyle:FontSize.Fs12}" Text="" TextColor="Black" 
+                                       HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                                       HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"  />
+                                <Label Text="账户余额"  FontSize="{Static fonystyle:FontSize.Fs12}" TextColor="Black" 
+                                       HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                                       HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"  />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="tapped_OpenMyPack" NumberOfTapsRequired="1" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <BoxView HorizontalOptions="Start" VerticalOptions="Center" BackgroundColor="White" WidthRequest="1" HeightRequest="15"/>
+                            <StackLayout  Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="100">
+                                <Label x:Name="lb_myjewelry"  FontSize="{Static fonystyle:FontSize.Fs12}" Text="" TextColor="Black" 
+                                       HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                                       HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"  />
+                                <Label Text="首饰盒"  FontSize="{Static fonystyle:FontSize.Fs12}" TextColor="Black" 
+                                       HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                                       HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"  />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="tapped_MyjewelryBox" NumberOfTapsRequired="1" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+                        <!--<local:MyCenterItem  HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="30" />-->
+                        <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" 
+                                 BackgroundColor="{Static myColor:Color.LineColor}"/>
+                       <!--购买会员、邀请好友等 栏 begin-->
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start"  Spacing="0" 
+                                     Padding="0,0,0,0" BackgroundColor="{Static myColor:Color.BackgroundColor}">
+
+                                <Image Source="BuyVip.png" Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="tapped_BuyVip" NumberOfTapsRequired="1" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" 
+                                 BackgroundColor="{Static myColor:Color.LineColor}"/>
+                            <myctrl:MyCenterItem x:Name="lb_invite" LeftText="邀请好友" LeftTextColor="Black" 
+                                                     LeftTextSize="{Static fonystyle:FontSize.Fs15}" 
+                                                     RightTextSize="{Static fonystyle:FontSize.Fs12}" 
+                                                     LeftIco="InviteFriend.png" LeftImgSize="17" RightImgSize="12" 
+                                                     RightText="" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                                <myctrl:MyCenterItem.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="tapped_Invite" NumberOfTapsRequired="1" />
+                                </myctrl:MyCenterItem.GestureRecognizers>
+                            </myctrl:MyCenterItem>
+                            <!--<myctrl:MyCenterItem LeftText="服务条款" LeftTextColor="Black" 
+                                                     LeftTextSize="{Static fonystyle:FontSize.Fs15}" 
+                                                     RightTextSize="{Static fonystyle:FontSize.Fs12}" 
+                                                     LeftIco="ServiceTerm.png" LeftImgSize="17" RightImgSize="12" RightText="" 
+                                                     HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+                                                     HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                                    <myctrl:MyCenterItem.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="tapped_ServiceTerms" NumberOfTapsRequired="1" />
+                                    </myctrl:MyCenterItem.GestureRecognizers>
+                                </myctrl:MyCenterItem>-->
+                                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" 
+                                         BackgroundColor="{Static myColor:Color.LineColor}"/>
+                                <myctrl:MyCenterItem x:Name="lb_team" 
+                                                     LeftText="我的团队" LeftTextColor="Black" LeftTextSize="{Static fonystyle:FontSize.Fs15}" 
+                                                     RightTextSize="{Static fonystyle:FontSize.Fs12}" 
+                                                     LeftIco="team.png" LeftImgSize="17" RightImgSize="12" 
+                                                     RightText="团队人数：" HorizontalOptions="FillAndExpand" 
+                                                     VerticalOptions="Start" HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                                    <myctrl:MyCenterItem.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="tapped_openMyTeamPage" NumberOfTapsRequired="1" />
+                                    </myctrl:MyCenterItem.GestureRecognizers>
+                                </myctrl:MyCenterItem>
+                                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" 
+                                         BackgroundColor="{Static myColor:Color.LineColor}"/>
+                                <myctrl:MyCenterItem x:Name="lb_Check" LeftTextColor="Black" 
+                                                     LeftText="关于我们" LeftTextSize="{Static fonystyle:FontSize.Fs15}" 
+                                                     RightTextSize="{Static fonystyle:FontSize.Fs12}" 
+                                                     LeftIco="AboutUs.png" LeftImgSize="17" RightImgSize="12" 
+                                                     RightText="" HorizontalOptions="FillAndExpand" 
+                                                     VerticalOptions="Start" HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                                    <myctrl:MyCenterItem.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="tapped_AboutUs" NumberOfTapsRequired="1" />
+                                    </myctrl:MyCenterItem.GestureRecognizers>
+                                </myctrl:MyCenterItem>
+                                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" 
+                                         BackgroundColor="{Static myColor:Color.LineColor}"/>
+                                <myctrl:MyCenterItem LeftText="资料设置" LeftTextColor="Black" 
+                                                     LeftTextSize="{Static fonystyle:FontSize.Fs15}" 
+                                                     RightTextSize="{Static fonystyle:FontSize.Fs12}" 
+                                                     LeftIco="UserInfo.png"  
+                                                     LeftImgSize="17" RightImgSize="12" RightText="" HorizontalOptions="FillAndExpand" 
+                                                     VerticalOptions="Start" HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                                    <myctrl:MyCenterItem.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="tapped_MyMsg" NumberOfTapsRequired="1" />
+                                    </myctrl:MyCenterItem.GestureRecognizers>
+                                </myctrl:MyCenterItem>
+                            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" 
+                                         BackgroundColor="{Static myColor:Color.LineColor}"/>
+                            <!--</StackLayout>-->
+                            <!--<BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="0" BackgroundColor="{Static myColor:Color.BackgroundColor}">
+                                <myctrl:MyCenterItem x:Name="lb_Check" LeftTextColor="Black" LeftText="实名认证" LeftTextSize="{Static fonystyle:FontSize.Fs15}" RightTextSize="{Static fonystyle:FontSize.Fs12}" LeftIco="myCenter_check.png" LeftImgSize="17" RightImgSize="12" RightText="" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                                    <myctrl:MyCenterItem.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="tapped_CheckIdentify" NumberOfTapsRequired="1" />
+                                    </myctrl:MyCenterItem.GestureRecognizers>
+                                </myctrl:MyCenterItem>
+                                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+                                <myctrl:MyCenterItem LeftText="资料设置" LeftTextColor="Black" LeftTextSize="{Static fonystyle:FontSize.Fs15}" RightTextSize="{Static fonystyle:FontSize.Fs12}" LeftIco="MyCenter_setting.png"  LeftImgSize="17" RightImgSize="12" RightText="" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                                    <myctrl:MyCenterItem.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="tapped_MyMsg" NumberOfTapsRequired="1" />
+                                    </myctrl:MyCenterItem.GestureRecognizers>
+                                </myctrl:MyCenterItem>
+                            </StackLayout>-->
+                            <!--<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="0" BackgroundColor="{Static myColor:Color.BackgroundColor}">
+                                <myctrl:MyCenterItem LeftText="退出登录"  LeftTextSize="{Static fonystyle:FontSize.Fs15}" RightTextSize="{Static fonystyle:FontSize.Fs12}"  LeftIco="myCenter_quite.png" LeftImgSize="17" RightImgSize="12" RightText="" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                                    <myctrl:MyCenterItem.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="tapped_quite" NumberOfTapsRequired="1" />
+                                    </myctrl:MyCenterItem.GestureRecognizers>
+                                </myctrl:MyCenterItem>
+                            </StackLayout>--> 
+                        </StackLayout>
+                        <!--购买会员、邀请好友等 栏 end-->
+                    </StackLayout>
+                        
+                </ScrollView>
+                <!--底部工具栏-->
+                <myctrl:MainTooBarView x:Name="BootomToolBar" PageTitle="个人中心"
+                                       HorizontalOptions="FillAndExpand" VerticalOptions="End" BackgroundColor="Transparent"
+                                       Grid.Column="0">
+                </myctrl:MainTooBarView>
+             
+            </StackLayout>
+<!--遮罩效果-->
+            <BoxView x:Name="block" IsVisible="False" Grid.Row="0" Grid.Column="0" 
+                     HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black" Opacity="0.6" />
+            <!--登录框 Begin-->
+            <myctrl:LoginView x:Name="st_LoginBox" IsVisible="False" Grid.Row="0" Grid.Column="0" 
+                               HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" 
+                               LoginSuccess="St_LoginBox_LoginSuccess" LoginCancel="St_LoginBox_LoginCancel"/>
+
+            <!--登录框 End-->
+            <!--绑定手机框 Begin-->
+
+            <StackLayout x:Name="st_BindingTel"   IsVisible="False" Grid.Row="0" Grid.Column="0"  Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" Spacing="20" Margin="30,0,30,0">
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{Static myColor:Color.BackgroundColor}" Spacing="15" Padding="0,0,0,15">
+                    <Grid x:Name="gd_bindingTel_top" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="Transparent" Margin="0,0,0,0"  >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                        <Image Source="Login_bg.png" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"  Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,9,0" BackgroundColor="Transparent"/>
+                        <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="20,20,0,0">
+                            <Label Text="请绑定手机" TextColor="White"  FontSize="{Static fonystyle:FontSize.Fs15}" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                            <Label Text="绑定手机后可享受共享珠宝" TextColor="White"  FontSize="{Static fonystyle:FontSize.Fs10}" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                            <Label Text="全部功能" TextColor="White"  FontSize="{Static fonystyle:FontSize.Fs10}" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                    </Grid>
+                    <myctrl:UnderlineEty x:Name="ety_tel" keyBorad="Telephone" fatherPadding="15,0,15,0" Text="" fatherSpacing="10" etyPlaceholder="请输入手机号码"   HorizontalOptions="FillAndExpand" VerticalOptions="Start" ico="login_phone.png" HeightRequest="50" icoSize="25"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="10" Margin="15,0,15,0">
+                        <myctrl:UnderlineEty x:Name="ety_checkCode" keyBorad="Telephone" fatherPadding="0,0,0,0" Text="" fatherSpacing="10" etyPlaceholder="输入验证码"  IsPassWord="False" HorizontalOptions="FillAndExpand" VerticalOptions="Start" ico="login_lock.png" HeightRequest="50" icoSize="25"/>
+                        <Frame x:Name="fr_getCheckCode"   HorizontalOptions="End" CornerRadius="2" VerticalOptions="Center" HasShadow="False"  HeightRequest="30" WidthRequest="80" Padding="1,1,1,1" Margin="0,0,0,0" BackgroundColor="Black">
+                            <Frame HorizontalOptions="FillAndExpand" CornerRadius="2" VerticalOptions="FillAndExpand" HasShadow="False"  Padding="2,2,2,2" BackgroundColor="{Static myColor:Color.BackgroundColor}">
+                                <Label x:Name="btn_getCheckCode" Text="获取"  TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="30" WidthRequest="120" BackgroundColor="{Static myColor:Color.BackgroundColor}" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="btn_getCheckCode_clicked"  NumberOfTapsRequired="1" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                        </Frame>
+                    </StackLayout>
+                    <myctrl:CtRedBtn Text="绑定手机号" 
+                                     HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+                                     HeightRequest="40" Margin="15,10,15,0">
+                        <myctrl:CtRedBtn.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_bindingTel"  NumberOfTapsRequired="1" />
+                        </myctrl:CtRedBtn.GestureRecognizers>
+                    </myctrl:CtRedBtn>
+                </StackLayout>
+                <Image Source="close.png" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="End" WidthRequest="20" HeightRequest="20" Margin="0,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_closeLoginBox"  NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+
+
+            <!--绑定手机框 End-->
+            <StackLayout x:Name="st_checkBox" IsVisible="False" Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Spacing="0" BackgroundColor="White" Margin="20,0,20,0">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10" HeightRequest="100">
+                    <Label Text="确认要" HorizontalOptions="End" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Text="退出登录" TextColor="{Static myColor:Color.redFont}" HorizontalOptions="Start" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Text="吗" HorizontalOptions="Start" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <BoxView BackgroundColor="Silver" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="1"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End" Spacing="0">
+
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                        <Label Text="是" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" >
+
+                        </Label>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_yes" NumberOfTapsRequired="1"   />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <BoxView BackgroundColor="Silver" HorizontalOptions="Center" VerticalOptions="FillAndExpand" WidthRequest="1"/>
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                        <Label Text="否" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  >
+
+                        </Label>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_cancle" NumberOfTapsRequired="1"   />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+        <!--</ScrollView>-->
+
+    </src:BasePage.Content>
+</src:BasePage>

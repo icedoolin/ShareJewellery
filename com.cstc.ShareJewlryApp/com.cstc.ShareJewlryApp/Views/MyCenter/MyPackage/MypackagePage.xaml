@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.MyCenter.MyPackage.MypackagePage"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape"
+                              xmlns:helpers="clr-namespace:com.cstc.ShareJewlryApp.Helpers">
+    <src:BasePage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Image Source="headbg.png" Aspect="AspectFill"  HeightRequest="180"
+                           HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+            <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical" Spacing="0" 
+                         HorizontalOptions="FillAndExpand" 
+                         VerticalOptions="FillAndExpand">
+                    <!--标题栏  -->
+                    <myctrl:PageHead Text="" 
+                                 TextColor="White"  BackGroundColor_Main="Transparent"
+                                  />
+                    <StackLayout  Spacing="10" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="100" 
+                                  BackgroundColor="Transparent" Margin="0,0,0,0">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start" HeightRequest="30" BackgroundColor="Transparent">
+                            <Label Text="余额" BackgroundColor="Transparent" TextColor="White" FontSize="{Static fonystyle:FontSize.Fs12}"  
+                                   HorizontalOptions="Start" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="End"/>
+                            <Label x:Name="lb_balance" BackgroundColor="Transparent" Text=""  FontSize="25" TextColor="White"  
+                                   HorizontalOptions="Center" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="End"/>
+                            <Label Text="元" BackgroundColor="Transparent" TextColor="White" FontSize="{Static fonystyle:FontSize.Fs12}" 
+                                   HorizontalOptions="End" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="End"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start" Spacing="0" BackgroundColor="Transparent">
+                            <Label x:Name="lb_UserCrystal" FontSize="{Static fonystyle:FontSize.Fs10}" Text="水晶"  TextColor="White" HorizontalOptions="Start" VerticalOptions="Start" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <StackLayout HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30" WidthRequest="30" BackgroundColor="Transparent">
+                                <Image Source="hint_white.png"  HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="15" WidthRequest="15">
+                                   
+                                </Image>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="tapped_showTips" NumberOfTapsRequired="1" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                           
+                        </StackLayout>
+                    </StackLayout>
+ 
+                <myctrl:MyCenterItem LeftText="余额提现" LeftImgShow="False" LeftTextColor="Black" arroundPadding="10,0,10,0" 
+                                     LeftTextSize="{Static fonystyle:FontSize.Fs12}" LeftImgSize="0" RightImgSize="12" RightText="" 
+                                     HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                    <myctrl:MyCenterItem.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_OpenDeposit" NumberOfTapsRequired="1" />
+                    </myctrl:MyCenterItem.GestureRecognizers>
+                </myctrl:MyCenterItem>
+                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+                <myctrl:MyCenterItem LeftText="收支明细" LeftImgShow="False" LeftTextColor="Black" arroundPadding="10,0,10,0" 
+                                     LeftTextSize="{Static fonystyle:FontSize.Fs12}" LeftImgSize="0" RightImgSize="12" RightText="" 
+                                     HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                    <myctrl:MyCenterItem.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_openFundsDetail" NumberOfTapsRequired="1" />
+                    </myctrl:MyCenterItem.GestureRecognizers>
+                </myctrl:MyCenterItem>
+                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+            </StackLayout>
+            <BoxView x:Name="block" IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black" Opacity="0.6">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="tapped_closeBlock" NumberOfTapsRequired="1" />
+                </BoxView.GestureRecognizers>
+            </BoxView>
+            <Frame x:Name="frm_tips" CornerRadius="3" IsVisible="False" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Margin="20,0,20,0" Padding="0,0,0,0">
+                <StackLayout BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical" Padding="0,0,0,0">
+                    <StackLayout BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical" Padding="10,10,10,10">
+                     <Label Text="水晶:" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                    <Label Text="成功推荐好友，可获得“水晶”。“水晶”不支持提现，只适用于用户在商城中的消费行为时按比例折扣（10个“水晶”=1元），快来积累你的“水晶”吧。" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                   
+                    </StackLayout>
+                   
+                        <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+                    <Label Text="好的" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="Start"  HeightRequest="40" >
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_tips_ok" NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                
+            </Frame>
+        </Grid>
+    </src:BasePage.Content>
+</src:BasePage>

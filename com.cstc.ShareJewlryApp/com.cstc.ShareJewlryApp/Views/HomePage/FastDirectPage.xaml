@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.HomePage.FastDirectPage"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape">
+ 
+    <src:BasePage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">
+            <myctrl:PageHead x:Name="head" Text="新品上市"/>
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" HeightRequest="50" Padding="10,0,10,0">
+                <StackLayout  x:Name="st_排序1" Orientation="Horizontal" HorizontalOptions="Fill" Spacing="2">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="排序点击"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="综合排序" TextColor="#363636" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <myctrl:FontIcon  x:Name="Font_排序1" VerticalOptions="CenterAndExpand" Text="&#xe618;" TextColor="#363636" FontSize="9" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"/>
+                </StackLayout>
+                <StackLayout  x:Name="st_排序2" Orientation="Horizontal" HorizontalOptions="EndAndExpand" Spacing="2">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="排序点击"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="好评" TextColor="#363636" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <myctrl:FontIcon x:Name="Font_排序2" VerticalOptions="CenterAndExpand" Text="&#xe601;" TextColor="#363636" FontSize="9" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"/>
+                </StackLayout>
+                <StackLayout   x:Name="st_排序3" Orientation="Horizontal" HorizontalOptions="End" Spacing="2">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="排序点击"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="热度" TextColor="#363636" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <myctrl:FontIcon x:Name="Font_排序3" VerticalOptions="CenterAndExpand" Text="&#xe601;" TextColor="#363636" FontSize="9" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"/>
+                </StackLayout>
+            </StackLayout>
+            <ListView x:Name="ls_commodity"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" SeparatorVisibility="None" HasUnevenRows="True"  >
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ViewCell>
+                            <Grid  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,5,10,5" ColumnSpacing="10" HeightRequest="{Binding commodityHeight}"  BackgroundColor="{Static myColor:Color.BackgroundColor}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <BoxView Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="White"/>
+                                <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding=" 0,0,0,0" BackgroundColor="{Static myColor:Color.BackgroundColor}" >
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="Start" VerticalOptions="Center" BackgroundColor="#f0f0f0" Padding="1,1,1,1" >
+                                        <Image Source="{Binding JewelleryPicNameForImg}" Aspect="AspectFill" HorizontalOptions="Start" VerticalOptions="Center"  BackgroundColor="Transparent" HeightRequest="{Binding commodityWith}" WidthRequest="{Binding commodityWith}"  />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,10,0,10">
+                                        <myctrl:MultiLineLabel Text="{Binding JewelleryName}" Lines="2" TextColor="Black"  FontSize="{Static fonystyle:FontSize.Fs15}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" VerticalTextAlignment="Start"  />
+                                        <myctrl:MultiLineLabel Text="{Binding Describe}" Lines="4" TextColor="{Static myColor:Color.grayFont}"  FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" VerticalTextAlignment="Start"  />
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End" Spacing="0" Padding="10,0,10,0">
+                                            <Label Text="好评" FontSize="{Static fonystyle:FontSize.Fs12}" TextColor="#60657b"  HorizontalOptions="Start" VerticalOptions="Center"  HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                                            <Label Text="{Binding PraiseForShow}" FontSize="{Static fonystyle:FontSize.Fs12}" TextColor="#ff1268" HorizontalOptions="Start" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                            <Label Text="{Binding NumForShow}" FontSize="{Static fonystyle:FontSize.Fs12}" TextColor="#81d8d0"  HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"  HorizontalTextAlignment="End" VerticalTextAlignment="Center" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="tapped_commodity" CommandParameter="{Binding .}" NumberOfTapsRequired="1" />
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                            </Grid>
+
+                            
+
+                            <!--<Grid  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,10,10,10" ColumnSpacing="10" HeightRequest="{Binding commodityHeight}"  BackgroundColor="{Static myColor:Color.SpaceColor}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical" Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  BackgroundColor="{Static myColor:Color.BackgroundColor}" >
+                                    <Image Source="{Binding JewelleryPicNameForImg}" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="Transparent" HeightRequest="{Binding commodityWith}"/>
+                                    <myctrl:MultiLineLabel Text="{Binding JewelleryName}" Lines="2" TextColor="Black"  FontSize="{Static fonystyle:FontSize.Fs10}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" Margin="10,0,10,0"/>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End" Padding="10,0,10,10">
+                                        <Label Text="{Binding PriceForShow}" FontSize="{Static fonystyle:FontSize.Fs10}" TextColor="{Static myColor:Color.redFont}"  HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand"  HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                                        <Label Text="{Binding NumForShow}" FontSize="{Static fonystyle:FontSize.Fs10}" HorizontalOptions="End" VerticalOptions="FillAndExpand" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+                                    </StackLayout>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="tapped_commodity" CommandParameter="{Binding .}" NumberOfTapsRequired="1" />
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <StackLayout Grid.Row="0" Grid.Column="1" IsVisible="{Binding rightIsShow}" Spacing="10" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  BackgroundColor="{Static myColor:Color.BackgroundColor}" >
+                                    <Image Source="{Binding RightJewelleryPicNameForImg}" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="Transparent" HeightRequest="{Binding commodityWith}" />
+                                    <myctrl:MultiLineLabel Text="{Binding rightJewelleryName}" Lines="2"  TextColor="Black"  FontSize="{Static fonystyle:FontSize.Fs10}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" Margin="10,0,10,0"/>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End" Padding="10,0,10,10">
+                                        <Label Text="{Binding rightPriceForShow}" FontSize="{Static fonystyle:FontSize.Fs10}" TextColor="{Static myColor:Color.redFont}"  HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand"  HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                                        <Label Text="{Binding rightnumberForShow}" FontSize="{Static fonystyle:FontSize.Fs10}"  HorizontalOptions="End" VerticalOptions="FillAndExpand" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+                                    </StackLayout>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="tapped_commodity_right" CommandParameter="{Binding .}" NumberOfTapsRequired="1" />
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                            </Grid>-->
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <!--<ListView.Footer>
+                    <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="End" HeightRequest="20" BackgroundColor="Transparent" />
+                </ListView.Footer>-->
+            </ListView>
+        </StackLayout>
+    </src:BasePage.Content>
+</src:BasePage>

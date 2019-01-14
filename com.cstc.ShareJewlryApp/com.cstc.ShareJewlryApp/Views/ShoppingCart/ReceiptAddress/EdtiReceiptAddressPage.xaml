@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.ShoppingCart.ReceiptAddress.EdtiReceiptAddressPage"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape"
+             xmlns:helpers="clr-namespace:com.cstc.ShareJewlryApp.Helpers">
+
+  <src:BasePage.Content>
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+      <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0" BackgroundColor="{Static myColor:Color.SpaceColor}">
+        <!--顶部 按钮  bengin-->
+        <myctrl:PageHead Text="收货地址"
+                         LeftText="{Static helpers:SvgFontHelper.Back_White}" RightText="完成" RightTextFontSize="{Static fonystyle:FontSize.Fs13}"
+                         TextColor="White" BackGroudImage="headbg.png" BtnForwardClick="tapped_save"/>
+        <!--<Grid  HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="70" BackgroundColor="Transparent" Padding="0,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="70" />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="headbg.png" Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" 
+                           HorizontalOptions="FillAndExpand" VerticalOptions="Start" Aspect="AspectFill" HeightRequest="70"/>
+                    <StackLayout Grid.Column="0" Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" Padding="10,0,0,0">
+                        <Image BackgroundColor="Transparent" Source="left_arrow_white.png" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="15" WidthRequest="15">
+                        </Image>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_closePage" NumberOfTapsRequired="1"   />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <Label Grid.Row="0"  Grid.Column="1" Text="收货地址" TextColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <StackLayout Grid.Column="2" Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" Padding="0,0,10,0">
+                        <Label Text="完成" FontSize="{Static fonystyle:FontSize.Fs12}" TextColor="White" HorizontalTextAlignment="End" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_save" NumberOfTapsRequired="1"   />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </Grid>-->
+        <!--顶部 按钮  End-->
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0" BackgroundColor="{Static myColor:Color.BackgroundColor}">
+          <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start"  HeightRequest="{Static myShape:height.MycenterbarLenth}" BackgroundColor="{Static myColor:Color.BackgroundColor}" Padding="10,0,10,0">
+            <Label Text="收件人" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="{Static fonystyle:FontSize.Fs12}"  WidthRequest="100"/>
+
+            <myctrl:noBorderEntry x:Name="ety_Name" Text="" Placeholder="请输入收件人" FontSize="{Static fonystyle:FontSize.Fs10}" HorizontalTextAlignment="End"  HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" />
+          </StackLayout>
+          <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+          <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start"  HeightRequest="{Static myShape:height.MycenterbarLenth}" BackgroundColor="{Static myColor:Color.BackgroundColor}" Padding="10,0,10,0">
+            <Label Text="联系电话" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="{Static fonystyle:FontSize.Fs12}" WidthRequest="100"/>
+
+            <myctrl:noBorderEntry x:Name="ety_tel" Text="" Keyboard="Telephone"  FontSize="{Static fonystyle:FontSize.Fs10}" Placeholder="请输入联系电话"   HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" />
+          </StackLayout>
+          <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+          <myctrl:MyCenterItem x:Name="lb_addressCity" arroundPadding="10,0,10,0" LeftImgShow="False" LeftText="收件城市" LeftTextSize="{Static fonystyle:FontSize.Fs12}" RightTextSize="{Static fonystyle:FontSize.Fs10}" LeftImgSize="0" RightImgSize="12" RightText="" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="{Static myShape:height.MycenterbarLenth}">
+            <myctrl:MyCenterItem.GestureRecognizers>
+              <TapGestureRecognizer Tapped="tapped_chooseAreas" NumberOfTapsRequired="1" />
+            </myctrl:MyCenterItem.GestureRecognizers>
+          </myctrl:MyCenterItem>
+          <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+          <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start"  HeightRequest="{Static myShape:height.MycenterbarLenth}" Padding="10,0,10,0">
+            <myctrl:noBorderEntry x:Name="ety_detailAddress" Text="" FontSize="{Static fonystyle:FontSize.Fs10}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Placeholder="在此输入详细地址"  />
+          </StackLayout>
+          <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="15" BackgroundColor="{Static myColor:Color.SpaceColor}"/>
+          <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start"  HeightRequest="{Static myShape:height.MycenterbarLenth}" BackgroundColor="{Static myColor:Color.BackgroundColor}" Padding="10,0,10,0">
+            <Label Text="设为默认地址" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="{Static fonystyle:FontSize.Fs12}" WidthRequest="120"/>
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent"/>
+            <Switch x:Name="sw_defultAddress" IsToggled="False" HorizontalOptions="End" VerticalOptions="Center" HeightRequest="40"/>
+          </StackLayout>
+        </StackLayout>
+      </StackLayout>
+
+      <BoxView x:Name="block" IsVisible="False" Grid.Row="0" Grid.Column="0"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black" Opacity="0.6">
+        <BoxView.GestureRecognizers>
+          <TapGestureRecognizer Tapped="tapped_block" NumberOfTapsRequired="1" />
+        </BoxView.GestureRecognizers>
+      </BoxView>
+      <StackLayout x:Name="st_province" IsVisible="False" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="End" BackgroundColor="{Static myColor:Color.BackgroundColor}" >
+        <!--省/市/区 begin-->
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="{Static myShape:height.barLenth}" ColumnSpacing="10" BackgroundColor="{Static myColor:Color.BackgroundColor}" >
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <StackLayout Grid.Column="0" Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="FillAndExpand">
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  WidthRequest="1"/>
+            <StackLayout Orientation="Vertical" HorizontalOptions="End" VerticalOptions="FillAndExpand" WidthRequest="60">
+              <Label x:Name="lb_ProvinceDetails" Text="请选择" TextColor="{Static myColor:Color.grayFont}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="End"></Label>
+              <BoxView x:Name="box_ProvinceDetails" BackgroundColor="{Static myColor:Color.redFont}" HorizontalOptions="Center" VerticalOptions="Start" HeightRequest="2" WidthRequest="30" />
+              <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="tapped_ProvinceDetails" NumberOfTapsRequired="1" />
+              </StackLayout.GestureRecognizers>
+            </StackLayout>
+          </StackLayout>
+          <StackLayout Grid.Column="1" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="FillAndExpand" >
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  WidthRequest="1"/>
+            <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="FillAndExpand" WidthRequest="60">
+              <Label x:Name="lb_CityDetails" Text="请选择" TextColor="{Static myColor:Color.grayFont}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="End"></Label>
+              <BoxView x:Name="box_CityDetails"  BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Start" HeightRequest="2" WidthRequest="30" />
+              <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="tapped_CityDetails" NumberOfTapsRequired="1" />
+              </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  WidthRequest="1"/>
+          </StackLayout>
+          <StackLayout Grid.Column="2" Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="FillAndExpand" >
+            <StackLayout Orientation="Vertical" HorizontalOptions="Start" VerticalOptions="FillAndExpand" WidthRequest="60">
+              <Label x:Name="lb_DistrictDetails" Text="请选择" TextColor="{Static myColor:Color.grayFont}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="End"></Label>
+              <BoxView x:Name="box_DistrictDetails"  BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Start" HeightRequest="2" WidthRequest="30" />
+              <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="tapped_DistrictDetails" NumberOfTapsRequired="1" />
+              </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  WidthRequest="1"/>
+          </StackLayout>
+        </Grid>
+        <!--省/市/区 End-->
+        <ScrollView x:Name="scl_Picker" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="250">
+          <StackLayout x:Name="st_Picker" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20,0,20,0">
+
+          </StackLayout>
+        </ScrollView>
+      </StackLayout>
+    </Grid>
+  </src:BasePage.Content>
+</src:BasePage>

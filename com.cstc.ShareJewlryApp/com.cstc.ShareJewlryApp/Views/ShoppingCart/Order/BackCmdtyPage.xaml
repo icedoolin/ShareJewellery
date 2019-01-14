@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.ShoppingCart.Order.BackCmdtyPage"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape"
+             >
+ 
+    <src:BasePage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout Grid.Row="0" Grid.Column="0" Spacing="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <!--顶部 按钮  bengin-->
+                <myctrl:PageHead Text="填写物流信息"/>
+                <!--顶部 按钮  End-->
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0" BackgroundColor="{Static myColor:Color.SpaceColor}">
+                    <StackLayout x:Name="st_cmdtydtl" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="0">
+                        
+                    </StackLayout>
+                    <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="15" BackgroundColor="{Static myColor:Color.SpaceColor}"/>
+
+                    <myctrl:MyCenterItem x:Name="lb_logiticsCompanny" BackgroundColor="{Static myColor:Color.BackgroundColor}" arroundPadding="10,0,10,0" LeftImgShow="False" LeftText="选择物流公司" LeftTextSize="{Static fonystyle:FontSize.Fs15}" LeftImgSize="0" RightImgSize="15" RightText="" RightTextSize="{Static fonystyle:FontSize.Fs12}"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                        <myctrl:MyCenterItem.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_showExpressBox" NumberOfTapsRequired="1" />
+                        </myctrl:MyCenterItem.GestureRecognizers>
+                    </myctrl:MyCenterItem>
+                    <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.SpaceColor}"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start"  HeightRequest="{Static myShape:height.MycenterbarLenth}" BackgroundColor="{Static myColor:Color.BackgroundColor}" Padding="10,0,10,0">
+                        <Label Text="物流单号" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="{Static fonystyle:FontSize.Fs15}" WidthRequest="100"/>
+                        <myctrl:noBorderEntry x:Name="ety_logiticsCode" Text="" Placeholder="请输入物流单号" FontSize="{Static fonystyle:FontSize.Fs12}"  HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="End"/>
+                    </StackLayout>
+                </StackLayout>
+                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="1" BackgroundColor="{Static myColor:Color.LineColor}"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End" HeightRequest="50" Padding="10,0,0,0">
+                    <!--<Image HorizontalOptions="Start" VerticalOptions="Center" BackgroundColor="Red"/>-->
+                    <!--<Label Text="退货且退款：" HorizontalOptions="Start" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                    <Label Text="¥ 66666.00" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="{Static myColor:Color.redFont}"/>-->
+                    <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" WidthRequest="1"/>
+                    <Label Text="确认订单" BackgroundColor="#f03a7a" TextColor="White" HorizontalOptions="End" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="90"  >
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_comfirmOrder" NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+            <BoxView x:Name="block" IsVisible="False" Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black" Opacity="0.6">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer  Tapped="tapped_closeBlock"  NumberOfTapsRequired="1" />
+                </BoxView.GestureRecognizers>
+            </BoxView>
+            <Frame x:Name="frm_expressBox" HeightRequest="100" IsVisible="False" HasShadow="False" Grid.Row="0" Padding="0,0,0,0" CornerRadius="3" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20,40,20,40" BackgroundColor="{Static myColor:Color.BackgroundColor}">
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0" BackgroundColor="Transparent" >
+                    <ListView x:Name="ls_express" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" SeparatorVisibility="None" HasUnevenRows="True" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate >
+                                <ViewCell>
+                                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <BoxView Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White"/>
+                                        <StackLayout Grid.Row="0" Orientation="Vertical" Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                            <Label Text="{Binding LogisticsCompanyName}" TextColor="{Static myColor:Color.grayFont}" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="Transparent" HeightRequest="{Static myShape:height.barLenth}">
+                                            </Label>
+                                            <BoxView IsVisible="{Binding IsLast}" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.SpaceColor}"/>
+                                        </StackLayout>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer  Tapped="tapped_selectExpress" CommandParameter="{Binding .}"  NumberOfTapsRequired="1" />
+                                        </Grid.GestureRecognizers>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </src:BasePage.Content>
+</src:BasePage>

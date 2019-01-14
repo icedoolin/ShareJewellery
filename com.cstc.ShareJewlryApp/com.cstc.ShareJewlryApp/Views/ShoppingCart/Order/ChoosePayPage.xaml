@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.ShoppingCart.Order.ChoosePayPage"
+              xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape">
+ 
+    <src:BasePage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+            <StackLayout Grid.Row="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{Static myColor:Color.SpaceColor}" Spacing="0">
+                <myctrl:PageHead Text="付款页面"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,0,10,0" Spacing="10" BackgroundColor="Transparent" HeightRequest="30">
+                    <Label Text="本次订单共" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="Start" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                    <Label x:Name="lb_Price"  FontSize="{Static fonystyle:FontSize.Fs12}" Text="" HorizontalOptions="Start" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="{Static myColor:Color.redFont}" />
+                    <Label Text="元 请选择支付方式"  FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="Start" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <!--<myctrl:MyCenterItem LeftText="余额支付" BackgroundColor="White"  LeftTextSize="{Static fonystyle:FontSize.Fs12}" LeftIco="balancePay.png" LeftImgSize="15" RightImgSize="12" RightText="" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                    <myctrl:MyCenterItem.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_chooseBalancePay" NumberOfTapsRequired="1" />
+                    </myctrl:MyCenterItem.GestureRecognizers>
+                </myctrl:MyCenterItem>-->
+                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="15" BackgroundColor="{Static myColor:Color.SpaceColor}"/>
+                <myctrl:MyCenterItem LeftText="支付宝" BackgroundColor="White" LeftTextSize="{Static fonystyle:FontSize.Fs12}" LeftIco="aliPay.png" LeftImgSize="15" RightImgSize="12" RightText="" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                    <myctrl:MyCenterItem.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_AliPay" NumberOfTapsRequired="1" />
+                    </myctrl:MyCenterItem.GestureRecognizers>
+                </myctrl:MyCenterItem>
+                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+                <myctrl:MyCenterItem LeftText="微信支付" BackgroundColor="White" LeftTextSize="{Static fonystyle:FontSize.Fs12}" LeftIco="weixin.png" LeftImgSize="15" RightImgSize="12" RightText="" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="{Static myShape:height.MycenterbarLenth}">
+                    <myctrl:MyCenterItem.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_WeiChatPay" NumberOfTapsRequired="1" />
+                    </myctrl:MyCenterItem.GestureRecognizers>
+                </myctrl:MyCenterItem>
+                <StackLayout IsVisible="False" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,0,10,0" Spacing="10" BackgroundColor="Transparent" HeightRequest="30">
+                    <Label Text="支付失败" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="Start" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="{Static myColor:Color.redFont}" />
+                    <Label Text="请确认您的付款流程进行完毕" FontSize="{Static fonystyle:FontSize.Fs12}" HorizontalOptions="Start" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                </StackLayout>
+            </StackLayout>
+            <BoxView  x:Name="block" IsVisible="False" Grid.Row="0"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black" Opacity="0.6" />
+            <StackLayout x:Name="st_balancePay" IsVisible="False" Padding="10,10,10,10" Grid.Row="0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Margin="10,50,10,0" BackgroundColor="{Static myColor:Color.BackgroundColor}" >
+                <Image HorizontalOptions="Start" Source="left_arrow.png" VerticalOptions="Start" HeightRequest="15" WidthRequest="15" BackgroundColor="Transparent" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="tapped_closeBalancePay"  NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                    <Label Text="订单金额" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Text="¥ 6666.666" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Grid HorizontalOptions="Center" VerticalOptions="Start" ColumnSpacing="0.5" BackgroundColor="{Static myColor:Color.grayFont}" WidthRequest="270" HeightRequest="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" Margin="0.5,0.5,0,0.5"/>
+                        <Label Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" Margin="0,0.5,0,0.5"/>
+                        <Label Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" Margin="0,0.5,0,0.5"/>
+                        
+                        <Label Grid.Column="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" Margin="0,0.5,0,0.5"/>
+                        <Label Grid.Column="4" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" Margin="0,0.5,0,0.5"/>
+                        <Label Grid.Column="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" Margin="0,0.5,0.5,0.5"/>
+                    </Grid>
+                    <myctrl:CtRedBtn Text="余额支付"  HorizontalOptions="Center" VerticalOptions="Start"  WidthRequest="180" HeightRequest="40" Margin="0,0,0,0">
+                        <myctrl:CtRedBtn.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_Pay"  NumberOfTapsRequired="1" />
+                        </myctrl:CtRedBtn.GestureRecognizers>
+                    </myctrl:CtRedBtn>
+
+                    <Label Text="平台充值" HorizontalOptions="CenterAndExpand" VerticalOptions="End" TextColor="{Static myColor:Color.redFont}"/>
+                </StackLayout>
+                <BoxView HorizontalOptions="End" VerticalOptions="Start" HeightRequest="30" WidthRequest="30" BackgroundColor="Transparent"/>
+            </StackLayout>
+        </Grid>
+    </src:BasePage.Content>
+</src:BasePage>

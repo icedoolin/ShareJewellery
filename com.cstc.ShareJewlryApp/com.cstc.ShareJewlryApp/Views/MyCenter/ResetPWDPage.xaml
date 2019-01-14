@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.MyCenter.ResetPWDPage" 
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape">
+ 
+    <src:BasePage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0" BackgroundColor="{Static myColor:Color.SpaceColor}">
+            <myctrl:PageHead Text="重设密码"/>
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+            
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start"  HeightRequest="{Static myShape:height.MycenterbarLenth}" BackgroundColor="{Static myColor:Color.BackgroundColor}" Padding="10,0,10,0">
+                <Label Text="新密码" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="{Static fonystyle:FontSize.Fs12}" WidthRequest="100"/>
+
+                <myctrl:noBorderEntry x:Name="ety_newPWD" Text="" FontSize="{Static fonystyle:FontSize.Fs12}" Placeholder="请输入新密码" IsPassword="True"  HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="End" />
+            </StackLayout>
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start"  HeightRequest="{Static myShape:height.MycenterbarLenth}" BackgroundColor="{Static myColor:Color.BackgroundColor}" Padding="10,0,10,0">
+                <Label Text="再输入一次新密码" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="{Static fonystyle:FontSize.Fs12}" WidthRequest="100"/>
+
+                <myctrl:noBorderEntry x:Name="ety_newPWDcheck" Text="" FontSize="{Static fonystyle:FontSize.Fs12}" Placeholder="再输入一次新密码" IsPassword="True" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="End"/>
+            </StackLayout>
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" BackgroundColor="{Static myColor:Color.LineColor}"/> 
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent"/>
+            <myctrl:CtRedBtn Text="确定"  HorizontalOptions="FillAndExpand" VerticalOptions="End"   HeightRequest="{Static myShape:height.MycenterbarLenth}"  >
+                <myctrl:CtRedBtn.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="tapped_savePWD"  NumberOfTapsRequired="1" />
+                </myctrl:CtRedBtn.GestureRecognizers>
+            </myctrl:CtRedBtn>
+        </StackLayout> 
+    </src:BasePage.Content>
+</src:BasePage>

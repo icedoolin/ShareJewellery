@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.HomePage.MessageCenter"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols">
+
+    <src:BasePage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <myctrl:PageHead x:Name="lbl_Title" Text="消息中心"  BtnBackClick="Lbl_Title_BtnBackClick"/>
+            <WebView x:Name="Web_MessageCenter" Source="" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                     Navigating="Web_MessageCenter_Navigating"/>
+        </StackLayout>
+    </src:BasePage.Content>
+</src:BasePage>

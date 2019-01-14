@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage    xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.MyCenter.JewlryBox.MyJewBoxPage"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myShape="clr-namespace:com.cstc.ShareJewlryApp.Style.Shape"
+             xmlns:helpers="clr-namespace:com.cstc.ShareJewlryApp.Helpers" 
+              >
+
+    <src:BasePage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+              BackgroundColor="Transparent" Padding="0,0,0,0" RowSpacing="0">
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                         BackgroundColor="Transparent" Spacing="0"
+                         Grid.Row="0" Grid.Column="0" >
+                <!--标题栏  -->
+                <myctrl:PageHead Text="首饰盒" 
+                                 LeftText="{Static helpers:SvgFontHelper.Back_White}" RightText="历史" RightTextFontSize="{Static fonystyle:FontSize.Fs15}"
+                                 TextColor="White" BackGroudImage="headbg.png" BtnForwardClick="PageHead_BtnForwardClick"/>
+                <ListView x:Name="ls_myJewelryBox" IsVisible="True" HorizontalOptions="FillAndExpand" 
+                          VerticalOptions="FillAndExpand"   SeparatorVisibility="None" HasUnevenRows="True" >
+                    <ListView.Header>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0" Padding="0,0,0,0"  >
+                        <!--免费戴状态栏 Begin-->
+                        <StackLayout x:Name="st_StatusBar" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="10" BackgroundColor="White" Padding="0,0,0,0">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="40" Padding="10,0,10,0" BackgroundColor="Transparent">
+                                <BoxView HorizontalOptions="Start" VerticalOptions="Center"  WidthRequest="3" BackgroundColor="{Static myColor:Color.redFont}" HeightRequest="15"/>
+                                <Label Text="正在“免费戴”的首饰" TextColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HeightRequest="30"/>
+                            </StackLayout>
+
+                            <Grid x:Name="gd_img" HorizontalOptions="FillAndExpand" VerticalOptions="Start" RowSpacing="0" ColumnSpacing="0" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="15"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="15"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+
+                                <StackLayout x:Name="st_outLine_img_dressfree" Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" Padding="1,1,1,1">
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" Padding="0,0,0,0">
+                                        <Image x:Name="img_dressfree" Aspect="AspectFit" Source="noRent.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  BackgroundColor="Transparent" />
+                                    </StackLayout>
+                                </StackLayout>
+                                <myctrl:jerBoxBtn x:Name="btn_backJewe" BackgroundColor="#81d8d0" IsVisible="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="归还珠宝" HorizontalOptions="Start" VerticalOptions="Center" Margin="30,0,0,0">
+                                    <myctrl:jerBoxBtn.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="tapped_OpenReturnJewelryPage"   NumberOfTapsRequired="1" />
+                                    </myctrl:jerBoxBtn.GestureRecognizers>
+                                </myctrl:jerBoxBtn>
+                                <myctrl:jerBoxBtn x:Name="btn_intervene" BackgroundColor="#81d8d0" IsVisible="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="平台介入" HorizontalOptions="Start" VerticalOptions="Center" Margin="30,0,0,0">
+                                    <myctrl:jerBoxBtn.GestureRecognizers>
+                                        <TapGestureRecognizer  Tapped="tapped_ShowInretveneBox"  NumberOfTapsRequired="1" />
+                                    </myctrl:jerBoxBtn.GestureRecognizers>
+                                </myctrl:jerBoxBtn>
+                                <myctrl:jerBoxBtn x:Name="btn_AddLogitics" BackgroundColor="#81d8d0" IsVisible="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="填写物流单" HorizontalOptions="Start" VerticalOptions="Center" Margin="30,0,0,0">
+                                    <myctrl:jerBoxBtn.GestureRecognizers>
+                                        <TapGestureRecognizer  Tapped="tapped_addBackCmdtyOrder"  NumberOfTapsRequired="1" />
+                                    </myctrl:jerBoxBtn.GestureRecognizers>
+                                </myctrl:jerBoxBtn>
+                                <myctrl:jerBoxBtn x:Name="btn_evalution" BackgroundColor="#81d8d0" IsVisible="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="评价" HorizontalOptions="Start" VerticalOptions="Center" Margin="30,0,0,0">
+                                    <myctrl:jerBoxBtn.GestureRecognizers>
+                                        <TapGestureRecognizer  Tapped="tapped_OpenEvaJewelryPage"  NumberOfTapsRequired="1" />
+                                    </myctrl:jerBoxBtn.GestureRecognizers>
+                                </myctrl:jerBoxBtn>
+                                <myctrl:jerBoxBtn x:Name="btn_lookLogitics" BackgroundColor="#81d8d0" IsVisible="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="查看物流" HorizontalOptions="Start" VerticalOptions="Center" Margin="30,0,0,0">
+                                    <myctrl:jerBoxBtn.GestureRecognizers>
+                                        <TapGestureRecognizer  Tapped="tapped_lookLogitics"   NumberOfTapsRequired="1" />
+                                    </myctrl:jerBoxBtn.GestureRecognizers>
+                                </myctrl:jerBoxBtn>
+                                <myctrl:jerBoxBtn x:Name="btn_Pay" BackgroundColor="#81d8d0" IsVisible="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="付款" HorizontalOptions="Start" VerticalOptions="Center" Margin="30,0,0,0">
+                                    <myctrl:jerBoxBtn.GestureRecognizers>
+                                        <TapGestureRecognizer  Tapped="tapped_pay"  NumberOfTapsRequired="1" />
+                                    </myctrl:jerBoxBtn.GestureRecognizers>
+                                </myctrl:jerBoxBtn>
+                                <myctrl:jerBoxBtn x:Name="btn_lookOrder" BackgroundColor="#81d8d0" IsVisible="False" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Text="查看订单" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Margin="0,0,30,0">
+                                    <myctrl:jerBoxBtn.GestureRecognizers>
+                                        <TapGestureRecognizer  Tapped="tapped_lookOrder"  NumberOfTapsRequired="1" />
+                                    </myctrl:jerBoxBtn.GestureRecognizers>
+                                </myctrl:jerBoxBtn>
+                            </Grid>
+                            <myctrl:MultiLineLabel   x:Name="lb_commodityName" Text="" IsVisible="False" Lines="2" 
+                                                     FontAttributes="Bold" TextColor="Black"  FontSize="{Static fonystyle:FontSize.Fs15}" 
+                                                     HorizontalOptions="Center" VerticalOptions="Start"  LineBreakMode="TailTruncation" 
+                                                     HorizontalTextAlignment="Center"  VerticalTextAlignment="Start"  Margin="40,0,40,0"  />
+ 
+                            <Label x:Name="lb_dressfreeDesc" Margin="10,0,10,0" Text="暂无“佩戴中”的首饰" 
+                                   TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="End" 
+                                   LineBreakMode="TailTruncation" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+
+                            <StackLayout x:Name="btn_lookArround"  Orientation="Horizontal" IsVisible="True" HorizontalOptions="Center" VerticalOptions="End" HeightRequest="40" BackgroundColor="Transparent">
+                                <Frame HorizontalOptions="Center" VerticalOptions="Start" HasShadow="False" HeightRequest="40" WidthRequest="100" Padding="1,1,1,1" BackgroundColor="{Static myColor:Color.redFont}" CornerRadius="20">
+                                    <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HasShadow="False" Padding="3,3,3,3" BackgroundColor="White" CornerRadius="20">
+                                        <Label Text="去逛逛" TextColor="{Static myColor:Color.redFont}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer  Tapped="tapped_lookAround"  NumberOfTapsRequired="1" />
+                                        </Frame.GestureRecognizers>
+                                    </Frame>
+                                </Frame>
+ 
+                            </StackLayout>
+
+                        </StackLayout>
+                        <!--免费戴状态框 End-->
+                        <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="End" HeightRequest="15" BackgroundColor="{Static myColor:Color.SpaceColor}"/>
+          
+                        <!--收藏 Begin-->
+                        <StackLayout Orientation="Vertical" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0" Padding="0,0,0,0" >
+
+                    
+                            <StackLayout  Padding="10,0,10,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End" HeightRequest="50" Spacing="5">
+                                <!--<Label Text="·" FontSize="30" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>-->
+                                <Label Text="· 我收藏的商品 ·" TextColor="Black" FontSize="{Static fonystyle:FontSize.Fs15}"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                <!--<Label Text="·" FontSize="30" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>-->
+                            </StackLayout>
+                      </StackLayout>
+                        </StackLayout>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                                    <DataTemplate >
+                                        <ViewCell>
+                                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                                <BoxView Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White"/>
+                                                <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="0">
+                                                    <StackLayout BindingContext="{Binding .}" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="10" Padding="20,20,20,20">
+ 
+                                                        <Image Source="{Binding JewelleryPicNameForImg}" HorizontalOptions="Start" VerticalOptions="Center" BackgroundColor="Transparent" HeightRequest="80" WidthRequest="80"/>
+                                                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                            <myctrl:MultiLineLabel x:Name="lb_cmdtyName" Text="{Binding JewelleryName}" Lines="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" TextColor="Black" LineBreakMode="TailTruncation" FontSize="{Static fonystyle:FontSize.Fs12}"/>
+                                                            <!--<Label Text="{Binding JewelleryName}"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>-->
+                                                            <!--<Label Text="{Binding SpecForShow}"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" LineBreakMode="NoWrap" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>-->
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End" Spacing="10">
+ 
+                                                                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Center" WidthRequest="1" BackgroundColor="Transparent"/>
+                                                                <Frame BindingContext="{Binding .}" IsVisible="{Binding AllowRent}" HorizontalOptions="End" CornerRadius="2" VerticalOptions="Center" HasShadow="False"  HeightRequest="30" WidthRequest="50" Padding="1,1,1,1" BackgroundColor="{Static myColor:Color.redFont}">
+                                                                    <Frame HorizontalOptions="FillAndExpand" CornerRadius="2" VerticalOptions="FillAndExpand" HasShadow="False"  Padding="2,2,2,2" BackgroundColor="{Static myColor:Color.BackgroundColor}">
+                                                                        <Label Text="{Binding JewelleryStateForShow}" HorizontalTextAlignment="Center" FontSize="{Static fonystyle:FontSize.Fs10}" VerticalTextAlignment="Center" TextColor="{Static myColor:Color.redFont}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="70" BackgroundColor="{Static myColor:Color.BackgroundColor}" />
+                                                                    </Frame>
+                                                                    <Frame.GestureRecognizers>
+                                                                        <TapGestureRecognizer Tapped="tapped_dressUpFree" CommandParameter="{Binding .}" NumberOfTapsRequired="1"   />
+                                                                    </Frame.GestureRecognizers>
+                                                                </Frame>
+                                                                <Frame IsVisible="True" HorizontalOptions="End" CornerRadius="2" VerticalOptions="Center" HasShadow="False"  HeightRequest="30" WidthRequest="80" Padding="1,1,1,1" BackgroundColor="{Static myColor:Color.redFont}">
+                                                                    <Frame HorizontalOptions="FillAndExpand" CornerRadius="2" VerticalOptions="FillAndExpand" HasShadow="False"  Padding="2,2,2,2" BackgroundColor="{Static myColor:Color.BackgroundColor}">
+                                                                        <Label Text="取消收藏" HorizontalTextAlignment="Center" FontSize="{Static fonystyle:FontSize.Fs10}" VerticalTextAlignment="Center"  TextColor="{Static myColor:Color.redFont}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="70" BackgroundColor="{Static myColor:Color.BackgroundColor}" />
+                                                                    </Frame>
+                                                                    <Frame.GestureRecognizers>
+                                                                        <TapGestureRecognizer Tapped="tapped_ShowDelete" CommandParameter="{Binding .}" NumberOfTapsRequired="1"   />
+                                                                    </Frame.GestureRecognizers>
+                                                                </Frame>
+                                                            </StackLayout>
+                                                        </StackLayout>
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="tapped_selectItem" CommandParameter="{Binding .}" NumberOfTapsRequired="1"   />
+                                                        </StackLayout.GestureRecognizers>
+                                                    </StackLayout>
+                                                    <BoxView BackgroundColor="{Static myColor:Color.SpaceColor}"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="1"/>
+                                                </StackLayout>
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+
+
+                    <ListView.Footer>
+                        <StackLayout x:Name="st_noJwelry" IsVisible="False" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Spacing="20" >
+                            <Image Source="nocollection.png" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Transparent" HeightRequest="150" WidthRequest="150" />
+                            <Label Text="您还没有收藏的商品" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" />
+                        </StackLayout>
+                    </ListView.Footer>
+                        <!--收藏 End-->
+                     
+            </ListView>
+                    
+
+            <!--底部工具栏-->
+                <myctrl:MainTooBarView x:Name="BootomToolBar" PageTitle="会员中心"
+                                       HorizontalOptions="FillAndExpand" VerticalOptions="End" BackgroundColor="Transparent"/>
+ 
+            </StackLayout>
+
+            <!--遮罩框 Begin-->
+            <BoxView x:Name="block" IsVisible="False" Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black" Opacity="0.6"/>
+            <!--遮罩框 End-->
+            <StackLayout x:Name="st_checkBox" IsVisible="False" Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Spacing="0" BackgroundColor="White" Margin="20,0,20,0">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10" HeightRequest="100">
+                    <Label Text="确认要" HorizontalOptions="End" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Text="取消收藏" TextColor="{Static myColor:Color.redFont}" HorizontalOptions="Start" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Text="吗" HorizontalOptions="Start" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <BoxView BackgroundColor="Silver" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="1"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End" Spacing="0">
+                    <Label Text="是" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="1">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_delete" NumberOfTapsRequired="1"   />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <BoxView BackgroundColor="Silver" HorizontalOptions="Center" VerticalOptions="FillAndExpand" WidthRequest="1"/>
+                    <Label Text="否" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  WidthRequest="1">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_cancle" NumberOfTapsRequired="1"   />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+            <!--平台介入框 Begin-->
+            <StackLayout x:Name="st_ImterveneCheckBox" IsVisible="False" Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Spacing="0" BackgroundColor="White" Margin="20,0,20,0">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10" HeightRequest="100">
+                    <Label Text="你是否申请" HorizontalOptions="End" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Text="平台介入" TextColor="{Static myColor:Color.redFont}" HorizontalOptions="Start" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <BoxView BackgroundColor="Silver" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="1"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End" Spacing="0">
+                    <Label Text="是" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="1">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_inretvene" NumberOfTapsRequired="1"   />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <BoxView BackgroundColor="Silver" HorizontalOptions="Center" VerticalOptions="FillAndExpand" WidthRequest="1"/>
+                    <Label Text="否" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  WidthRequest="1">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="tapped_cancle" NumberOfTapsRequired="1"   />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+            <!--平台介入框 End-->
+ 
+            <!--登录框 Begin-->
+            <myctrl:LoginView  x:Name="st_LoginBox" IsVisible="False"  Grid.Row="0" Grid.Column="0"
+                                   HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" 
+                                   BackgroundColor="Transparent"  Margin="30,0,30,0" 
+                                    LoginSuccess="St_LoginBox_LoginSuccess" LoginCancel="St_LoginBox_LoginCancel"
+                                   />
+  
+        </Grid>
+
+    </src:BasePage.Content>
+</src:BasePage >

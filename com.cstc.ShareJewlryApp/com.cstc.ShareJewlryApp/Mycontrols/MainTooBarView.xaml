@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Mycontrols.MainTooBarView"
+             xmlns:myctrl= "clr-namespace:com.cstc.ShareJewlryApp.Mycontrols"
+             xmlns:fonystyle="clr-namespace:com.cstc.ShareJewlryApp.Style.FontStyle"
+             xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             xmlns:myFontIcon="clr-namespace:com.cstc.ShareJewlryApp.Helpers"
+            >
+    <ContentView.Content>
+        <Grid  HorizontalOptions="FillAndExpand" VerticalOptions="End" BackgroundColor="Transparent" 
+               ColumnSpacing="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout x:Name="Stack_index" BackgroundColor="White" Orientation="Vertical" 
+                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                         Spacing="0" Grid.Row="0" Grid.Column="0" Padding="0,5,0,5">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="tapped_turnHomePage"/>
+                </StackLayout.GestureRecognizers>
+                <myctrl:FontIcon x:Name="Home_Icon" Text="{Static myFontIcon:SvgFontHelper.Home}" 
+                                 HorizontalOptions="Center" VerticalOptions="Fill" 
+                                 TextColor="{Static myColor:Color.grayFont}" FontSize="25" 
+                                 HorizontalTextAlignment="Center" VerticalTextAlignment="End" />
+                <Label x:Name="Home_Text" Text="首页" 
+                       TextColor="{Static myColor:Color.grayFont}"  FontSize="{Static fonystyle:FontSize.Fs10}" 
+                       VerticalOptions="StartAndExpand" HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Start" HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout x:Name="Stack_shop"  BackgroundColor="White" Orientation="Vertical" 
+                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                         Spacing="0" Grid.Row="0" Grid.Column="1" Padding="0,5,0,5">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="tapped_turnClassificationPage"/>
+                </StackLayout.GestureRecognizers>
+                <myctrl:FontIcon x:Name="Classification_Icon" Text="{Static myFontIcon:SvgFontHelper.Classification}" 
+                                 HorizontalOptions="Center" 
+                                 TextColor="{Static myColor:Color.grayFont}" VerticalOptions="Fill" FontSize="25" 
+                                 HorizontalTextAlignment="Center" VerticalTextAlignment="End" />
+                <Label x:Name="Classification_Text" Text="分类"  
+                       FontSize="{Static fonystyle:FontSize.Fs10}" 
+                       TextColor="{Static myColor:Color.grayFont}"  
+                       VerticalOptions="StartAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout x:Name="Stack_Deall" BackgroundColor="White" 
+                         Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0" Grid.Row="0" Grid.Column="2" Padding="0,5,0,5">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="tapped_rutnShoppingCartMainPage"/>
+                </StackLayout.GestureRecognizers>
+                <myctrl:FontIcon x:Name="VipCenter_Icon" 
+                                 Text="{Static myFontIcon:SvgFontHelper.VipCenter}" 
+                                 HorizontalOptions="Center" 
+                                 TextColor="{Static myColor:Color.grayFont}"  
+                                 VerticalOptions="Fill" FontSize="25" 
+                                 HorizontalTextAlignment="Center" VerticalTextAlignment="End" />
+                <Label x:Name="VipCenter_Text" 
+                       Text="会员" FontSize="{Static fonystyle:FontSize.Fs10}" 
+                       TextColor="{Static myColor:Color.grayFont}"  
+                       VerticalOptions="StartAndExpand" HorizontalTextAlignment="Center" 
+                       VerticalTextAlignment="Start" HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout x:Name="Stack_information" BackgroundColor="White" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0" Grid.Row="0" Grid.Column="3" Padding="0,5,0,5">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="tapped_turnMyCenterPage"/>
+                </StackLayout.GestureRecognizers>
+                <myctrl:FontIcon x:Name="UserCenter_Icon" Text="{Static myFontIcon:SvgFontHelper.UserCenter}" 
+                                 HorizontalOptions="Center" TextColor="{Static myColor:Color.grayFont}"  VerticalOptions="Fill" FontSize="25" HorizontalTextAlignment="Center" VerticalTextAlignment="End" />
+                <Label  x:Name="UserCenter_Text" Text="我的"  FontSize="{Static fonystyle:FontSize.Fs10}" TextColor="{Static myColor:Color.grayFont}"  VerticalOptions="StartAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" HorizontalOptions="Center"/>
+            </StackLayout>
+
+        </Grid>
+
+    </ContentView.Content>
+</ContentView>

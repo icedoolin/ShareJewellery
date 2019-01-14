@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Mycontrols.AlertBoxView"
+              xmlns:myColor="clr-namespace:com.cstc.ShareJewlryApp.Style.Color"
+             >
+  <ContentView.Content>
+        <StackLayout x:Name="Main_Layout" HorizontalOptions="Center" 
+                     VerticalOptions="CenterAndExpand" 
+                     BackgroundColor="White"
+                     HeightRequest="220"
+                     WidthRequest="300"
+                     Padding="0,0,0,0">
+ 
+            <Image x:Name="BgImage" Source="AlertBoxBgImage_OnlyOne.png" Aspect="AspectFit" 
+                   HorizontalOptions="FillAndExpand"  VerticalOptions="Fill"/>
+ 
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="White"
+                        HeightRequest="80" WidthRequest="10" Margin="5,0,5,0">
+                <Label x:Name="BodyText" Text="" 
+                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                       HorizontalTextAlignment="Center"
+                   FontSize="Medium" TextColor="Black"/>
+            </StackLayout>
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="0.5" Margin="10,0,10,0"
+                     BackgroundColor="{Static myColor:Color.LineColor}"  />
+            <Label Text="OK" 
+                   HorizontalOptions="Center" VerticalOptions="Start" 
+                   HorizontalTextAlignment="Center"
+                   HeightRequest="50"   WidthRequest="200" 
+                   BackgroundColor="White"
+                   FontSize="Medium" TextColor="Blue" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapOK_Tapped" NumberOfTapsRequired="1"/>
+                </Label.GestureRecognizers>
+            </Label>
+ 
+        </StackLayout>
+
+    </ContentView.Content>
+</ContentView>

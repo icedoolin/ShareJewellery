@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<src:BasePage   xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:src="clr-namespace:com.cstc.ShareJewlryApp"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="com.cstc.ShareJewlryApp.Views.MyCenter.ServiceTermsPage"
+             xmlns:myctrl="clr-namespace:com.cstc.ShareJewlryApp.Mycontrols">
+ 
+    <src:BasePage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <myctrl:PageHead Text="服务条款"/>
+            <!--<Grid HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="50" />
+                </Grid.ColumnDefinitions>
+                <Image Grid.Row="0"  Grid.Column="0" BackgroundColor="Red" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30" WidthRequest="30"/>
+                <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center" x:Name="title_time" Text="服务条款"  Grid.Row="0"  Grid.Column="1"  />
+
+            </Grid>-->
+            <!--<Label Text="共享珠宝服务协议" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" HeightRequest="30"/>
+            <Label Text="提示条款" TextColor="Red" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+            <Label Text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" LineBreakMode="WordWrap" HorizontalTextAlignment="Start" VerticalTextAlignment="Start"/>-->
+            <WebView Source="http://123.207.120.131:8811/APP/TermsOfService/" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+        </StackLayout>
+    </src:BasePage.Content>
+</src:BasePage>
